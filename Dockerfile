@@ -1,18 +1,13 @@
-FROM kyyex/kyy-userbot:busterv2
-RUN apt-get update
+FROM debian:latest
 
-RUN apt-get install -y --no-install-recommends \
-    curl \
-    git \
-    ffmpeg
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    npm i -g npm
-
-WORKDIR /app
-COPY . /app
+RUN apt update && apt upgrade -y
+RUN apt install git curl python3-pip ffmpeg -y
 RUN pip3 install -U pip
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt
-
-CMD ["bash", "start"]
+RUN curl -sL https://deb.nodesource.com/setup_17.x | bash -
+RUN apt-get install -y nodejs
+RUN npm i -g npm
+RUN mkdir /app/
+WORKDIR /app/
+COPY . /app/
+RUN pip3 install -U -r requirements.txt
+CMD python3 main.py
