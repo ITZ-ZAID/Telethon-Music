@@ -30,6 +30,7 @@ telethon = TelegramClient(
     connection_retries=None,
 )
 call_py = PyTgCalls(telethon)
+call_py.start()
 
 Zaid = TelegramClient(
     "Telethon",
