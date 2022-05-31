@@ -1,1 +1,1 @@
-worker: python3 -m Zaid
+worker: bash start
