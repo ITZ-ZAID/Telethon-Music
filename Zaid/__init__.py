@@ -31,7 +31,7 @@ telethon = TelegramClient(
 )
 call_py = PyTgCalls(telethon)
 
-tgbot = TelegramClient(
+Zaid = TelegramClient(
     "Telethon",
     api_id=API_ID,
     api_hash=API_HASH,
