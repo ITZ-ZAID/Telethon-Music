@@ -1,2 +1,2 @@
 telethon
-pytgcalls
+py-tgcalls
