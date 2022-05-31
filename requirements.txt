@@ -1,2 +1,3 @@
 telethon
 py-tgcalls
+requests
