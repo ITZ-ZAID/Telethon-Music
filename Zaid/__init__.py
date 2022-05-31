@@ -14,7 +14,7 @@ from telethon import version
 from math import ceil
 from pathlib import Path
 from datetime import datetime
-
+import os
 
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
 API_ID = os.environ.get("API_ID", None)
