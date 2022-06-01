@@ -3,5 +3,5 @@ py-tgcalls
 requests
 pillow
 aiofile
-git+https://github.com/yt-dlp/yt-dlp@master
+youtube_dl
 youtube-search-python==1.4.9
