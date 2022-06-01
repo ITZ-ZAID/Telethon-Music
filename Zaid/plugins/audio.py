@@ -21,8 +21,8 @@ fotoplay = "https://telegra.ph/file/fbdff93b72dac4e43a9af.png"
 ngantri = "https://telegra.ph/file/fbdff93b72dac4e43a9af.png"
 from Zaid import call_py, Zaid 
 owner = "1669178360"
-from helpers.chattitle import CHAT_TITLE
-from helpers.queues import (
+from Zaid.helpers.chattitle import CHAT_TITLE
+from Zaid.helpers.queues import (
     QUEUE,
     add_to_queue,
     clear_queue,
@@ -31,7 +31,7 @@ from helpers.queues import (
 )
 from telethon import Button, events
 
-from helpers.thumbnail import gen_thumb
+from Zaid.helpers.thumbnail import gen_thumb
 
 
 def vcmention(user):
