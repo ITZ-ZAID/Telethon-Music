@@ -14,6 +14,7 @@ from pytgcalls.exceptions import (
     NoActiveGroupCall,
     NotInGroupCallError
 )
+from Zaid.status import *
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
 import telethon.utils
