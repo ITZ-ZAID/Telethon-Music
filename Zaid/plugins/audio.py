@@ -113,7 +113,7 @@ async def skip_current_song(chat_id: int):
 #play
 @Zaid.on(events.NewMessage(pattern="^/play"))
 async def play(event):
-    title = ' '.join(event.text[4:])
+    title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
     sender = await event.get_sender()
     chat = await event.get_chat()
@@ -241,7 +241,7 @@ async def vc_playlist(event):
                 link_preview=False,
             )
         else:
-            PLAYLIST = f"**🎧 PLAYLIST:**\n**• [{chat_queue[0][0]}]({chat_queue[0][2]})** | `{chat_queue[0][3]}` \n\n**• Daftar Putar:**"
+            PLAYLIST = f"**🎧 PLAYLIST:**\n**• [{chat_queue[0][0]}]({chat_queue[0][2]})** | `{chat_queue[0][3]}` \n\n**• Upcoming Streaming:**"
             l = len(chat_queue)
             for x in range(1, l):
                 hmm = chat_queue[x][0]
