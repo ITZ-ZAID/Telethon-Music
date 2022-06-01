@@ -1,3 +1,7 @@
 telethon==1.24.0
 py-tgcalls
 requests
+pillow
+aiofile
+git+https://github.com/yt-dlp/yt-dlp@master
+youtube-search-python==1.4.9
