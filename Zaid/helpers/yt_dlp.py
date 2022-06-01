@@ -6,7 +6,7 @@ import os
 from os.path import basename
 import os.path
 from PIL import Image
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 from typing import Optional, Union
 from Zaid import Zaid as bot
 LOGS = {}
