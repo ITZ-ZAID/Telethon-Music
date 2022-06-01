@@ -7,7 +7,7 @@ from os.path import basename
 import os.path
 from html_telegraph_poster import TelegraphPoster
 from PIL import Image
-from yt_dlp import YoutubeDL
+from youtube_dl import YoutubeDL
 from typing import Optional, Union
 from Zaid import Zaid as bot
 LOGS = {}
