@@ -125,8 +125,7 @@ async def play(event):
     sender = await event.get_sender()
     chat = await event.get_chat()
     chat_id = event.chat_id
-    from_user = vcmention(event.sender)
-    private = await Zaid(ExportChatInviteRequest(event.chat_id))
+    from_user = vcmention(event.sender) 
     public = event.chat_id
     if (
         replied
@@ -147,7 +146,7 @@ async def play(event):
             ) 
     if event.is_group:
         try:
-            await Client(ImportChatInviteRequest(private.link))
+            await Client(functions.channels.JoinChannelRequest(channel=public))
         except Exception as e:
             print(e)
             pass    
