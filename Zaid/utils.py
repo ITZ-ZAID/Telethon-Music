@@ -10,5 +10,5 @@ def load_plugins(plugin_name):
     load = importlib.util.module_from_spec(spec)
     load.logger = logging.getLogger(plugin_name)
     spec.loader.exec_module(load)
-    sys.modules["GPBot.plugins." + plugin_name] = load
+    sys.modules["Zaid.plugins." + plugin_name] = load
     print("Bot has Started " + plugin_name)
