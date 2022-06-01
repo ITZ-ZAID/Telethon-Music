@@ -460,6 +460,65 @@ async def leavevc(event, perm):
         await xnxx.edit(f"**Sorry {owner} not on Voice Chat**")
 
 
+
+@Zaid.on(events.NewMessage(pattern="^/leavevc"))
+@id_admin
+async def vc_skip(event, perm):
+    chat_id = event.chat_id
+    if len(event.text.split()) < 2:
+        op = await skip_current_song(chat_id)
+        if op == 0:
+            await event.reply("**Nothing Is Streaming**")
+        elif op == 1:
+            await event.reply("empty queue, leave voice chat", 10)
+        else:
+            await event.reply(
+                f"**⏭ Skipped**\n**🎧 Now Playing** - [{op[0]}]({op[1]})",
+                link_preview=False,
+            )
+    else:
+        skip = event.text.split(maxsplit=1)[1]
+        DELQUE = "**Removing Following Songs From Queue:**"
+        if chat_id in QUEUE:
+            items = [int(x) for x in skip.split(" ") if x.isdigit()]
+            items.sort(reverse=True)
+            for x in items:
+                if x != 0:
+                    hm = await skip_item(chat_id, x)
+                    if hm != 0:
+                        DELQUE = DELQUE + "\n" + f"**#{x}** - {hm}"
+            await event.reply(DELQUE)
+
+
+@Zaid.on(events.NewMessage(pattern="^/pause"))
+@id_admin
+async def vc_pause(event, perm):
+    chat_id = event.chat_id
+    if chat_id in QUEUE:
+        try:
+            await call_py.pause_stream(chat_id)
+            await event.reply("**Streaming Paused**")
+        except Exception as e:
+            await event.reply(f"**ERROR:** `{e}`")
+    else:
+        await event.reply("**Nothing Is Playing**")
+
+
+
+@Zaid.on(events.NewMessage(pattern="^/resume"))
+@id_admin
+async def vc_resume(event, perm):
+    chat_id = event.chat_id
+    if chat_id in QUEUE:
+        try:
+            await call_py.resume_stream(chat_id)
+            await event.reply(event, "**Streaming Started Back 🔙**")
+        except Exception as e:
+            await event.reply(event, f"**ERROR:** `{e}`")
+    else:
+        await event.reply(event, "**Nothing Is Streaming**")
+
+
 @call_py.on_stream_end()
 async def stream_end_handler(_, u: Update):
     chat_id = u.chat_id
