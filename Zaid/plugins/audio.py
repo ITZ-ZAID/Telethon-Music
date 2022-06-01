@@ -137,7 +137,7 @@ async def play(event):
         and not title
     ):
         return await event.reply("**Give Me Your Query Which You want to Play**")
-    if event.is_group:
+    elif event.is_group:
         try:
             await Client(functions.channels.JoinChannelRequest(channel=public))
         except Exception as e:
