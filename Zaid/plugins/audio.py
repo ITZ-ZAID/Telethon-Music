@@ -118,7 +118,7 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
-@Zaid.on(events.callbackquery.CallbackQuery(data="help"))
+@Zaid.on(events.callbackquery.CallbackQuery(data="cls"))
 async def _(event):
 
      await event.delete()
