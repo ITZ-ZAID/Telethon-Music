@@ -280,13 +280,9 @@ async def vplay(event):
             await xnxx.edit(
                 "**Give Me Valid Inputs**"
             )
-    if event.is_group:
-        try:
-            await Client(functions.channels.JoinChannelRequest(channel=public))
-        except Exception as e:
-            print(e)
-            pass
         else:
+            query = event.text.split(maxsplit=1)[1]
+            search = ytsearch(query)
             songname = search[0]
             title = search[0]
             url = search[1]
