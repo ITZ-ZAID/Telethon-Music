@@ -15,7 +15,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 bot = TelegramClient('Zaid', api_id=API_ID, api_hash=API_HASH)
 Zaid = bot.start(bot_token=BOT_TOKEN)
 client = TelegramClient(
-    session=session,
+    session=STRING_SESSION,
     api_id=API_ID,
     api_hash=API_HASH,
     connection=ConnectionTcpAbridged,
