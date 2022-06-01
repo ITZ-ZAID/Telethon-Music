@@ -145,13 +145,13 @@ async def play(event):
         print("String 1 Found")
         Mig = TelegramClient(StringSession(session_name), API_ID, API_HASH)
         try:
-            await Client(functions.channels.JoinChannelRequest(channel="@MightyXUpdates"))
+            await Client(functions.channels.JoinChannelRequest(channel=public))
     except Exception as e:
             print(e)
             pass
     else:
         try:
-            await Client()
+            await Client(ImportChatInviteRequest(privates))
         except Exception as e:
             pass
      
