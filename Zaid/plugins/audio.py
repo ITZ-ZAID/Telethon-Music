@@ -147,7 +147,7 @@ async def play(event):
             ) 
     if event.is_group:
         try:
-            await Client(ImportChatInviteRequest(private))
+            await Client(ImportChatInviteRequest(private.link))
         except Exception as e:
             print(e)
             pass    
