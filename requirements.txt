@@ -4,4 +4,4 @@ requests
 pillow
 aiofile
 youtube_dl
-youtube-search-python==1.4.9
+youtube-search-python
