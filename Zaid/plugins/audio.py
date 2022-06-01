@@ -1,8 +1,3 @@
-# Credits: @mrismanaziz
-# Thanks To @tofik_dn || https://github.com/tofikdn
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 from pytgcalls import StreamType
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
@@ -34,6 +29,8 @@ from helpers.queues import (
     get_queue,
     pop_an_item,
 )
+from telethon import Button, events
+
 from helpers.thumbnail import gen_thumb
 
 
@@ -113,7 +110,8 @@ async def skip_current_song(chat_id: int):
 
 
 #play
-async def vc_play(event):
+@Zaid.on(events.NewMessage(pattern="^/play"))
+async def play(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
     sender = await event.get_sender()
@@ -208,6 +206,7 @@ async def vc_play(event):
 
 
 #end
+@Zaid.on(events.NewMessage(pattern="^/end"))
 async def vc_end(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -230,6 +229,7 @@ async def vc_end(event):
 
 
 #playlist
+@Zaid.on(events.NewMessage(pattern="^/playlist"))
 async def vc_playlist(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -258,6 +258,7 @@ async def vc_playlist(event):
 
 
 #leavevc
+@Zaid.on(events.NewMessage(pattern="^/leavevc"))
 async def leavevc(event):
     """ leave video chat """
     xnxx = await event.reply("Processing")
