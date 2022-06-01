@@ -21,6 +21,7 @@ fotoplay = "https://telegra.ph/file/fbdff93b72dac4e43a9af.png"
 ngantri = "https://telegra.ph/file/fbdff93b72dac4e43a9af.png"
 from Zaid import call_py, Zaid 
 owner = "1669178360"
+from Zaid.helpers.yt_dlp import bash
 from Zaid.helpers.chattitle import CHAT_TITLE
 from Zaid.helpers.queues import (
     QUEUE,
