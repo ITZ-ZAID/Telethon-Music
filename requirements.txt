@@ -4,5 +4,4 @@ requests
 pillow
 aiofile
 youtube_dl
-yt-dlp
 youtube-search-python
