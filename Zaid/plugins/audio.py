@@ -120,7 +120,7 @@ async def skip_current_song(chat_id: int):
 
 
 btnn =[
-    [Button.url("💁 Support", url="t.me/TheSupportChat"), Button.inline("Channel 🙋", url="t.me/TheUpdatesChannel")],
+    [Button.url("💁 Support", url="t.me/TheSupportChat"), Button.url("Channel 🙋", url="t.me/TheUpdatesChannel")],
     [Button.inline("Close 🗑️", data="cls")]]
 
 
