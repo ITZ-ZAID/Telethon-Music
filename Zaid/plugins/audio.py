@@ -461,7 +461,7 @@ async def leavevc(event, perm):
 
 
 
-@Zaid.on(events.NewMessage(pattern="^/leavevc"))
+@Zaid.on(events.NewMessage(pattern="^/skip"))
 @is_admin
 async def vc_skip(event, perm):
     chat_id = event.chat_id
@@ -491,7 +491,7 @@ async def vc_skip(event, perm):
 
 
 @Zaid.on(events.NewMessage(pattern="^/pause"))
-@id_admin
+@is_admin
 async def vc_pause(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -506,7 +506,7 @@ async def vc_pause(event, perm):
 
 
 @Zaid.on(events.NewMessage(pattern="^/resume"))
-@id_admin
+@is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
