@@ -118,7 +118,10 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
+@Zaid.on(events.callbackquery.CallbackQuery(data="help"))
+async def _(event):
 
+     await event.delete()
 
 btnn =[
     [Button.url("💁 Support", url="t.me/TheSupportChat"), Button.url("Channel 🙋", url="t.me/TheUpdatesChannel")],
@@ -247,7 +250,165 @@ async def vc_end(event, perm):
 
 
 
+@Zaid.on(events.NewMessage(pattern="^/vplay"))
+async def vplay(event):
+    title = ' '.join(event.text[6:])
+    replied = await event.get_reply_message()
+    sender = await event.get_sender()
+    userid = sender.id
+    chat = await event.get_chat()
+    titlegc = chat.title
+    chat_id = event.chat_id
+    public = event.chat_id
+    from_user = vcmention(event.sender)
+    if (
+        replied
+        and not replied.video
+        and not replied.document
+        and not title
+        or not replied
+        and not title
+    ):
+        return await edit_or_reply("**Give Me Your Query Which You Want to stream**")
+    if replied and not replied.video and not replied.document:
+        xnxx = await event.reply("`Searching Video Details...`")
+        query = event.text.split(maxsplit=1)[1]
+        search = ytsearch(query)
+        RESOLUSI = 720
+        hmmm = HighQualityVideo()
+        if search == 0:
+            await xnxx.edit(
+                "**Give Me Valid Inputs**"
+            )
+    if event.is_group:
+        try:
+            await Client(functions.channels.JoinChannelRequest(channel=public))
+        except Exception as e:
+            print(e)
+            pass
+        else:
+            songname = search[0]
+            title = search[0]
+            url = search[1]
+            duration = search[2]
+            thumbnail = search[3]
+            ctitle = await CHAT_TITLE(titlegc)
+            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
+            format = "best[height<=?720][width<=?1280]"
+            hm, ytlink = await ytdl(format, url)
+            if hm == 0:
+                await xnxx.edit(f"`{ytlink}`")
+            elif chat_id in QUEUE:
+                pos = add_to_queue(
+                    chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                caption = f"💡 **Video Streaming In Queue »** `#{pos}`\n\n**🏷 Title:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requested:** {from_user}"
+                await xnxx.delete()
+                await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
+            else:
+                try:
+                    await call_py.join_group_call(
+                        chat_id,
+                        AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                    add_to_queue(
+                        chat_id,
+                        songname,
+                        ytlink,
+                        url,
+                        "Video",
+                        RESOLUSI)
+                    await xnxx.delete()
+                    await event.client.send_file(event.chat_id,
+                        f"**🏷 **__Video Streaming Started__**:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}, buttons=btnn",
+                        link_preview=False,
+                    )
+                except Exception as ep:
+                    clear_queue(chat_id)
+                    await xnxx.edit(f"`{ep}`")
 
+    elif replied:
+        xnxx = await event.reply("📥 **Downloading Replied File**")
+        dl = await replied.download_media()
+        link = f"https://t.me/c/{chat.id}/{event.reply_to_msg_id}"
+        if len(event.text.split()) < 2:
+            RESOLUSI = 720
+        else:
+            pq = event.text.split(maxsplit=1)[1]
+            RESOLUSI = int(pq)
+        if replied.video or replied.document:
+            songname = "Telegram Video Player"
+        if chat_id in QUEUE:
+            pos = add_to_queue(chat_id, songname, dl, link, "Video", RESOLUSI)
+            caption = f"💡 **Video Streaming Started »** `#{pos}`\n\n**🏷 title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n🎧 **Requested:** {from_user}"
+            await event.client.send_file(chat_id, ngantri, caption=caption, buttons=btnn)
+            await xnxx.delete()
+        else:
+            if RESOLUSI == 360:
+                hmmm = LowQualityVideo()
+            elif RESOLUSI == 480:
+                hmmm = MediumQualityVideo()
+            elif RESOLUSI == 720:
+                hmmm = HighQualityVideo()
+            try:
+                await call_py.join_group_call(
+                    chat_id,
+                    AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                    stream_type=StreamType().pulse_stream,
+                )
+                add_to_queue(chat_id, songname, dl, link, "Video", RESOLUSI)
+                caption = f"🏷 **title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
+                await xnxx.delete()
+                await event.client.send_file(chat_id, fotoplay, caption=caption, buttons=btnn)
+            except Exception as ep:
+                clear_queue(chat_id)
+                await xnxx.edit(f"`{ep}`")
+    else:
+        xnxx = await event.reply("`Searching...`")
+        query = event.text.split(maxsplit=1)[1]
+        search = ytsearch(query)
+        RESOLUSI = 720
+        hmmm = HighQualityVideo()
+        if search == 0:
+            await xnxx.edit("**Unable To featch your Query**")
+        else:
+            songname = search[0]
+            title = search[0]
+            url = search[1]
+            duration = search[2]
+            thumbnail = search[3]
+            ctitle = await CHAT_TITLE(titlegc)
+            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
+            format = "best[height<=?720][width<=?1280]"
+            hm, ytlink = await ytdl(format, url)
+            if hm == 0:
+                await xnxx.edit(f"`{ytlink}`")
+            elif chat_id in QUEUE:
+                pos = add_to_queue(
+                    chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                caption = f"💡 **Video Streaming Added in Queue »** `#{pos}`\n\n🏷 **title:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requested:** {from_user}"
+                await xnxx.delete()
+                await event.client.send_file(chat_id, thumb, caption=caption)
+            else:
+                try:
+                    await call_py.join_group_call(
+                        chat_id,
+                        AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                    add_to_queue(
+                        chat_id,
+                        songname,
+                        ytlink,
+                        url,
+                        "Video",
+                        RESOLUSI)
+                    caption = f"🏷 **Title:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
+                    await xnxx.delete()
+                    await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
+                except Exception as ep:
+                    clear_queue(chat_id)
+                    await xnxx.edit(f"`{ep}`")
 
 
 
