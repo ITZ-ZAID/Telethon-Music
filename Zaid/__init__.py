@@ -1,6 +1,8 @@
 import os
 
 from telethon import TelegramClient
+from telethon import TelegramClient, events
+from telethon.sessions import StringSession
 import logging
 from pytgcalls import PyTgCalls
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
@@ -15,14 +17,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 
 bot = TelegramClient('Zaid', api_id=API_ID, api_hash=API_HASH)
 Zaid = bot.start(bot_token=BOT_TOKEN)
-client = TelegramClient(
-    session=STRING_SESSION,
-    api_id=API_ID,
-    api_hash=API_HASH,
-    connection=ConnectionTcpAbridged,
-    auto_reconnect=True,
-    connection_retries=None,
-)
+client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 call_py = PyTgCalls(client)
 bot.start()
 call_py.start()
