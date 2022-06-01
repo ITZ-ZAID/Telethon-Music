@@ -117,6 +117,13 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
+
+
+btnn =[
+    [Button.url("💁 Support", url="t.me/TheSupportChat"), Button.inline("Channel 🙋", url="t.me/TheUpdatesChannel")],
+    [Button.inline("Close 🗑️", data="cls")]]
+
+
 #play
 @Zaid.on(events.NewMessage(pattern="^/play"))
 async def play(event):
@@ -166,7 +173,7 @@ async def play(event):
                 await botman.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                caption = f"💡 **Song Added To queue »** `#{pos}`\n\n**🏷 Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requester:** {from_user}"
+                caption = f"💡 **Song Added To queue »** `#{pos}`\n\n**🏷 Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requester:** {from_user}, buttons=btnn"
                 await botman.delete()
                 await event.client.send_file(chat_id, thumb, caption=caption)
             else:
@@ -179,7 +186,7 @@ async def play(event):
                         stream_type=StreamType().pulse_stream,
                     )
                     add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                    caption = f"🏷 **Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n💡 **Status:** `Playing`\n🎧 **Requester:** {from_user}"
+                    caption = f"🏷 **Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n💡 **Status:** `Playing`\n🎧 **Requester:** {from_user}, buttons=btnn"
                     await botman.delete()
                     await event.client.send_file(chat_id, thumb, caption=caption)
                 except Exception as ep:
@@ -196,7 +203,7 @@ async def play(event):
             songname = "Voice Note"
         if chat_id in QUEUE:
             pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
-            caption = f"💡 **Song Added To queue »** `#{pos}`\n\n**🏷 Title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n🎧 **Requester:** {from_user}"
+            caption = f"💡 **Song Added To queue »** `#{pos}`\n\n**🏷 Title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n🎧 **Requester:** {from_user}, buttons=btnn"
             await event.client.send_file(chat_id, ngantri, caption=caption)
             await botman.delete()
         else:
@@ -209,7 +216,7 @@ async def play(event):
                     stream_type=StreamType().pulse_stream,
                 )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
-                caption = f"🏷 **Title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
+                caption = f"🏷 **Title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}, buttons=btnn"
                 await event.client.send_file(chat_id, fotoplay, caption=caption)
                 await botman.delete()
             except Exception as ep:
@@ -229,7 +236,7 @@ async def vc_end(event, perm):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await event.reply("**Ntg Streaming**")
+            await event.reply("**Streaming Ended**")
         except Exception as e:
             await event.reply(f"**ERROR:** `{e}`")
     else:
