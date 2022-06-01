@@ -144,19 +144,7 @@ async def play(event):
         if search == 0:
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
-            )
-    if event.is_group:
-        try:
-            await Client(functions.channels.JoinChannelRequest(channel=public))
-        except Exception as e:
-            print(e)
-            pass
-    else:
-        try:
-            await Client(ImportChatInviteRequest(privates))
-        except Exception as e:
-            pass
-     
+            )     
         else:
             songname = search[0]
             title = search[0]
