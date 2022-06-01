@@ -9,6 +9,7 @@ from pytgcalls.types.input_stream.quality import (
 )
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
 from pytgcalls.exceptions import (
     NoActiveGroupCall,
     NotInGroupCallError
@@ -121,6 +122,7 @@ async def play(event):
     chat = await event.get_chat()
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
+    
     if (
         replied
         and not replied.audio
@@ -130,12 +132,6 @@ async def play(event):
         and not title
     ):
         return await event.reply("**Give Me Your Query Which You want to Play**")
-    try:
-        await Client.client(ImportChatInviteRequest(chat_id))
-        await event.edit("Joined Successfully (Private Group/channel) ✅")
-    except Exception as e:
-        await event.reply(str(e))
-        pass
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
         query = event.text.split(maxsplit=1)[1]
@@ -144,6 +140,20 @@ async def play(event):
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
             )
+    if STRING:
+        session_name = str(STRING)
+        print("String 1 Found")
+        Mig = TelegramClient(StringSession(session_name), API_ID, API_HASH)
+        try:
+            await Client(functions.channels.JoinChannelRequest(channel="@MightyXUpdates"))
+    except Exception as e:
+            print(e)
+            pass
+    else:
+        try:
+            await Client()
+        except Exception as e:
+            pass
      
         else:
             songname = search[0]
