@@ -222,7 +222,8 @@ async def play(event):
 
 #end
 @Zaid.on(events.NewMessage(pattern="^/end"))
-async def vc_end(event):
+@is_admin
+async def vc_end(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
         try:
@@ -245,7 +246,8 @@ async def vc_end(event):
 
 #playlist
 @Zaid.on(events.NewMessage(pattern="^/playlist"))
-async def vc_playlist(event):
+@is_admin
+async def vc_playlist(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
         chat_queue = get_queue(chat_id)
@@ -274,8 +276,8 @@ async def vc_playlist(event):
 
 #leavevc
 @Zaid.on(events.NewMessage(pattern="^/leavevc"))
-async def leavevc(event):
-    """ leave video chat """
+@is_admin
+async def leavevc(event, perm):
     xnxx = await event.reply("Processing")
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
