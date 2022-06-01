@@ -3,7 +3,7 @@
 
 import glob
 from pathlib import Path
-from GPBot.utils import load_plugins
+from Zaid.utils import load_plugins
 import logging
 from GPBot import Stark
 
@@ -22,4 +22,4 @@ print("Successfully Started Bot!")
 print("Visit @TgxBotz")
 
 if __name__ == "__main__":
-    Stark.run_until_disconnected()
+    Zaid.run_until_disconnected()
