@@ -3,6 +3,6 @@ py-tgcalls
 requests
 pillow
 aiofile
-youtube_dl
+yt-dlp
 aiofiles
 youtube-search-python
