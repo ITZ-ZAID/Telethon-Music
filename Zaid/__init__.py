@@ -21,7 +21,7 @@ Zaid = bot.start(bot_token=BOT_TOKEN)
 session = StringSession(str(STRING_SESSION))
 client = TelegramClient(
     session=session,
-    api_id=API_KEY,
+    api_id=API_ID,
     api_hash=API_HASH,
     connection=ConnectionTcpAbridged,
     auto_reconnect=True,
