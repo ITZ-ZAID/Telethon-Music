@@ -384,7 +384,7 @@ async def vplay(event):
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"💡 **Video Streaming Added in Queue »** `#{pos}`\n\n🏷 **title:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requested:** {from_user}"
                 await xnxx.delete()
-                await event.client.send_file(chat_id, thumb, caption=caption)
+                await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
             else:
                 try:
                     await call_py.join_group_call(
