@@ -137,17 +137,6 @@ async def play(event):
         and not title
     ):
         return await event.reply("**Give Me Your Query Which You want to Play**")
-    elif event.is_group:
-        try:
-            await Client(functions.channels.JoinChannelRequest(channel=public))
-        except Exception as e:
-            print(e)
-            pass
-        else:
-            try:
-                await Client(ImportChatInviteRequest(privates))
-            except Exception as e:
-                pass
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
         query = event.text.split(maxsplit=1)[1]
@@ -155,7 +144,13 @@ async def play(event):
         if search == 0:
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
-            )     
+            ) 
+    if event.is_group:
+        try:
+            await Client(ImportChatInviteRequest(privates))
+        except Exception as e:
+            print(e)
+            pass    
         else:
             songname = search[0]
             title = search[0]
