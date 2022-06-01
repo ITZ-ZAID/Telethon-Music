@@ -269,7 +269,7 @@ async def vplay(event):
         or not replied
         and not title
     ):
-        return await edit_or_reply("**Give Me Your Query Which You Want to stream**")
+        return await event.reply("**Give Me Your Query Which You Want to stream**")
     if replied and not replied.video and not replied.document:
         xnxx = await event.reply("`Searching Video Details...`")
         query = event.text.split(maxsplit=1)[1]
