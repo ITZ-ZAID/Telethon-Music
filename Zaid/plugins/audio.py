@@ -7,6 +7,8 @@ from pytgcalls.types.input_stream.quality import (
     LowQualityVideo,
     MediumQualityVideo,
 )
+from telethon.tl.functions.channels import LeaveChannelRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
 from pytgcalls.exceptions import (
     NoActiveGroupCall,
     NotInGroupCallError
