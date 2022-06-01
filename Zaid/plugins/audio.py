@@ -143,11 +143,11 @@ async def play(event):
         except Exception as e:
             print(e)
             pass
-    else:
-        try:
-            await Client(ImportChatInviteRequest(privates))
-        except Exception as e:
-            pass
+        else:
+            try:
+                await Client(ImportChatInviteRequest(privates))
+            except Exception as e:
+                pass
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
         query = event.text.split(maxsplit=1)[1]
