@@ -112,7 +112,7 @@ async def skip_current_song(chat_id: int):
 #play
 @Zaid.on(events.NewMessage(pattern="^/play"))
 async def play(event):
-    title = event.pattern_match.group(1)
+    title = event.text.split(" ", maxsplit=1)[1]
     replied = await event.get_reply_message()
     sender = await event.get_sender()
     chat = await event.get_chat()
