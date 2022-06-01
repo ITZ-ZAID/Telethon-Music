@@ -462,7 +462,7 @@ async def leavevc(event, perm):
 
 
 @Zaid.on(events.NewMessage(pattern="^/leavevc"))
-@id_admin
+@is_admin
 async def vc_skip(event, perm):
     chat_id = event.chat_id
     if len(event.text.split()) < 2:
