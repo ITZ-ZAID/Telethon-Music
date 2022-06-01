@@ -127,7 +127,13 @@ async def play(event):
         or not replied
         and not title
     ):
-        return await event.reply("**Processing**")
+        return await event.reply("**Give Me Your Query Which You want to Play**")
+    try:
+        await e.client(ImportChatInviteRequest(chat_id))
+        await event.edit("Joined Successfully (Private Group/channel) ✅")
+    except Exception as e:
+        await event.reply(str(e))
+        pass
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
         query = event.text.split(maxsplit=1)[1]
@@ -136,6 +142,7 @@ async def play(event):
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
             )
+     
         else:
             songname = search[0]
             title = search[0]
