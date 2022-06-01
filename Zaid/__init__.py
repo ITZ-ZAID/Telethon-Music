@@ -14,7 +14,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 
 bot = TelegramClient('Zaid', api_id=API_ID, api_hash=API_HASH)
 Zaid = bot.start(bot_token=BOT_TOKEN)
-bot = TelegramClient(
+client = TelegramClient(
     session=session,
     api_id=API_ID,
     api_hash=API_HASH,
@@ -22,6 +22,6 @@ bot = TelegramClient(
     auto_reconnect=True,
     connection_retries=None,
 )
-call_py = PyTgCalls(bot)
+call_py = PyTgCalls(client)
 bot.start()
 call_py.start()
