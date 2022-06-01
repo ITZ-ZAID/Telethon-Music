@@ -122,7 +122,8 @@ async def play(event):
     chat = await event.get_chat()
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
-    
+    private = await Zaid(ExportChatInviteRequest(event.chat_id))
+    public = event.chat_id
     if (
         replied
         and not replied.audio
@@ -140,10 +141,7 @@ async def play(event):
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
             )
-    if STRING:
-        session_name = str(STRING)
-        print("String 1 Found")
-        Mig = TelegramClient(StringSession(session_name), API_ID, API_HASH)
+    if event.is_group:
         try:
             await Client(functions.channels.JoinChannelRequest(channel=public))
     except Exception as e:
