@@ -6,3 +6,4 @@ aiofile
 yt-dlp
 aiofiles
 youtube-search-python
+speedtest-cli
