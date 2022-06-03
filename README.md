@@ -1,3 +1,7 @@
+### Supporting this repo
+
+![Star this repo](img/star_repo.gif)
+
 # Telethon-Music
 
 ## ᴅᴇᴘʟᴏʏ
