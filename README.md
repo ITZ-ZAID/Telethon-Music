@@ -1,6 +1,3 @@
-### Supporting this repo
-
-![Star this repo](img/star_repo.gif)
 
 # Telethon-Music
 
@@ -12,6 +9,11 @@ Note: This Code Based On Telethon So You need Telethon String Session And A bot 
 
 <p align="center"><a href="https://zaid.vercel.app/"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-pink?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
+
+
+# Supporting this repo
+
+![Star this repo](img/star_repo.gif)
 
 #
 
