@@ -13,7 +13,7 @@ Note: This Code Based On Telethon So You need Telethon String Session And A bot 
 
 # Supporting this repo
 
-![Star this repo](img/star_repo.gif)
+![Star this repo](https://img/star_repo.gif)
 
 #
 
