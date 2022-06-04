@@ -1,4 +1,4 @@
-git clone $REPO XYZ
+git clone https://github.com/ITZ-ZAID/Telethon-Music XYZ
 cd XYZ
 pip3 install -U -r requirements.txt
 python3 -m Zaid
