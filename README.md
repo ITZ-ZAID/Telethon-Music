@@ -9,7 +9,10 @@ Note: This Code Based On Telethon So You need Telethon String Session And A bot 
 
 <p align="center"><a href="https://zaid.vercel.app/"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-pink?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
+## ᴅᴇᴘʟᴏʏ ᴏɴ ʀᴀɪʟᴡᴀʏ 🚄
+ꜰᴏʀ ᴅᴇᴘʟᴏʏ ᴏɴ ʀᴀɪʟᴡᴀʏ ᴍᴀᴋᴇ [Necessary Variables in config], ᴜ ʜᴀᴠᴇ ᴛᴏ ꜰɪʟʟ.
 
+<p align="center"><a href="https://railway.app/new/template?template=https://github.com/ITZ-ZAID/Music-Deploy&envs=STRING_SESSION,BOT_TOKEN,API_ID,API_HASH"> <img src="https://img.shields.io/badge/Deploy%20To%20Railway-black?style=for-the-badge&logo=railway" width="220" height="38.45"/></a></p>
 
 
 #
