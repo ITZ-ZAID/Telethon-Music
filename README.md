@@ -3,7 +3,7 @@
 
 ## ᴅᴇᴘʟᴏʏ
 
-Note: This Code Based On Telethon So You need Telethon String Session And A bot token from @botfather 
+Note: This Code Based On Telethon So You need [Telethon String Session](https://replit.com/@Itz-zaid/Generator) And A bot token from @botfather 
 
 [ꜰᴏʀᴋ ᴅᴇᴘʟᴏʏ ɪꜱ ʜɪɢʜʟʏ ʀᴇᴄᴏᴍᴍᴇɴᴅᴇᴅ](https://telegra.ph/file/5bcf79f948ca06030640c.mp4)
 
