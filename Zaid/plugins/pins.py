@@ -13,7 +13,7 @@ PINS_TEXT = """
 **➥Note:** __Add `notify` after ?pin to notify all chat members.__
 """
 
-@Stark.on(events.NewMessage(pattern="^[?!/]pinned"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]pinned"))
 async def get_pinned(event):
     chat_id = (str(event.chat_id)).replace("-100", "")
 
