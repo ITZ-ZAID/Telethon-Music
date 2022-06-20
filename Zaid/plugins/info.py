@@ -55,7 +55,7 @@ async def info(event):
     input_str = event.pattern_match.group(1)
     ha = await Zaid.get_entity(input_str)
     hu = await Zaid(GetFullUserRequest(id=input_str))
-    sedd = await Stark(P(user_id=input_str, offset=42, max_id=0, limit=80))
+    sedd = await Zaid(P(user_id=input_str, offset=42, max_id=0, limit=80))
 
     textn = "**✘ UserInfo:**\n\n"
     textn += "**» Fɪʀsᴛ Nᴀᴍᴇ:** {}\n"
