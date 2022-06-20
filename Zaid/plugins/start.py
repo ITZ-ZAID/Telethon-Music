@@ -17,7 +17,7 @@ async def start(event):
 
     if event.is_private:
        await event.reply(PM_START_TEXT.format(event.sender.first_name), buttons=[
-        [Button.url("➕ Add me To Your Chats", "https://t.me/{BOT_USERNAME}/startgroup=true")],
+        [Button.url("➕ Add me To Your Chats", "https://t.me/{BOT_USERNAME}?startgroup=true")],
         [Button.url("👨‍💻 Source Code", "https://github.com/ITZ-ZAID/Telethon-Music")],
         [Button.url("🗣️ Support", "https://t.me/TheSupportChat"), Button.url("📣 Channel", "https://t.me/TheUpdatesChannel")],
         [Button.inline("Help And Commands", data="help")]])
