@@ -78,6 +78,6 @@ async def delete_messages(event, perm):
     await msg.delete()
     await event.delete()
 
-@Stark.on(events.callbackquery.CallbackQuery(data="purges"))
+@Zaid.on(events.callbackquery.CallbackQuery(data="purges"))
 async def _(event):
     await event.edit(PR_HELP, buttons=[[Button.inline("« Bᴀᴄᴋ", data="help")]])
