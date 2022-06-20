@@ -8,6 +8,7 @@ Heya! {} ✅
 ‣ I can Ban, mute every users.
 ‣ I have Almost all features which needs a music bot
 ‣ This Bot Based On Telethon. So It's provide more stability from other bots!
+‣ I can Do other things like pins etcs.
 ‣ Click on help button 🔘 for more information ℹ️.
 """
 
