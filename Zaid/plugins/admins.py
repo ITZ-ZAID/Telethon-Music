@@ -11,6 +11,11 @@ async def _(event):
 
     await event.edit(ADMIN_TEXT, buttons=[[Button.inline("« Bᴀᴄᴋ", data="help")]])
 
+@Zaid.on(events.callbackquery.CallbackQuery(data="play"))
+async def _(event):
+
+    await event.edit(PLAY_TEXT, buttons=[[Button.inline("« Bᴀᴄᴋ", data="help")]])
+
 @Zaid.on(events.NewMessage(pattern="^[!?/]promote ?(.*)"))
 @is_admin
 async def promote(event, perm):
@@ -92,4 +97,11 @@ ADMIN_TEXT = """
 ‣ `?resume` - to Resume Streaming.
 ‣ `?leavevc` - force The Userbot to leave Vc Chat (Sometimes Joined).
 ‣ `?playlist` - to check playlists.
+"""
+
+PLAY_TEXT = """
+**✘ A module from which users of the chat can use!**
+
+‣ `?play` - To Play Audio from Else Reply to audio file.
+‣ `?vplay` - To Stream Videos (HEROKU_MODE > Doesn't support).
 """
