@@ -35,8 +35,8 @@ async def kick(event, perm):
 
     replied_user = msg.sender_id
     us = msg.sender.username
-    info = await Stark.get_entity(us)
-    await Stark.kick_participant(event.chat_id, input_str or replied_user)
+    info = await Zaid.get_entity(us)
+    await Zaid.kick_participant(event.chat_id, input_str or replied_user)
     await event.reply(f"Succesfully Kicked [{info.first_name}](tg://user?id={replied_user}) from {event.chat.title}")
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]kickme"))
@@ -46,13 +46,13 @@ async def kickme(event):
         await event.reply("This cmd is made to be used in groups not PM")
         return
 
-    check = await Stark.get_permissions(event.chat_id, event.sender_id)
+    check = await Zaid.get_permissions(event.chat_id, event.sender_id)
     if check.is_admin:
         await event.reply("Sorry but I can't kick admins!")
         return
 
     await event.reply("Ok, as your wish")
-    await Stark.kick_participant(event.chat_id, event.sender_id)
+    await Zaid.kick_participant(event.chat_id, event.sender_id)
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]ban ?(.*)"))
 @is_admin
@@ -70,8 +70,8 @@ async def ban(event, perm):
         return
     replied_user = msg.sender_id
     us = msg.sender.username
-    info = await Stark.get_entity(us)
-    await Stark(EditBannedRequest(event.chat_id, replied_user, ChatBannedRights(until_date=None, view_messages=True)))
+    info = await Zaid.get_entity(us)
+    await Zaid(EditBannedRequest(event.chat_id, replied_user, ChatBannedRights(until_date=None, view_messages=True)))
     await event.reply(f"Succesfully Banned [{info.first_name}](tg://user?id={replied_user}) in {event.chat.title}")
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]unban ?(.*)"))
@@ -90,8 +90,8 @@ async def unban(event, perm):
         return
     replied_user = msg.sender_id
     us = msg.sender.username
-    info = await Stark.get_entity(us)
-    await Stark(EditBannedRequest(event.chat_id, replied_user, ChatBannedRights(until_date=None, view_messages=False)))
+    info = await Zaid.get_entity(us)
+    await Zaid(EditBannedRequest(event.chat_id, replied_user, ChatBannedRights(until_date=None, view_messages=False)))
     await event.reply(f"Succesfully Unbanned [{info.first_name}](tg://user?id={replied_user}) in {event.chat.title}")
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]skick"))
@@ -106,11 +106,11 @@ async def skick(event, perm):
         return
 
     us = reply_msg.sender.username
-    info = await Stark.get_entity(us)   
+    info = await Zaid.get_entity(us)   
     x = (await event.get_reply_message()).sender_id
     zx = (await event.get_reply_message())
     await event.delete()
-    await Stark.kick_participant(event.chat_id, x)
+    await Zaid.kick_participant(event.chat_id, x)
     await event.reply(f"Succesfully Kicked [{info.first_name}](tg://user?id={replied_user}) from {event.chat.title}")
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]dkick"))
@@ -124,10 +124,10 @@ async def dkick(event, perm):
         await event.reply("Reply to someone to delete it and kick the user!")
         return
     us = reply_msg.sender.username
-    info = await Stark.get_entity(us) 
+    info = await Zaid.get_entity(us) 
     x = await event.get_reply_message()
     await x.delete()
-    await Stark.kick_participant(event.chat_id, x.sender_id)
+    await Zaid.kick_participant(event.chat_id, x.sender_id)
     await event.reply(f"Succesfully Kicked [{info.first_name}](tg://user?id={replied_user}) from {event.chat.title}")
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]dban"))
@@ -141,11 +141,11 @@ async def dban(event, perm):
         await event.reply("Reply to someone to delete the message and ban the user!")
         return
     us = reply_msg.sender.username
-    info = await Stark.get_entity(us) 
+    info = await Zaid.get_entity(us) 
     x = (await event.get_reply_message()).sender_id
     zx = (await event.get_reply_message())
     await zx.delete()
-    await Stark(EditBannedRequest(event.chat_id, x, ChatBannedRights(until_date=None, view_messages=True)))
+    await Zaid(EditBannedRequest(event.chat_id, x, ChatBannedRights(until_date=None, view_messages=True)))
     await event.reply("Successfully Banned!")
     await event.reply(f"Succesfully Banned [{info.first_name}](tg://user?id={replied_user}) from {event.chat.title}")
 
@@ -160,11 +160,11 @@ async def sban(event, perm):
         await event.reply("Reply to someone to delete the message and ban the user!")
         return
     us = reply_msg.sender.username
-    info = await Stark.get_entity(us) 
+    info = await Zaid.get_entity(us) 
     x = (await event.get_reply_message()).sender_id
     zx = (await event.get_reply_message())
     await event.delete()
-    await Stark(EditBannedRequest(event.chat_id, x, ChatBannedRights(until_date=None, view_messages=True)))
+    await Zaid(EditBannedRequest(event.chat_id, x, ChatBannedRights(until_date=None, view_messages=True)))
     await event.reply(f"Succesfully Banned [{info.first_name}](tg://user?id={replied_user}) from {event.chat.title}")
 
 @Zaid.on(events.callbackquery.CallbackQuery(data="bans"))
