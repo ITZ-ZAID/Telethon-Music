@@ -1,10 +1,11 @@
-from Zaid import Zaid
+from Zaid import Zaid, BOT_USERNAME
 from telethon import events, Button
 
 PM_START_TEXT = """
 Heya! {} ✅
-✘ I'm a Simple Telegram Music Bot
+✘ I'm a Simple Telegram Music And Management Bot.
 ‣ I can Play Songs in your Voice.
+‣ I can Ban, mute every users.
 ‣ I have Almost all features which needs a music bot
 ‣ This Bot Based On Telethon. So It's provide more stability from other bots!
 ‣ Click on help button 🔘 for more information ℹ️.
