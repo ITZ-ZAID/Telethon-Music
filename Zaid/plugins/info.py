@@ -49,7 +49,7 @@ async def info(event):
 
     input_str = event.pattern_match.group(1)
     if not input_str:
-          await Stark.send_message(event.chat_id, text.format(hn.user.first_name, hn.user.last_name, event.sender_id, event.sender.username, sed.count, hn.about, event.sender_id))
+          await Zaid.send_message(event.chat_id, text.format(hn.user.first_name, hn.user.last_name, event.sender_id, event.sender.username, sed.count, hn.about, event.sender_id))
           return
  
     input_str = event.pattern_match.group(1)
