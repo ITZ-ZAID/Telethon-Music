@@ -36,8 +36,8 @@ async def id(event):
 @Zaid.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
 async def info(event):
 
-    sed = await Stark(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
-    hn = await Stark(GetFullUserRequest(event.sender_id))
+    sed = await Zaid(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
+    hn = await Zaid(GetFullUserRequest(event.sender_id))
     text = "**✘ UserInfo:**\n\n"
     text += "**» Fɪʀsᴛ Nᴀᴍᴇ:** {}\n"
     text += "**» Lᴀsᴛ Nᴀᴍᴇ:** {}\n"
@@ -53,8 +53,8 @@ async def info(event):
           return
  
     input_str = event.pattern_match.group(1)
-    ha = await Stark.get_entity(input_str)
-    hu = await Stark(GetFullUserRequest(id=input_str))
+    ha = await Zaid.get_entity(input_str)
+    hu = await Zaid(GetFullUserRequest(id=input_str))
     sedd = await Stark(P(user_id=input_str, offset=42, max_id=0, limit=80))
 
     textn = "**✘ UserInfo:**\n\n"
