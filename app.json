@@ -11,7 +11,7 @@
         },
         "HEROKU_MODE": {
             "description": "Don't Change this!",
-            "required": true
+            "required": true,
             "value": "ENABLE"
         },
         "API_ID": {
