@@ -91,4 +91,5 @@ ADMIN_TEXT = """
 ‣ `?pause` - To Pause streaming.
 ‣ `?resume` - to Resume Streaming.
 ‣ `?leavevc` - force The Userbot to leave Vc Chat (Sometimes Joined).
+‣ `?playlist` - to check playlists.
 """
