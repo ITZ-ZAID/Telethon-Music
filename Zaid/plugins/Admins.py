@@ -90,4 +90,5 @@ ADMIN_TEXT = """
 ‣ `?skip` - To Skip Tracks Going on.
 ‣ `?pause` - To Pause streaming.
 ‣ `?resume` - to Resume Streaming.
+‣ `?leavevc` - force The Userbot to leave Vc Chat (Sometimes Joined).
 """
