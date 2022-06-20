@@ -6,8 +6,13 @@
   "stack": "container",
     "env": {
         "STRING_SESSION": {
-            "description": "fill with the pyrogram session string from account",
+            "description": "fill with the telethon session string from account",
             "required": true
+        },
+        "HEROKU_MODE": {
+            "description": "Don't Change this!",
+            "required": true
+            "value": "ENABLE"
         },
         "API_ID": {
             "description": "your Api ID from my.telegram.org/apps",
