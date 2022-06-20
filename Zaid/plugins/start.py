@@ -29,7 +29,7 @@ async def start(event):
 
 
 
-@Zaid.on(events.callbackquery.CallbackQuery(data="help"))
+@Zaid.on(events.callbackquery.CallbackQuery(data="start"))
 async def _(event):
     if event.is_private:
        await event.edit(PM_START_TEXT.format(event.sender.first_name), buttons=[
