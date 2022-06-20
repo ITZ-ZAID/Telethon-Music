@@ -48,7 +48,7 @@ async def unpin(event, perm):
     await Stark.unpin_message(event.chat_id, ok)
     await event.reply(f"Successfully unpinned [this](t.me/{event.chat.username}/{ok.id}) message.", link_preview=False)
 
-@Stark.on(events.NewMessage(pattern="^[!?/]permapin"))
+@Zaid.on(events.NewMessage(pattern="^[!?/]permapin"))
 @is_admin
 async def permapin(event, perm):
     if not perm.pin_messages:
