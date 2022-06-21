@@ -71,10 +71,10 @@ async def play_thumb(videoid):
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("Process/ImageFont/font2.ttf", 40)
-        font2 = ImageFont.truetype("Process/ImageFont/font2.ttf", 70)
-        arial = ImageFont.truetype("Process/ImageFont/font2.ttf", 30)
-        name_font = ImageFont.truetype("Process/ImageFont/font.ttf", 30)
+        font = ImageFont.truetype("resources/font2.ttf", 40)
+        font2 = ImageFont.truetype("resources/font2.ttf", 70)
+        arial = ImageFont.truetype("resources/font2.ttf", 30)
+        name_font = ImageFont.truetype("resources/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
@@ -193,10 +193,10 @@ async def queue_thumb(videoid):
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("Process/ImageFont/font2.ttf", 40)
-        font2 = ImageFont.truetype("Process/ImageFont/font2.ttf", 70)
-        arial = ImageFont.truetype("Process/ImageFont/font2.ttf", 30)
-        name_font = ImageFont.truetype("Process/ImageFont/font.ttf", 30)
+        font = ImageFont.truetype("resources/font2.ttf", 40)
+        font2 = ImageFont.truetype("resources/font2.ttf", 70)
+        arial = ImageFont.truetype("resources/font2.ttf", 30)
+        name_font = ImageFont.truetype("resources/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
