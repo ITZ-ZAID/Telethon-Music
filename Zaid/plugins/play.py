@@ -25,8 +25,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 from youtubesearchpython import VideosSearch
 
  
-fotoplay = "https://telegra.ph/file/fbdff93b72dac4e43a9af.png"
-ngantri = "https://telegra.ph/file/fbdff93b72dac4e43a9af.png"
+fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
+ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 from Zaid import call_py, Zaid, client as Client
 owner = "1669178360"
 from Zaid.helpers.yt_dlp import bash
@@ -125,12 +125,12 @@ async def _(event):
      await event.delete()
 
 btnn =[
-    [Button.url("💁 Sᴜᴘᴘᴏʀᴛ", url="t.me/TheSupportChat"), Button.url("Cʜᴀɴɴᴇʟ 🙋", url="t.me/TheUpdatesChannel")],
+    [Button.url("💁 Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{Config.SUPPORT}"), Button.url("Cʜᴀɴɴᴇʟ 🙋", url=f"t.me/{Config.CHANNEL}")],
     [Button.inline("Cʟᴏꜱᴇ 🗑️", data="cls")]]
 
 
 #play
-@Zaid.on(events.NewMessage(pattern="^/play"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]play"))
 async def play(event):
     title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
@@ -147,7 +147,7 @@ async def play(event):
         or not replied
         and not title
     ):
-        return await event.reply("**Give Me Your Query Which You want to Play**")
+        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**Give Me Your Query Which You want to Play**\n\n **Example**: `/play Nira Ishq Bass boosted`", buttons=btnn)
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
         query = event.text.split(maxsplit=1)[1]
@@ -233,7 +233,7 @@ async def play(event):
 
 
 #end
-@Zaid.on(events.NewMessage(pattern="^/end"))
+@Zaid.on(events.NewMessage(pattern="^[/?!]end"))
 @is_admin
 async def vc_end(event, perm):
     chat_id = event.chat_id
@@ -251,7 +251,7 @@ async def vc_end(event, perm):
 
 
 
-@Zaid.on(events.NewMessage(pattern="^/vplay"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]vplay"))
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
         await event.reply("__Currently Heroku Mode is ENABLED so You Can't Stream Video because Video Streaming Cause of Banning Your Heroku Account__.")
@@ -273,7 +273,7 @@ async def vplay(event):
         or not replied
         and not title
     ):
-        return await event.reply("**Give Me Your Query Which You Want to stream**")
+        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**Give Me Your Query Which You want to Stream**\n\n **Example**: `/vplay Nira Ishq Bass boosted`", buttons=btnn)
     if replied and not replied.video and not replied.document:
         xnxx = await event.reply("`Searching Video Details...`")
         query = event.text.split(maxsplit=1)[1]
@@ -414,7 +414,7 @@ async def vplay(event):
 
 
 #playlist
-@Zaid.on(events.NewMessage(pattern="^/playlist"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]playlist"))
 @is_admin
 async def vc_playlist(event, perm):
     chat_id = event.chat_id
@@ -444,7 +444,7 @@ async def vc_playlist(event, perm):
 
 
 #leavevc
-@Zaid.on(events.NewMessage(pattern="^/leavevc"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]leavevc"))
 @is_admin
 async def leavevc(event, perm):
     xnxx = await event.reply("Processing")
@@ -461,7 +461,7 @@ async def leavevc(event, perm):
 
 
 
-@Zaid.on(events.NewMessage(pattern="^/skip"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]skip"))
 @is_admin
 async def vc_skip(event, perm):
     chat_id = event.chat_id
@@ -490,7 +490,7 @@ async def vc_skip(event, perm):
             await event.reply(DELQUE)
 
 
-@Zaid.on(events.NewMessage(pattern="^/pause"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]pause"))
 @is_admin
 async def vc_pause(event, perm):
     chat_id = event.chat_id
@@ -505,7 +505,7 @@ async def vc_pause(event, perm):
 
 
 
-@Zaid.on(events.NewMessage(pattern="^/resume"))
+@Zaid.on(events.NewMessage(pattern="^[?!/]resume"))
 @is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id
@@ -542,4 +542,3 @@ async def leftvc(_, chat_id: int):
 async def kickedvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-
