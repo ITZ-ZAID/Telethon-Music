@@ -10,3 +10,4 @@ class Config(object):
     SUPPORT = os.environ.get("SUPPORT", "TheSupportChat")
     CHANNEL = os.environ.get("CHANNEL", "TheUpdatesChannel")
     START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/35a7b5d9f1f2605c9c0d3.png")
+    CMD_IMG = os.environ.get("CMD_IMG", "")
