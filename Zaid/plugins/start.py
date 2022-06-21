@@ -20,7 +20,7 @@ async def start(event):
        await event.reply(PM_START_TEXT.format(event.sender.first_name), buttons=[
         [Button.url("➕ Add me To Your Chats", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
         [Button.url("👨‍💻 Source Code", "https://github.com/ITZ-ZAID/Telethon-Music")],
-        [Button.url("🗣️ Support", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 Channel", f"https://t.me/Config.{CHANNEL}")],
+        [Button.url("🗣️ Support", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 Channel", f"https://t.me/{Config.CHANNEL}")],
         [Button.inline("Help And Commands", data="help")]])
        return
 
@@ -36,6 +36,6 @@ async def _(event):
        await event.edit(PM_START_TEXT.format(event.sender.first_name), buttons=[
         [Button.url("➕ Add me To Your Chats", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
         [Button.url("👨‍💻 Source Code", "https://github.com/ITZ-ZAID/Telethon-Music")],
-        [Button.url("🗣️ Support", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 Channel", f"https://t.me/Config.{CHANNEL}")],
+        [Button.url("🗣️ Support", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 Channel", f"https://t.me/{Config.CHANNEL}")],
         [Button.inline("Help And Commands", data="help")]])
        return
