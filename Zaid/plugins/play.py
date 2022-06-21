@@ -147,7 +147,7 @@ async def play(event):
         or not replied
         and not title
     ):
-        return await event.reply("**Give Me Your Query Which You want to Play**")
+        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**Give Me Your Query Which You want to Play**\n\n **Example**: `/play Nira Ishq Bass boosted`", buttons=btnn)
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
         query = event.text.split(maxsplit=1)[1]
