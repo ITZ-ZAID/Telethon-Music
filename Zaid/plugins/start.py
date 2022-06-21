@@ -3,29 +3,34 @@ from Config import Config
 from telethon import events, Button
 
 PM_START_TEXT = """
-Heya! {} ✅
-✘ I'm a Simple Telegram Music And Management Bot.
-‣ I can Play Songs in your Voice.
-‣ I can Ban, mute every users.
-‣ I have Almost all features which needs a music bot
-‣ This Bot Based On Telethon. So It's provide more stability from other bots!
-‣ I can Do other things like pins etcs.
-‣ Click on help button 🔘 for more information ℹ️.
+ʜᴇʏᴀ! {}
+➖➖➖➖➖➖➖➖➖➖➖➖➖
+✘ ɪ'ᴍ ᴀ ꜱɪᴍᴘʟᴇ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜꜱɪᴄ ᴀɴᴅ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
+‣ ɪ ᴄᴀɴ ᴘʟᴀʏ ꜱᴏɴɢꜱ ɪɴ ʏᴏᴜʀ ᴠᴏɪᴄᴇ.
+‣ ɪ ᴄᴀɴ ʙᴀɴ, ᴍᴜᴛᴇ ᴇᴠᴇʀʏ ᴜꜱᴇʀꜱ.
+‣ ɪ ʜᴀᴠᴇ ᴀʟᴍᴏꜱᴛ ᴀʟʟ ꜰᴇᴀᴛᴜʀᴇꜱ ᴡʜɪᴄʜ ɴᴇᴇᴅꜱ ᴀ ᴍᴜꜱɪᴄ ʙᴏᴛ
+‣ ᴛʜɪꜱ ʙᴏᴛ ʙᴀꜱᴇᴅ ᴏɴ ᴛᴇʟᴇᴛʜᴏɴ. ꜱᴏ ɪᴛ'ꜱ ᴘʀᴏᴠɪᴅᴇ ᴍᴏʀᴇ ꜱᴛᴀʙɪʟɪᴛʏ ꜰʀᴏᴍ ᴏᴛʜᴇʀ ʙᴏᴛꜱ!
+‣ ɪ ᴄᴀɴ ᴅᴏ ᴏᴛʜᴇʀ ᴛʜɪɴɢꜱ ʟɪᴋᴇ ᴘɪɴꜱ ᴇᴛᴄꜱ.
+➖➖➖➖➖➖➖➖➖➖➖➖➖
+✘ ᴄʟɪᴄᴋ ᴏɴ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ 🔘 ꜰᴏʀ ᴍᴏʀᴇ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ℹ️.
 """
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]start$"))
 async def start(event):
 
     if event.is_private:
-       await event.reply(PM_START_TEXT.format(event.sender.first_name), buttons=[
-        [Button.url("➕ Add me To Your Chats", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-        [Button.url("👨‍💻 Source Code", "https://github.com/ITZ-ZAID/Telethon-Music")],
-        [Button.url("🗣️ Support", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 Channel", f"https://t.me/{Config.CHANNEL}")],
-        [Button.inline("Help And Commands", data="help")]])
+       await event.client.send_file(event.chat_id,
+             START_IMG,
+             caption=PM_START_TEXT.format(event.sender.first_name), 
+             buttons=[
+        [Button.url("➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+        [Button.url("👨‍💻 ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", "https://github.com/ITZ-ZAID/Telethon-Music")],
+        [Button.url("🗣️ ꜱᴜᴘᴘᴏʀᴛ", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 ᴜᴘᴅᴀᴛᴇꜱ", f"https://t.me/{Config.CHANNEL}")],
+        [Button.inline("ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ", data="help")]])
        return
 
     if event.is_group:
-       await event.reply("**I am alive 24/7!**")
+       await event.reply("ʜᴇʏ! ɪ'ᴍ ꜱᴛɪʟʟ ᴀʟɪᴠᴇ ✅**")
        return
 
 
@@ -34,8 +39,8 @@ async def start(event):
 async def _(event):
     if event.is_private:
        await event.edit(PM_START_TEXT.format(event.sender.first_name), buttons=[
-        [Button.url("➕ Add me To Your Chats", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-        [Button.url("👨‍💻 Source Code", "https://github.com/ITZ-ZAID/Telethon-Music")],
-        [Button.url("🗣️ Support", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 Channel", f"https://t.me/{Config.CHANNEL}")],
-        [Button.inline("Help And Commands", data="help")]])
+        [Button.url("➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+        [Button.url("👨‍💻 ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", "https://github.com/ITZ-ZAID/Telethon-Music")],
+        [Button.url("🗣️ ꜱᴜᴘᴘᴏʀᴛ", f"https://t.me/{Config.SUPPORT}"), Button.url("📣 ᴜᴘᴅᴀᴛᴇꜱ", f"https://t.me/{Config.CHANNEL}")],
+        [Button.inline("ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ", data="help")]])
        return
