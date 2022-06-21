@@ -41,7 +41,7 @@ from Zaid.helpers.queues import (
 from telethon import Button, events
 from Config import Config
 
-from Zaid.helpers.thumbnail import *
+from Zaid.helpers.thumbnail import gen_thumb
 
 
 def vcmention(user):
@@ -49,7 +49,6 @@ def vcmention(user):
     if not isinstance(user, types.User):
         return full_name
     return f"[{full_name}](tg://user?id={user.id})"
-
 
 
 def ytsearch(query: str):
@@ -60,8 +59,7 @@ def ytsearch(query: str):
         url = data["link"]
         duration = data["duration"]
         thumbnail = f"https://i.ytimg.com/vi/{data['id']}/hqdefault.jpg"
-        videoid = data["id"]
-        return [songname, url, duration, thumbnail, videoid]
+        return [songname, url, duration, thumbnail]
     except Exception as e:
         print(e)
         return 0
@@ -152,7 +150,7 @@ async def play(event):
         return await event.reply("**Give Me Your Query Which You want to Play**")
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
-        query = event.text.split(None, 1)[1]
+        query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
         if search == 0:
             await botman.edit(
@@ -165,17 +163,15 @@ async def play(event):
             print(e)
             pass    
         else:
-            songname = search[int][0]
+            songname = search[0]
             title = search[0]
             url = search[1]
             duration = search[2]
             thumbnail = search[3]
             userid = sender.id
             titlegc = chat.title
-            videoid = search[4]
             ctitle = await CHAT_TITLE(titlegc)
-            thumb = await play_thumb(videoid)
-            queued = await queue_thumb(videoid)
+            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
             format = "best[height<=?720][width<=?1280]"
             hm, ytlink = await ytdl(format, url)
             if hm == 0:
@@ -184,7 +180,7 @@ async def play(event):
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                 caption = f"💡 **Song Added To queue »** `#{pos}`\n\n**🏷 Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requester:** {from_user}"
                 await botman.delete()
-                await event.client.send_file(chat_id, queued, caption=caption, buttons=btnn)
+                await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
             else:
                 try:
                     await call_py.join_group_call(
@@ -546,4 +542,3 @@ async def leftvc(_, chat_id: int):
 async def kickedvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-
