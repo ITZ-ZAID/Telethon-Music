@@ -52,7 +52,7 @@ def vcmention(user):
 
 
 
-def ytsearch(query: str, int):
+def ytsearch(query: str):
     try:
         search = VideosSearch(query, limit=1).result()
         data = search["result"][0]
