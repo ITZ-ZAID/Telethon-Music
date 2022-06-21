@@ -170,9 +170,9 @@ async def play(event):
             url = search[1]
             duration = search[2]
             thumbnail = search[3]
-            videoid = search[4]
             userid = sender.id
             titlegc = chat.title
+            videoid = search[4]
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await play_thumb(videoid)
             queued = await queue_thumb(videoid)
