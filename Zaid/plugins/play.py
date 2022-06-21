@@ -41,7 +41,7 @@ from Zaid.helpers.queues import (
 from telethon import Button, events
 from Config import Config
 
-from Zaid.helpers.thumbnail import gen_thumb
+from Zaid.helpers.thumbnail import *
 
 
 def vcmention(user):
@@ -168,10 +168,13 @@ async def play(event):
             url = search[1]
             duration = search[2]
             thumbnail = search[3]
+            videoid = search[4]
             userid = sender.id
             titlegc = chat.title
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(thumbnail, title, userid, ctitle)
+            thumb = await play_thumb(videoid)
+            queued = await queue_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
             hm, ytlink = await ytdl(format, url)
             if hm == 0:
@@ -180,7 +183,7 @@ async def play(event):
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                 caption = f"💡 **Song Added To queue »** `#{pos}`\n\n**🏷 Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n🎧 **Requester:** {from_user}"
                 await botman.delete()
-                await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
+                await event.client.send_file(chat_id, queued, caption=caption, buttons=btnn)
             else:
                 try:
                     await call_py.join_group_call(
