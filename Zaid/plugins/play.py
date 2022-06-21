@@ -152,7 +152,7 @@ async def play(event):
         return await event.reply("**Give Me Your Query Which You want to Play**")
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("`Featching Details...`")
-        query = event.text.split(maxsplit=1)[1]
+        query = event.text.split(None, 1)[1]
         search = ytsearch(query)
         if search == 0:
             await botman.edit(
