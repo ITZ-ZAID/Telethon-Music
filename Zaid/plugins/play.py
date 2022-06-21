@@ -172,7 +172,6 @@ async def play(event):
             userid = sender.id
             titlegc = chat.title
             ctitle = await CHAT_TITLE(titlegc)
-            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
             thumb = await play_thumb(videoid)
             queued = await queue_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
