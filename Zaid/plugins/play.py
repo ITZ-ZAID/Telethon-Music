@@ -165,7 +165,7 @@ async def play(event):
             print(e)
             pass    
         else:
-            songname = search[0]
+            songname = search[int][0]
             title = search[0]
             url = search[1]
             duration = search[2]
