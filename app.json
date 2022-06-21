@@ -24,6 +24,21 @@
             "required": false,
             "value": "4e984ea35f854762dcde906dce426c2d"
         },
+        "SUPPORT": {
+            "description": "Fill there your group username else leave",
+            "required": false,
+            "value": "TheSupportChat"
+        },
+        "CHANNEL": {
+            "description": "Fill there your Channel username else leave",
+            "required": false,
+            "value": "TheUpdatesChannel"
+        },
+        "BOT_USERNAME": {
+            "description": "Fill there your bot username",
+            "required": false,
+            "value": "Zaid2_Robot"
+        },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
