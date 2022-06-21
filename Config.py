@@ -9,4 +9,4 @@ class Config(object):
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "Zaid2_Robot")
     SUPPORT = os.environ.get("SUPPORT", "TheSupportChat")
     CHANNEL = os.environ.get("CHANNEL", "TheUpdatesChannel")
-    BOT_NAME = os.environ.get("BOT_NAME", "Zaid")
+    BOT_NAME = os.environ.get("BOT_NAME", "Zaid Robot")
