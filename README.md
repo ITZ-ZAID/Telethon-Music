@@ -5,11 +5,11 @@
 
 <p align="center">𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐞 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧</p>
 
-<p align="center"><a href="https://replit.com/@Itz-zaid/Generator"> <img src="https://img.shields.io/badge/String%20Session-black?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://itz-zaid.github.io/telethon.github.io/"> <img src="https://img.shields.io/badge/String%20Session-black?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
 ## ᴅᴇᴘʟᴏʏ
 
-Note: This Code Based On Telethon So You need [Telethon String Session](https://replit.com/@Itz-zaid/Generator) And A bot token from @botfather 
+Note: This Code Based On Telethon So You need [Telethon String Session](https://itz-zaid.github.io/telethon.github.io/) And A bot token from @botfather 
 
 [ꜰᴏʀᴋ ᴅᴇᴘʟᴏʏ ɪꜱ ʜɪɢʜʟʏ ʀᴇᴄᴏᴍᴍᴇɴᴅᴇᴅ](https://telegra.ph/file/5bcf79f948ca06030640c.mp4)
 
