@@ -51,7 +51,8 @@ def vcmention(user):
     return f"[{full_name}](tg://user?id={user.id})"
 
 
-def ytsearch(query: str):
+
+def ytsearch(query):
     try:
         search = VideosSearch(query, limit=1).result()
         data = search["result"][0]
