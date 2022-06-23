@@ -1,6 +1,7 @@
 from telethon import events, Button, types
 from Zaid import Zaid
 from Zaid.status import *
+from config import Config
 
 PINS_TEXT = """
 **✘ All the pin related commands can be found here; keep your chat up to date on the latest news with a simple pinned message!**
@@ -15,6 +16,8 @@ PINS_TEXT = """
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]pinned"))
 async def get_pinned(event):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     chat_id = (str(event.chat_id)).replace("-100", "")
 
     Ok = await Zaid.get_messages(event.chat_id, ids=types.InputMessagePinned()) 
@@ -24,6 +27,8 @@ async def get_pinned(event):
 @Zaid.on(events.NewMessage(pattern="^[!?/]pin ?(.*)"))
 @is_admin
 async def pin(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.pin_messages:
        await event.reply("You are missing the following rights to use this command:CanPinMsgs.")
        return
@@ -40,6 +45,8 @@ async def pin(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]unpin ?(.*)"))
 @is_admin
 async def unpin(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.pin_messages:
        await event.reply("You are missing the following rights to use this command:CanPinMsgs.")
        return
@@ -51,6 +58,8 @@ async def unpin(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]permapin"))
 @is_admin
 async def permapin(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.pin_messages:
        await event.reply("You are missing the following rights to use this command:CanPinMsgs.")
        return
@@ -64,6 +73,8 @@ async def permapin(event, perm):
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]unpinall"))
 async def unpinall(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.pin_messages:
        await event.reply("You are missing the following rights to use this command:CanPinMsgs!")
        return
@@ -79,6 +90,8 @@ This action can't be undone!
 
 @Zaid.on(events.callbackquery.CallbackQuery(data="unpin"))
 async def confirm(event):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     check = await event.client.get_permissions(event.chat_id, event.sender_id)
     if check.is_creator:
         await Zaid.unpin_message(event.chat_id)
@@ -89,7 +102,8 @@ async def confirm(event):
 
 @Zaid.on(events.callbackquery.CallbackQuery(data="cancel"))
 async def cancel(event):
-
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     check = await event.client.get_permissions(event.chat_id, event.sender_id)
     if check.is_creator:
         await event.edit("Unpinning of all msgs has been cancelled!")
