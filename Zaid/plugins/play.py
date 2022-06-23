@@ -27,7 +27,7 @@ from youtubesearchpython import VideosSearch
  
 fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
-from Zaid import call_py, Zaid, client as Client
+from Zaid import call_py, Zaid, client as cli1
 owner = "1669178360"
 from Zaid.helpers.yt_dlp import bash
 from Zaid.helpers.chattitle import CHAT_TITLE
@@ -137,7 +137,8 @@ async def play(event):
     sender = await event.get_sender()
     chat = await event.get_chat()
     chat_id = event.chat_id
-    from_user = vcmention(event.sender) 
+    from_user = vcmention(event.sender)
+    link = await Zaid(ExportChatInviteRequest(event.chat_id)) 
     public = event.chat_id
     if (
         replied
@@ -158,7 +159,7 @@ async def play(event):
             ) 
     if event.is_group:
         try:
-            await Client(functions.channels.JoinChannelRequest(channel=public))
+            await cli1(functions.channels.JoinChannelRequest(channel=public))
         except Exception as e:
             print(e)
             pass    
