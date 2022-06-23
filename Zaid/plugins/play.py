@@ -29,7 +29,7 @@ from youtubesearchpython import VideosSearch
  
 fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
-from Zaid import call_py, Zaid, client as cli1
+from Zaid import call_py, call_py2, call_py3, call_py4, call_py5, Zaid, client as cli1, client2, client3, client4, client5
 owner = "1669178360"
 from Zaid.helpers.yt_dlp import bash
 from Zaid.helpers.chattitle import CHAT_TITLE
@@ -91,9 +91,20 @@ async def skip_item(chat_id: int, x: int):
 async def skip_current_song(chat_id: int):
     if chat_id not in QUEUE:
         return 0
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     chat_queue = get_queue(chat_id)
     if len(chat_queue) == 1:
-        await call_py.leave_group_call(chat_id)
+        if int(assistant) == 1:
+           await call_py.leave_group_call(chat_id)
+        if int(assistant) == 2:
+           await call_py2.leave_group_call(chat_id)
+        if int(assistant) == 3:
+           await call_py3.leave_group_call(chat_id)
+        if int(assistant) == 4:
+           await call_py4.leave_group_call(chat_id)
+        if int(assistant) == 5:
+           await call_py5.leave_group_call(chat_id)
         clear_queue(chat_id)
         return 1
     songname = chat_queue[1][0]
@@ -102,12 +113,41 @@ async def skip_current_song(chat_id: int):
     type = chat_queue[1][3]
     RESOLUSI = chat_queue[1][4]
     if type == "Audio":
-        await call_py.change_stream(
-            chat_id,
-            AudioPiped(
-                url,
-            ),
-        )
+        if int(assistant) == 1:
+           await call_py.change_stream(
+               chat_id,
+               AudioPiped(
+                   url,
+               ),
+           )
+        if int(assistant) == 2:
+           await call_py2.change_stream(
+               chat_id,
+               AudioPiped(
+                   url,
+               ),
+           )
+        if int(assistant) == 3:
+           await call_py3.change_stream(
+               chat_id,
+               AudioPiped(
+                   url,
+               ),
+           )
+        if int(assistant) == 4:
+           await call_py4.change_stream(
+               chat_id,
+               AudioPiped(
+                   url,
+               ),
+           )
+        if int(assistant) == 5:
+           await call_py5.change_stream(
+               chat_id,
+               AudioPiped(
+                   url,
+               ),
+           )
     elif type == "Video":
         if RESOLUSI == 720:
             hm = HighQualityVideo()
@@ -115,9 +155,26 @@ async def skip_current_song(chat_id: int):
             hm = MediumQualityVideo()
         elif RESOLUSI == 360:
             hm = LowQualityVideo()
-        await call_py.change_stream(
-            chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
-        )
+        if int(assistant) == 1:
+           await call_py.change_stream(
+               chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+           )
+        if int(assistant) == 2:
+           await call_py2.change_stream(
+               chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+           )
+        if int(assistant) == 3:
+           await call_py3.change_stream(
+               chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+           )
+        if int(assistant) == 4:
+           await call_py4.change_stream(
+               chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+           )
+        if int(assistant) == 5:
+           await call_py5.change_stream(
+               chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+           )
     pop_an_item(chat_id)
     return [songname, link, type]
 
@@ -143,6 +200,7 @@ async def play(event):
     from_user = vcmention(event.sender)
     link = await Zaid(ExportChatInviteRequest(event.chat_id))
     _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if not _assistant:
         ran_ass = random.choice(random_assistant)
         assis = {
@@ -170,7 +228,16 @@ async def play(event):
             )
     if event.is_group:
         try:
-            await cli1(ImportChatInviteRequest(link.link))
+            if int(assistant) == 1:
+               await cli1(ImportChatInviteRequest(link.link))
+            if int(assistant) == 2:
+               await client2(ImportChatInviteRequest(link.link))
+            if int(assistant) == 3:
+               await client3(ImportChatInviteRequest(link.link))
+            if int(assistant) == 4:
+               await client4(ImportChatInviteRequest(link.link))
+            if int(assistant) == 5:
+               await client5(ImportChatInviteRequest(link.link))
         except Exception as e:
             print(e)
             pass    
@@ -195,13 +262,46 @@ async def play(event):
                 await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
             else:
                 try:
-                    await call_py.join_group_call(
-                        chat_id,
-                        AudioPiped(
-                            ytlink,
-                        ),
-                        stream_type=StreamType().pulse_stream,
-                    )
+                    if int(assistant) == 1:
+                       await call_py.join_group_call(
+                           chat_id,
+                           AudioPiped(
+                               ytlink,
+                           ),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 2:
+                       await call_py2.join_group_call(
+                           chat_id,
+                           AudioPiped(
+                               ytlink,
+                           ),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 3:
+                       await call_py3.join_group_call(
+                           chat_id,
+                           AudioPiped(
+                               ytlink,
+                           ),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 4:
+                       await call_py4.join_group_call(
+                           chat_id,
+                           AudioPiped(
+                               ytlink,
+                           ),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 5:
+                       await call_py5.join_group_call(
+                           chat_id,
+                           AudioPiped(
+                               ytlink,
+                           ),
+                           stream_type=StreamType().pulse_stream,
+                       )
                     add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                     caption = f"🏷 **Name:** [{songname}]({url})\n**⏱ Duration:** `{duration}`\n💡 **Status:** `Playing`\n🎧 **Requester:** {from_user}"
                     await botman.delete()
@@ -225,13 +325,46 @@ async def play(event):
             await botman.delete()
         else:
             try:
-                await call_py.join_group_call(
-                    chat_id,
-                    AudioPiped(
-                        dl,
-                    ),
-                    stream_type=StreamType().pulse_stream,
-                )
+                if int(assistant) == 1:
+                   await call_py.join_group_call(
+                        chat_id,
+                        AudioPiped(
+                            dl,
+                        ),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                if int(assistant) == 2:
+                   await call_py2.join_group_call(
+                        chat_id,
+                        AudioPiped(
+                            dl,
+                        ),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                if int(assistant) == 3:
+                   await call_py3.join_group_call(
+                        chat_id,
+                        AudioPiped(
+                            dl,
+                        ),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                if int(assistant) == 4:
+                   await call_py4.join_group_call(
+                        chat_id,
+                        AudioPiped(
+                            dl,
+                        ),
+                        stream_type=StreamType().pulse_stream,
+                    )
+                if int(assistant) == 5:
+                   await call_py5.join_group_call(
+                        chat_id,
+                        AudioPiped(
+                            dl,
+                        ),
+                        stream_type=StreamType().pulse_stream,
+                    )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 caption = f"🏷 **Title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
                 await event.client.send_file(chat_id, fotoplay, caption=caption, buttons=btnn)
@@ -249,9 +382,20 @@ async def play(event):
 @is_admin
 async def vc_end(event, perm):
     chat_id = event.chat_id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.leave_group_call(chat_id)
+            if int(assistant) == 1:
+               await call_py.leave_group_call(chat_id)
+            if int(assistant) == 2:
+               await call_py2.leave_group_call(chat_id)
+            if int(assistant) == 3:
+               await call_py3.leave_group_call(chat_id)
+            if int(assistant) == 4:
+               await call_py4.leave_group_call(chat_id)
+            if int(assistant) == 5:
+               await call_py5.leave_group_call(chat_id)
             clear_queue(chat_id)
             await event.reply("**Streaming Ended**")
         except Exception as e:
@@ -276,6 +420,8 @@ async def vplay(event):
     titlegc = chat.title
     chat_id = event.chat_id
     public = event.chat_id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     from_user = vcmention(event.sender)
     if (
         replied
@@ -318,11 +464,36 @@ async def vplay(event):
                 await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
             else:
                 try:
-                    await call_py.join_group_call(
-                        chat_id,
-                        AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
-                        stream_type=StreamType().pulse_stream,
-                    )
+                    if int(assistant) == 1:
+                       await call_py.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 2:
+                       await call_py2.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 3:
+                       await call_py3.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 4:
+                       await call_py4.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 5:
+                       await call_py5.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
                     add_to_queue(
                         chat_id,
                         songname,
@@ -363,11 +534,36 @@ async def vplay(event):
             elif RESOLUSI == 720:
                 hmmm = HighQualityVideo()
             try:
-                await call_py.join_group_call(
-                    chat_id,
-                    AudioVideoPiped(dl, HighQualityAudio(), hmmm),
-                    stream_type=StreamType().pulse_stream,
-                )
+                if int(assistant) == 1:
+                   await call_py.join_group_call(
+                       chat_id,
+                       AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                       stream_type=StreamType().pulse_stream,
+                   )
+                if int(assistant) == 2:
+                   await call_py2.join_group_call(
+                       chat_id,
+                       AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                       stream_type=StreamType().pulse_stream,
+                   )
+                if int(assistant) == 3:
+                   await call_py3.join_group_call(
+                       chat_id,
+                       AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                       stream_type=StreamType().pulse_stream,
+                   )
+                if int(assistant) == 4:
+                   await call_py4.join_group_call(
+                       chat_id,
+                       AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                       stream_type=StreamType().pulse_stream,
+                   )
+                if int(assistant) == 5:
+                   await call_py5.join_group_call(
+                       chat_id,
+                       AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                       stream_type=StreamType().pulse_stream,
+                   )
                 add_to_queue(chat_id, songname, dl, link, "Video", RESOLUSI)
                 caption = f"🏷 **title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
                 await xnxx.delete()
@@ -403,11 +599,36 @@ async def vplay(event):
                 await event.client.send_file(chat_id, thumb, caption=caption, buttons=btnn)
             else:
                 try:
-                    await call_py.join_group_call(
-                        chat_id,
-                        AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
-                        stream_type=StreamType().pulse_stream,
-                    )
+                    if int(assistant) == 1:
+                       await call_py.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 2:
+                       await call_py2.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 3:
+                       await call_py3.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 4:
+                       await call_py4.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 5:
+                       await call_py5.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
                     add_to_queue(
                         chat_id,
                         songname,
@@ -462,9 +683,20 @@ async def leavevc(event, perm):
     xnxx = await event.reply("Processing")
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if from_user:
         try:
-            await call_py.leave_group_call(chat_id)
+            if int(assistant) == 1:
+               await call_py.leave_group_call(chat_id)
+            if int(assistant) == 2:
+               await call_py2.leave_group_call(chat_id)
+            if int(assistant) == 3:
+               await call_py3.leave_group_call(chat_id)
+            if int(assistant) == 4:
+               await call_py4.leave_group_call(chat_id)
+            if int(assistant) == 5:
+               await call_py5.leave_group_call(chat_id)
         except (NotInGroupCallError, NoActiveGroupCall):
             pass
         await xnxx.edit("**Left the voice chat** `{}`".format(str(event.chat_id)))
@@ -506,9 +738,20 @@ async def vc_skip(event, perm):
 @is_admin
 async def vc_pause(event, perm):
     chat_id = event.chat_id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.pause_stream(chat_id)
+            if int(assistant) == 1:
+               await call_py.pause_stream(chat_id)
+            if int(assistant) == 2:
+               await call_py2.pause_stream(chat_id)
+            if int(assistant) == 3:
+               await call_py3.pause_stream(chat_id)
+            if int(assistant) == 4:
+               await call_py4.pause_stream(chat_id)
+            if int(assistant) == 5:
+               await call_py5.pause_stream(chat_id)
             await event.reply("**Streaming Paused**")
         except Exception as e:
             await event.reply(f"**ERROR:** `{e}`")
@@ -521,9 +764,20 @@ async def vc_pause(event, perm):
 @is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
     if chat_id in QUEUE:
         try:
-            await call_py.resume_stream(chat_id)
+            if int(assistant) == 1:
+               await call_py.resume_stream(chat_id)
+            if int(assistant) == 2:
+               await call_py2.resume_stream(chat_id)
+            if int(assistant) == 3:
+               await call_py3.resume_stream(chat_id)
+            if int(assistant) == 4:
+               await call_py4.resume_stream(chat_id)
+            if int(assistant) == 5:
+               await call_py5.resume_stream(chat_id)
             await event.reply(event, "**Streaming Started Back 🔙**")
         except Exception as e:
             await event.reply(event, f"**ERROR:** `{e}`")
