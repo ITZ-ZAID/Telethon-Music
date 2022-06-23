@@ -9,7 +9,8 @@ from pytgcalls.types.input_stream.quality import (
 )
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
-from telethon.tl.functions.messages import ImportChatInviteRequest
+from telethon.tl.functions.messages import ExportChatInviteRequest
+
 from pytgcalls.exceptions import (
     NoActiveGroupCall,
     NotInGroupCallError
