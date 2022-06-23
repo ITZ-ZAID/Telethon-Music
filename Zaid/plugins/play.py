@@ -11,6 +11,7 @@ from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
 
+from Zaid import random_assistant
 from pytgcalls.exceptions import (
     NoActiveGroupCall,
     NotInGroupCallError
@@ -141,16 +142,15 @@ async def play(event):
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
     link = await Zaid(ExportChatInviteRequest(event.chat_id))
-    _assistant = await get_assistant(message.chat.id, "assistant")
+    _assistant = await get_assistant(chat_id, "assistant")
     if not _assistant:
         ran_ass = random.choice(random_assistant)
         assis = {
             "saveassistant": ran_ass,
         }
-        await save_assistant(message.chat.id, "assistant", assis)
+        await save_assistant(chat_id, "assistant", assis)
     else:
         ran_ass = _assistant["saveassistant"]
-    public = event.chat_id
     if (
         replied
         and not replied.audio
