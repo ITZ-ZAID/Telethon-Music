@@ -49,6 +49,7 @@ random_assistant = []
 client.start()
 call_py.start()
 random_assistant.append(1)
+random_assistant.append(6)
 
 if Config.STRING_SESSION2 != "None":
    client2.start()
