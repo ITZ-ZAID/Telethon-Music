@@ -238,6 +238,8 @@ async def play(event):
                await client4(ImportChatInviteRequest(link.link))
             if int(assistant) == 5:
                await client5(ImportChatInviteRequest(link.link))
+            if int(assistant) == 6:
+               await cli1(ImportChatInviteRequest(link.link))
         except Exception as e:
             print(e)
             pass    
@@ -296,6 +298,14 @@ async def play(event):
                        )
                     if int(assistant) == 5:
                        await call_py5.join_group_call(
+                           chat_id,
+                           AudioPiped(
+                               ytlink,
+                           ),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 6:
+                       await call_py.join_group_call(
                            chat_id,
                            AudioPiped(
                                ytlink,
@@ -365,6 +375,14 @@ async def play(event):
                         ),
                         stream_type=StreamType().pulse_stream,
                     )
+                if int(assistant) == 6:
+                   await call_py.join_group_call(
+                        chat_id,
+                        AudioPiped(
+                            dl,
+                        ),
+                        stream_type=StreamType().pulse_stream,
+                    )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 caption = f"🏷 **Title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
                 await event.client.send_file(chat_id, fotoplay, caption=caption, buttons=btnn)
@@ -396,6 +414,8 @@ async def vc_end(event, perm):
                await call_py4.leave_group_call(chat_id)
             if int(assistant) == 5:
                await call_py5.leave_group_call(chat_id)
+            if int(assistant) == 6:
+               await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
             await event.reply("**Streaming Ended**")
         except Exception as e:
@@ -494,6 +514,12 @@ async def vplay(event):
                            AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
                            stream_type=StreamType().pulse_stream,
                        )
+                    if int(assistant) == 6:
+                       await call_py.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
                     add_to_queue(
                         chat_id,
                         songname,
@@ -564,6 +590,12 @@ async def vplay(event):
                        AudioVideoPiped(dl, HighQualityAudio(), hmmm),
                        stream_type=StreamType().pulse_stream,
                    )
+                if int(assistant) == 6:
+                   await call_py.join_group_call(
+                       chat_id,
+                       AudioVideoPiped(dl, HighQualityAudio(), hmmm),
+                       stream_type=StreamType().pulse_stream,
+                   )
                 add_to_queue(chat_id, songname, dl, link, "Video", RESOLUSI)
                 caption = f"🏷 **title:** [{songname}]({link})\n**👥 Chat ID:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Requested:** {from_user}"
                 await xnxx.delete()
@@ -625,6 +657,12 @@ async def vplay(event):
                        )
                     if int(assistant) == 5:
                        await call_py5.join_group_call(
+                           chat_id,
+                           AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
+                           stream_type=StreamType().pulse_stream,
+                       )
+                    if int(assistant) == 6:
+                       await call_py.join_group_call(
                            chat_id,
                            AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
                            stream_type=StreamType().pulse_stream,
@@ -697,6 +735,8 @@ async def leavevc(event, perm):
                await call_py4.leave_group_call(chat_id)
             if int(assistant) == 5:
                await call_py5.leave_group_call(chat_id)
+            if int(assistant) == 6:
+               await call_py.leave_group_call(chat_id)
         except (NotInGroupCallError, NoActiveGroupCall):
             pass
         await xnxx.edit("**Left the voice chat** `{}`".format(str(event.chat_id)))
@@ -752,6 +792,8 @@ async def vc_pause(event, perm):
                await call_py4.pause_stream(chat_id)
             if int(assistant) == 5:
                await call_py5.pause_stream(chat_id)
+            if int(assistant) == 6:
+               await call_py.pause_stream(chat_id)
             await event.reply("**Streaming Paused**")
         except Exception as e:
             await event.reply(f"**ERROR:** `{e}`")
@@ -778,6 +820,8 @@ async def vc_resume(event, perm):
                await call_py4.resume_stream(chat_id)
             if int(assistant) == 5:
                await call_py5.resume_stream(chat_id)
+            if int(assistant) == 6:
+               await call_py.resume_stream(chat_id)
             await event.reply(event, "**Streaming Started Back 🔙**")
         except Exception as e:
             await event.reply(event, f"**ERROR:** `{e}`")
