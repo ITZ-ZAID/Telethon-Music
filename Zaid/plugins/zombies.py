@@ -4,7 +4,7 @@ from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChannelParticipantsAdmins, ChatBannedRights
 from Zaid import Zaid
 from Zaid.status import *
-
+from config import Config
 
 CLEANER_HELP = """
 **✘ This is A Module To Remove Deleted Accounts From Your Groups!**
@@ -41,6 +41,8 @@ UNBAN_RIGHTS = ChatBannedRights(
 @Zaid.on(events.NewMessage(pattern="^[!?/]zombies ?(.*)"))
 @is_admin
 async def clean(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.ban_users:
       await event.reply("You don't have enough rights")
       return
