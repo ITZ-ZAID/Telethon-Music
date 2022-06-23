@@ -39,6 +39,7 @@ from Zaid.helpers.queues import (
     get_queue,
     pop_an_item,
 )
+from Zaid.Database.clientdb import *
 from telethon import Button, events
 from Config import Config
 
@@ -139,7 +140,16 @@ async def play(event):
     chat = await event.get_chat()
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
-    link = await Zaid(ExportChatInviteRequest(event.chat_id)) 
+    link = await Zaid(ExportChatInviteRequest(event.chat_id))
+    _assistant = await get_assistant(message.chat.id, "assistant")
+    if not _assistant:
+        ran_ass = random.choice(random_assistant)
+        assis = {
+            "saveassistant": ran_ass,
+        }
+        await save_assistant(message.chat.id, "assistant", assis)
+    else:
+        ran_ass = _assistant["saveassistant"]
     public = event.chat_id
     if (
         replied
@@ -157,7 +167,7 @@ async def play(event):
         if search == 0:
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
-            ) 
+            )
     if event.is_group:
         try:
             await cli1(ImportChatInviteRequest(link.link))
