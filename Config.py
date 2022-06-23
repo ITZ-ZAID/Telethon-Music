@@ -24,6 +24,7 @@ class Config(object):
         STRING_SESSION5 = str(None)
     else:
         STRING_SESSION5 = str(getenv("STRING_SESSION5"))
+    MONGO_DB_URL = os.environ.get("MONGO_DB_URL", None)
     HEROKU_MODE = os.environ.get("HEROKU_MODE", None)
     MANAGEMENT_MODE = os.environ.get("MANAGEMENT_MODE", None)
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "Zaid2_Robot")
