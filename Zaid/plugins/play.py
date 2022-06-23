@@ -105,6 +105,8 @@ async def skip_current_song(chat_id: int):
            await call_py4.leave_group_call(chat_id)
         if int(assistant) == 5:
            await call_py5.leave_group_call(chat_id)
+        if int(assistant) == 6:
+           await call_py.leave_group_call(chat_id)
         clear_queue(chat_id)
         return 1
     songname = chat_queue[1][0]
@@ -148,6 +150,13 @@ async def skip_current_song(chat_id: int):
                    url,
                ),
            )
+        if int(assistant) == 6:
+           await call_py.change_stream(
+               chat_id,
+               AudioPiped(
+                   url,
+               ),
+           )
     elif type == "Video":
         if RESOLUSI == 720:
             hm = HighQualityVideo()
@@ -173,6 +182,10 @@ async def skip_current_song(chat_id: int):
            )
         if int(assistant) == 5:
            await call_py5.change_stream(
+               chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
+           )
+        if int(assistant) == 6:
+           await call_py.change_stream(
                chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
            )
     pop_an_item(chat_id)
