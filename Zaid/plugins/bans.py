@@ -1,5 +1,6 @@
 from Zaid import Zaid
 from Zaid.status import *
+from config import Config
 from telethon import events, Button
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
@@ -20,6 +21,8 @@ BANS_TEXT = """
 @Zaid.on(events.NewMessage(pattern="^[!?/]kick ?(.*)"))
 @is_admin
 async def kick(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
 
     if event.is_private:
         await event.reply("This cmd is made to be used in groups not PM")
@@ -41,7 +44,8 @@ async def kick(event, perm):
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]kickme"))
 async def kickme(event):
-
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if event.is_private:
         await event.reply("This cmd is made to be used in groups not PM")
         return
@@ -57,6 +61,8 @@ async def kickme(event):
 @Zaid.on(events.NewMessage(pattern="^[!?/]ban ?(.*)"))
 @is_admin
 async def ban(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if event.is_private:
         await event.reply("This cmd is made to be used in groups not PM")
         return
@@ -77,6 +83,8 @@ async def ban(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]unban ?(.*)"))
 @is_admin
 async def unban(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if event.is_private:
         await event.reply("This cmd is made to be used in groups not PM")
         return
@@ -97,6 +105,8 @@ async def unban(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]skick"))
 @is_admin
 async def skick(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.ban_users:
          await event.reply("You are missing the following rights to use this command:CanBanUsers!")
          return
@@ -116,6 +126,8 @@ async def skick(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]dkick"))
 @is_admin
 async def dkick(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.ban_users:
          await event.reply("You are missing the following rights to use this command:CanBanUsers!")
          return
@@ -133,6 +145,8 @@ async def dkick(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]dban"))
 @is_admin
 async def dban(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.ban_users:
          await event.reply("You are missing the following rights to use this command:CanBanUsers!")
          return
@@ -152,6 +166,8 @@ async def dban(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]sban"))
 @is_admin
 async def sban(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.ban_users:
          await event.reply("You are missing the following rights to use this command:CanBanUsers!")
          return
