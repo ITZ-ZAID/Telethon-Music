@@ -2,6 +2,7 @@ from telethon import events, Button
 from Zaid import Zaid
 from Zaid.status import *
 import time
+from config import Config
 
 PR_HELP = """
 **✘ Need to delete lots of messages? That's what purges are for!**
@@ -14,6 +15,8 @@ PR_HELP = """
 @Zaid.on(events.NewMessage(pattern=r"^[?!]purge"))
 @is_admin
 async def purge_messages(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.delete_messages:
          await event.reply("You are missing the following rights to use this command:CanDelMsgs!")
          return
@@ -42,6 +45,8 @@ async def purge_messages(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]spurge"))
 @is_admin
 async def spurge(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.delete_messages:
          await event.reply("You are missing the following rights to use this command:CanDelMsgs!")
          return
@@ -67,6 +72,8 @@ async def spurge(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]del$"))
 @is_admin
 async def delete_messages(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.delete_messages:
        await event.reply("You are missing the following rights to use this command:CanDelMsgs!")
        return
