@@ -38,7 +38,8 @@ async def id(event):
  
 @Zaid.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
 async def info(event):
-
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     sed = await Zaid(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
     hn = await Zaid(GetFullUserRequest(event.sender_id))
     text = "**✘ UserInfo:**\n\n"
