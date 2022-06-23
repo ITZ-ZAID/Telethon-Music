@@ -45,21 +45,27 @@ call_py2 = PyTgCalls(client2)
 call_py3 = PyTgCalls(client3)
 call_py4 = PyTgCalls(client4)
 call_py5 = PyTgCalls(client5)
+random_assistant = []
 client.start()
 call_py.start()
+random_assistant.append(1)
 
 if Config.STRING_SESSION2 != "None":
    client2.start()
    call_py2.start()
+   random_assistant.append(2)
 
 if Config.STRING_SESSION3 != "None":
    client3.start()
    call_py3.start()
+   random_assistant.append(3)
 
 if Config.STRING_SESSION4 != "None":
    client4.start()
    call_py4.start()
+   random_assistant.append(4)
 
 if Config.STRING_SESSION5 != "None":
    client5.start()
    call_py5.start()
+   random_assistant.append(5)
