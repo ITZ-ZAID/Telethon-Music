@@ -160,7 +160,7 @@ async def play(event):
             ) 
     if event.is_group:
         try:
-            await cli1(functions.channels.JoinChannelRequest(channel=public))
+            await cli1(ImportChatInviteRequest(link.link))
         except Exception as e:
             print(e)
             pass    
