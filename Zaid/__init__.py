@@ -18,6 +18,48 @@ BOT_USERNAME = Config.BOT_USERNAME
 bot = TelegramClient('Zaid', api_id=Config.API_ID, api_hash=Config.API_HASH)
 Zaid = bot.start(bot_token=Config.BOT_TOKEN)
 client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Config.API_HASH)
+
+if not Config.STRING_SESSION2:
+   client2 = None
+else;
+   client2 = TelegramClient(StringSession(Config.STRING_SESSION2), Config.API_ID, Config.API_HASH)
+
+if not Config.STRING_SESSION3:
+   client3 = None
+else;
+   client3 = TelegramClient(StringSession(Config.STRING_SESSION3), Config.API_ID, Config.API_HASH)
+
+if not Config.STRING_SESSION4:
+   client4 = None
+else;
+   client4 = TelegramClient(StringSession(Config.STRING_SESSION4), Config.API_ID, Config.API_HASH)
+
+if not Config.STRING_SESSION5:
+   client5 = None
+else;
+   client5 = TelegramClient(StringSession(Config.STRING_SESSION5), Config.API_ID, Config.API_HASH)
+
+
 call_py = PyTgCalls(client)
+call_py2 = PyTgCalls(client2)
+call_py3 = PyTgCalls(client3)
+call_py4 = PyTgCalls(client4)
+call_py5 = PyTgCalls(client5)
 client.start()
 call_py.start()
+
+if Config.STRING_SESSION2 != "None":
+   client2.start()
+   call_py2.start()
+
+if Config.STRING_SESSION3 != "None":
+   client3.start()
+   call_py3.start()
+
+if Config.STRING_SESSION4 != "None":
+   client4.start()
+   call_py4.start()
+
+if Config.STRING_SESSION5 != "None":
+   client5.start()
+   call_py5.start()
