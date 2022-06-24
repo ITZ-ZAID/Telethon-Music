@@ -21,22 +21,22 @@ client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Con
 
 if not Config.STRING_SESSION2:
    client2 = None
-else;
+else:
    client2 = TelegramClient(StringSession(Config.STRING_SESSION2), Config.API_ID, Config.API_HASH)
 
 if not Config.STRING_SESSION3:
    client3 = None
-else;
+else:
    client3 = TelegramClient(StringSession(Config.STRING_SESSION3), Config.API_ID, Config.API_HASH)
 
 if not Config.STRING_SESSION4:
    client4 = None
-else;
+else:
    client4 = TelegramClient(StringSession(Config.STRING_SESSION4), Config.API_ID, Config.API_HASH)
 
 if not Config.STRING_SESSION5:
    client5 = None
-else;
+else:
    client5 = TelegramClient(StringSession(Config.STRING_SESSION5), Config.API_ID, Config.API_HASH)
 
 
