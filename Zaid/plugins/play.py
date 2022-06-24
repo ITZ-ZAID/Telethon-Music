@@ -225,6 +225,10 @@ async def play(event):
     assistant = _assistant['saveassistant']
     invitelink = link.link
     try:
+        if invitelink.startswith("https://t.me/+"):
+            invitelink = invitelink.replace(
+                "https://t.me/+", "https://t.me/joinchat/"
+            )
         if int(assistant) == 1:
            await cli1(ImportChatInviteRequest(invitelink))
         if int(assistant) == 2:
