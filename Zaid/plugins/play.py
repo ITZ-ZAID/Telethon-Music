@@ -223,27 +223,28 @@ async def play(event):
     else:
         ran_ass = _assistant["saveassistant"]
     assistant = _assistant['saveassistant']
-    if event.chat_username:
-       try:
-          cli1(functions.channels.JoinChannelRequest(channel=event.chat_username))
-    else:
-       invitelink = link.link
-       try:
-           if int(assistant) == 1:
-              await cli1(ImportChatInviteRequest(invitelink))
-           if int(assistant) == 2:
-              await client2(ImportChatInviteRequest(invitelink))
-           if int(assistant) == 3:
-              await client3(ImportChatInviteRequest(invitelink))
-           if int(assistant) == 4:
-              await client4(ImportChatInviteRequest(invitelink))
-           if int(assistant) == 5:
-              await client5(ImportChatInviteRequest(invitelink))
-           if int(assistant) == 6:
-              await cli1(ImportChatInviteRequest(invitelink))
-       except Exception as e:
-           print(e)
-           pass
+    try:
+       if event.chat_username:
+          try:
+             cli1(functions.channels.JoinChannelRequest(channel=event.chat_username))
+       else:
+          invitelink = link.link
+          try:
+              if int(assistant) == 1:
+                 await cli1(ImportChatInviteRequest(invitelink))
+              if int(assistant) == 2:
+                 await client2(ImportChatInviteRequest(invitelink))
+              if int(assistant) == 3:
+                 await client3(ImportChatInviteRequest(invitelink))
+              if int(assistant) == 4:
+                 await client4(ImportChatInviteRequest(invitelink))
+              if int(assistant) == 5:
+                 await client5(ImportChatInviteRequest(invitelink))
+              if int(assistant) == 6:
+                 await cli1(ImportChatInviteRequest(invitelink))
+          except Exception as e:
+              print(e)
+              pass
     if (
         replied
         and not replied.audio
