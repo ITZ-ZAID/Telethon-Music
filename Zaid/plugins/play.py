@@ -7,6 +7,7 @@ from pytgcalls.types.input_stream.quality import (
     LowQualityVideo,
     MediumQualityVideo,
 )
+import random
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
