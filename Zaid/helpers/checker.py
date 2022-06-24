@@ -49,7 +49,7 @@ def AssistantAdd(mystic):
         try:
             b = await client(GetParticipantRequest(event.chat_id, ASSID))
         except UserNotParticipantError:
-            if chat.username:
+            if event.is_group:
                 try:
                     link = await event.client(ExportChatInviteRequest(event.chat_id))
                     if invitelink.startswith("https://t.me/+"):
