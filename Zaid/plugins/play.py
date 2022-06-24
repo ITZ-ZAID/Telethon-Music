@@ -223,7 +223,7 @@ async def play(event):
     else:
         ran_ass = _assistant["saveassistant"]
     assistant = _assistant['saveassistant']
-    invitelink = ' '.join(link.link[14:])
+    invitelink = ' '.join(link.link[15:])
     if int(assistant) == 1:
        await cli1(ImportChatInviteRequest(invitelink))
     if int(assistant) == 2:
