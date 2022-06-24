@@ -35,8 +35,17 @@ def AssistantAdd(mystic):
             }
             await save_assistant(event.chat_id, "assistant", assis)
         try:
-            b = await app.get_chat_member(event.chat_id, ASS_ID)
-        except UserNotParticipant:
+            if int(assistant) == 1:
+               b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID))
+            if int(assistant) == 2:
+               b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID2))
+            if int(assistant) == 3:
+               b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID3))
+            if int(assistant) == 4:
+               b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID4))
+            if int(assistant) == 5:
+               b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID5))
+        except UserNotParticipantError:
             if event.chat_username:
                 try:
                     await ASS_ACC.join_chat(message.chat.username)
