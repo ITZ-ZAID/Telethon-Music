@@ -9,3 +9,4 @@ youtube-search-python
 speedtest-cli
 python-dotenv
 motor
+pymongo
