@@ -55,8 +55,8 @@ def AssistantAdd(mystic):
             if event.is_group:
                 try:
                     link = await event.client(ExportChatInviteRequest(event.chat_id))
-                    invitelinkk = link.link
-                    invitelink = invitelinkk.replace(
+                    invitelink = link.link
+                    invitelink = invitelink.replace(
                          "https://t.me/+", "https://t.me/joinchat/"
                     )
                     if int(assistant) == 1:
