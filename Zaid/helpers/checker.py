@@ -1,3 +1,4 @@
+from typing import *
 import random
 from typing import Dict, List, Union
 
