@@ -51,27 +51,6 @@ def AssistantAdd(mystic):
         except UserNotParticipantError:
             if chat.username:
                 try:
-                    if int(assistant) == 1:
-                       await client1(functions.channels.JoinChannelRequest(channel=chat.username))
-                    if int(assistant) == 2:
-                       await client2(functions.channels.JoinChannelRequest(channel=chat.username))
-                    if int(assistant) == 3:
-                       await client3(functions.channels.JoinChannelRequest(channel=chat.username))
-                    if int(assistant) == 4:
-                       await client4(functions.channels.JoinChannelRequest(channel=chat.username))
-                    if int(assistant) == 5:
-                       await client5(functions.channels.JoinChannelRequest(channel=chat.username))
-                    if int(assistant) == 6:
-                       await client1(functions.channels.JoinChannelRequest(channel=chat.username))
-                except UserAlreadyParticipantError:
-                    pass
-                except Exception as e:
-                    await event.reply(
-                        f"__Assistant Failed To Join__\n\n**Reason**: {e}"
-                    )
-                    return
-            else:
-                try:
                     link = await event.client(ExportChatInviteRequest(event.chat_id))
                     if invitelink.startswith("https://t.me/+"):
                         invitelink = invitelink.replace(
