@@ -1,6 +1,5 @@
 
-
-
+import asyncio
 import glob
 from pathlib import Path
 from Zaid.utils import load_plugins
@@ -45,5 +44,7 @@ async def start_bot():
 print("Successfully Started Bot!")
 print("Visit @TheUpdatesChannel")
 
+loop = asyncio.get_event_loop()
+loop.run_until_complete(start_bot())
 if __name__ == "__main__":
     Zaid.run_until_disconnected()
