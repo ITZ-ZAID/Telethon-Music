@@ -30,6 +30,4 @@ async def _(event):
 
 @Zaid.on(events.callbackquery.CallbackQuery(data="help"))
 async def _(event):
-    if Config.MANAGEMENT_MODE == "ENABLE":
-        return
      await event.edit(HELP_TEXT, buttons=btn)
