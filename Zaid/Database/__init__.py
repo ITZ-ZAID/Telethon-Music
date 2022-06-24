@@ -1,5 +1,5 @@
 from motor.motor_asyncio import AsyncIOMotorClient as Bot
-from config import Config
+import Config
 
 tmo = Config.MONGO_DB_URL
 
