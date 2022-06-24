@@ -2,10 +2,13 @@ import random
 from typing import Dict, List, Union
 
 ASSIDS = []
-from Zaid import Zaid as app
+from Zaid import *
 from telethon import *
 from Zaid.helpers.assistant import get_assistant_details
-from Zaid import random_assistant 
+from Zaid import random_assistant
+from telethon.tl.functions.channels import LeaveChannelRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
+from telethon.tl.functions.messages import ExportChatInviteRequest
 from Zaid.Database.clientdb import getassistant, save_assistant
 
 
@@ -41,9 +44,7 @@ def AssistantAdd(mystic):
                     return
             else:
                 try:
-                    invitelink = await app.export_chat_invite_link(
-                        message.chat.id
-                    )
+                    link = await Zaid(ExportChatInviteRequest(event.chat_id))
                     if invitelink.startswith("https://t.me/+"):
                         invitelink = invitelink.replace(
                             "https://t.me/+", "https://t.me/joinchat/"
