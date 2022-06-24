@@ -46,7 +46,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID))
+            b = event.client.get_participants(group, ASSID)
         except UserNotParticipantError:
             if chat.username:
                 try:
