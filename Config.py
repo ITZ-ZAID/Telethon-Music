@@ -11,27 +11,11 @@ admins = {}
 API_ID = int(getenv("APP_ID", "6435225"))
 API_HASH = getenv("API_HASH", "4e984ea35f854762dcde906dce426c2d")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
-STRING_SESSION = getenv("STRING_SESSION", "")
-if str(getenv("STRING_SESSION2")).strip() == "":
-    STRING_SESSION2 = str(None)
-else:
-    STRING_SESSION2 = str(getenv("STRING_SESSION2"))
-
-if str(getenv("STRING_SESSION3")).strip() == "":
-    STRING_SESSION3 = str(None)
-else:
-    STRING_SESSION3 = str(getenv("STRING_SESSION3"))
-
-if str(getenv("STRING_SESSION4")).strip() == "":
-    STRING_SESSION4 = str(None)
-else:
-    STRING_SESSION4 = str(getenv("STRING_SESSION4"))
-
-if str(getenv("STRING_SESSION5")).strip() == "":
-    STRING_SESSION5 = str(None)
-else:
-    STRING_SESSION5 = str(getenv("STRING_SESSION5"))
-
+STRING_SESSION = getenv("STRING_SESSION", None)
+STRING_SESSION2 = getenv("STRING_SESSION2", None)
+STRING_SESSION3 = getenv("STRING_SESSION3", None)
+STRING_SESSION4 = getenv("STRING_SESSION4", None)
+STRING_SESSION5 = getenv("STRING_SESSION5", None)
 MONGO_DB_URL = getenv("MONGO_DB_URL", None)
 HEROKU_MODE = getenv("HEROKU_MODE", None)
 MANAGEMENT_MODE = getenv("MANAGEMENT_MODE", None)
