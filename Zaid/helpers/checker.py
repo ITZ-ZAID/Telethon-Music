@@ -8,7 +8,8 @@ from Zaid.helpers.assistant import get_assistant_details
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserPrivacyRestrictedError,
-    UserNotMutualContactError
+    UserNotMutualContactError,
+    UserNotParticipantError
 )
 from Zaid import random_assistant
 from telethon.tl.functions.channels import LeaveChannelRequest
