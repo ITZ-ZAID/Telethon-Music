@@ -35,7 +35,6 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         else:
             ran_ass = _assistant["saveassistant"]
-        assistant = _assistant['saveassistant']
         if ran_ass not in random_assistant:
             if DEFAULT_ASS:
                ran_ass = DEFAULT_ASS
