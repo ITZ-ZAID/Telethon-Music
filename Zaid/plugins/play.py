@@ -239,7 +239,7 @@ async def play(event):
                await cli1(ImportChatInviteRequest(link.link))
         except Exception as e:
             print(e)
-            return
+            pass
     if (
         replied
         and not replied.audio
