@@ -28,7 +28,7 @@ else:
 
 if STRING_SESSION3:
    client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
-   call_py3 = PyTgCalls(clieng3)
+   call_py3 = PyTgCalls(client3)
 else:
    client3 = None
    call_py3 = PyTgCalls(None)
