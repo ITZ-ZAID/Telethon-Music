@@ -4,6 +4,7 @@ from typing import Dict, List, Union
 
 from Zaid import *
 from telethon import *
+from pyrogram.errors import *
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserNotParticipantError
