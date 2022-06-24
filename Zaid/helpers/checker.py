@@ -22,6 +22,7 @@ from Zaid.Database.clientdb import get_assistant, save_assistant
 
 def AssistantAdd(mystic):
     async def wrapper(event):
+        chat = await event.get_chat()
         _assistant = await get_assistant(event.chat_id, "assistant")
         if not _assistant:
             ran_ass = random.choice(random_assistant)
@@ -49,9 +50,20 @@ def AssistantAdd(mystic):
             if int(assistant) == 5:
                b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID5))
         except UserNotParticipantError:
-            if event.chat_username:
+            if chat.username:
                 try:
-                    await client1(functions.channels.JoinChannelRequest(channel=event.chat_username))
+                    if int(assistant) == 1:
+                       await client1(functions.channels.JoinChannelRequest(channel=chat.username))
+                    if int(assistant) == 2:
+                       await client2(functions.channels.JoinChannelRequest(channel=chat.username))
+                    if int(assistant) == 3:
+                       await client3(functions.channels.JoinChannelRequest(channel=chat.username))
+                    if int(assistant) == 4:
+                       await client4(functions.channels.JoinChannelRequest(channel=chat.username))
+                    if int(assistant) == 5:
+                       await client5(functions.channels.JoinChannelRequest(channel=chat.username))
+                    if int(assistant) == 6:
+                       await client1(functions.channels.JoinChannelRequest(channel=chat.username))
                 except UserAlreadyParticipantError:
                     pass
                 except Exception as e:
@@ -77,7 +89,7 @@ def AssistantAdd(mystic):
                     if int(assistant) == 5:
                         await client5(ImportChatInviteRequest(invitelink))
                     if int(assistant) == 6:
-                        await cli1(ImportChatInviteRequest(invitelink))
+                        await client(ImportChatInviteRequest(invitelink))
                     await event.reply(
                         f"Joined Successfully",
                     )
