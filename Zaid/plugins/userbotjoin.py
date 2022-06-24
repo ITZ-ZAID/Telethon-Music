@@ -44,7 +44,7 @@ async def _(e, perm):
                    await client4(functions.channels.JoinChannelRequest(channel=bc))
                 if int(assistant) == 5:
                    await client5(functions.channels.JoinChannelRequest(channel=bc))
-                await event.edit("Succesfully Joined")
+                await event.edit("Succesfully Joined if not joined Use !pjoin and your group link")
             except Exception as e:
                 await event.edit(str(e))   
         else:
@@ -77,7 +77,6 @@ async def _(e, perm):
                     await client5(ImportChatInviteRequest(invitelink))
                 if int(assistant) == 6:
                     await client(ImportChatInviteRequest(invitelink))
-                await e.client(ImportChatInviteRequest(bc))
                 await event.edit("Succesfully Joined")
             except Exception as e:
                 await event.edit(str(e))   
