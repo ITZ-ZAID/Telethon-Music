@@ -1,5 +1,5 @@
 import os
-
+from pyrogram import Client
 from telethon import TelegramClient
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
@@ -16,6 +16,8 @@ from Config import *
 BOT_USERNAME = BOT_USERNAME
 
 bot = TelegramClient('Zaid', api_id=API_ID, api_hash=API_HASH)
+#imported for get members
+pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 Zaid = bot.start(bot_token=BOT_TOKEN)
 client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 
@@ -81,4 +83,5 @@ if client5:
    client5.start()
    call_py5.start()
    random_assistant.append(5)
+pgram.start()
 
