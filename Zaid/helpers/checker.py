@@ -4,7 +4,6 @@ from typing import Dict, List, Union
 ASSIDS = []
 from Zaid import *
 from telethon import *
-from Zaid.helpers.assistant import get_assistant_details
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserNotParticipantError
