@@ -46,7 +46,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = await event.client.get_participants(event.chat_id, ASSID)
+            b = await event.client.get_participants(event.chat_id, int[ASSID])
         except UserNotParticipantError:
             if chat.username:
                 try:
