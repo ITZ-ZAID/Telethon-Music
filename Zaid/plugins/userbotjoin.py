@@ -51,7 +51,7 @@ async def _(e):
             await e.reply(usage, parse_mode=None, link_preview=None )
             
         
-@Zaid.on(events.NewMessage(incoming=True, pattern=r"\.leave"))        
+@Zaid.on(events.NewMessage(incoming=True, pattern=r"\[!?/]leave"))        
 async def _(e):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗟𝗲𝗮𝘃𝗲\n\nCommand:\n\n.leave <Channel or Chat ID>"
     if e.sender_id in SUDO_USERS:
