@@ -19,15 +19,15 @@ bot = TelegramClient('Zaid', api_id=API_ID, api_hash=API_HASH)
 Zaid = bot.start(bot_token=BOT_TOKEN)
 client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 
-if not STRING_SESSION2:
+if STRING_SESSION2:
    client2 = TelegramClient(StringSession(STRING_SESSION2), API_ID, API_HASH)
 else:
    client2 = None
 
 if STRING_SESSION3:
-   client3 = None
-else:
    client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
+else:
+   client3 = None
 
 if STRING_SESSION4:
    client4 = TelegramClient(StringSession(STRING_SESSION4), API_ID, API_HASH)
