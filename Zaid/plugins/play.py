@@ -848,8 +848,52 @@ async def stream_end_handler(_, u: Update):
     print(chat_id)
     await skip_current_song(chat_id)
 
+@call_py2.on_stream_end()
+async def stream_end_handler(_, u: Update):
+    chat_id = u.chat_id
+    print(chat_id)
+    await skip_current_song(chat_id)
+
+@call_py3.on_stream_end()
+async def stream_end_handler(_, u: Update):
+    chat_id = u.chat_id
+    print(chat_id)
+    await skip_current_song(chat_id)
+
+@call_py4.on_stream_end()
+async def stream_end_handler(_, u: Update):
+    chat_id = u.chat_id
+    print(chat_id)
+    await skip_current_song(chat_id)
+
+@call_py5.on_stream_end()
+async def stream_end_handler(_, u: Update):
+    chat_id = u.chat_id
+    print(chat_id)
+    await skip_current_song(chat_id)
+
 
 @call_py.on_closed_voice_chat()
+async def closedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py2.on_closed_voice_chat()
+async def closedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py3.on_closed_voice_chat()
+async def closedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py4.on_closed_voice_chat()
+async def closedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py5.on_closed_voice_chat()
 async def closedvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
@@ -860,8 +904,49 @@ async def leftvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
 
+@call_py2.on_left()
+async def leftvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+
+@call_py3.on_left()
+async def leftvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py4.on_left()
+async def leftvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py5.on_left()
+async def leftvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
 
 @call_py.on_kicked()
+async def kickedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py2.on_kicked()
+async def kickedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py3.on_kicked()
+async def kickedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py4.on_kicked()
+async def kickedvc(_, chat_id: int):
+    if chat_id in QUEUE:
+        clear_queue(chat_id)
+
+@call_py5.on_kicked()
 async def kickedvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
