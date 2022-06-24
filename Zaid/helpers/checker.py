@@ -8,7 +8,8 @@ from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserNotParticipantError
 )
-from telethon.tl.functions.channels import GetParticipantRequest
+from telethon.tl.functions.channels import *
+from telethon.tl.functions.channels import GetParticipantsRequest
 from Config import DEFAULT_ASS
 import telethon
 from telethon.tl import functions
