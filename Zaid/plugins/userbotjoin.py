@@ -31,7 +31,7 @@ async def _(e):
             event = await e.reply(text, parse_mode=None, link_preview=None )
             try:
                 if int(assistant) == 1:
-                    await cli1(ImportChatInviteRequest(invitelink))
+                    await client(ImportChatInviteRequest(invitelink))
                 if int(assistant) == 2:
                     await client2(ImportChatInviteRequest(invitelink))
                 if int(assistant) == 3:
@@ -41,7 +41,7 @@ async def _(e):
                 if int(assistant) == 5:
                     await client5(ImportChatInviteRequest(invitelink))
                 if int(assistant) == 6:
-                    await cli1(ImportChatInviteRequest(invitelink))
+                    await client(ImportChatInviteRequest(invitelink))
                 await e.client(ImportChatInviteRequest(bc))
                 await event.edit("Succesfully Joined")
             except Exception as e:
