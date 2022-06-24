@@ -4,7 +4,7 @@ from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChannelParticipantsAdmins, ChatBannedRights
 from Zaid import Zaid
 from Zaid.status import *
-from Config import MANAGEMENT_MODE as Config.MANAGEMENT_MODE
+import Config
 
 CLEANER_HELP = """
 **✘ This is A Module To Remove Deleted Accounts From Your Groups!**
