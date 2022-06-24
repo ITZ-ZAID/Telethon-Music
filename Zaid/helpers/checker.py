@@ -2,7 +2,6 @@ from typing import *
 import random
 from typing import Dict, List, Union
 
-ASSIDS = []
 from Zaid import *
 from telethon import *
 from telethon.errors.rpcerrorlist import (
@@ -25,7 +24,6 @@ def AssistantAdd(mystic):
     async def wrapper(event):
         chat = await event.get_chat()
         _assistant = await get_assistant(event.chat_id, "assistant")
-        assistant = _assistant,['saveassistant']
         if not _assistant:
             if DEFAULT_ASS:
                ran_ass = DEFAULT_ASS
@@ -37,6 +35,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         else:
             ran_ass = _assistant["saveassistant"]
+        assistant = _assistant['saveassistant']
         if ran_ass not in random_assistant:
             if DEFAULT_ASS:
                ran_ass = DEFAULT_ASS
