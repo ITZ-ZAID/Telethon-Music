@@ -54,7 +54,8 @@ def AssistantAdd(mystic):
         except UserNotParticipant:
             if event.is_group:
                 try:
-                    invitelink = await event.client(ExportChatInviteRequest(event.chat_id))
+                    link = await event.client(ExportChatInviteRequest(event.chat_id))
+                    invitelink = link.link
                     if invitelink.startswith("https://t.me/+"):
                         invitelink = invitelink.replace(
                             "https://t.me/+", "https://t.me/joinchat/"
