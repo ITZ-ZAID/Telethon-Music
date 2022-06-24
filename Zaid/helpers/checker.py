@@ -7,10 +7,11 @@ from telethon import *
 from Zaid.helpers.assistant import get_assistant_details
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
-    UserPrivacyRestrictedError,
-    UserNotMutualContactError,
     UserNotParticipantError
 )
+from telethon.tl import functions
+from telethon.tl.functions.channels import LeaveChannelRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
 from Zaid import random_assistant
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
@@ -49,7 +50,7 @@ def AssistantAdd(mystic):
         except UserNotParticipantError:
             if event.chat_username:
                 try:
-                    await ASS_ACC.join_chat(message.chat.username)
+                    await client1(functions.channels.JoinChannelRequest(channel=event.chat_username))
                 except UserAlreadyParticipantError:
                     pass
                 except Exception as e:
