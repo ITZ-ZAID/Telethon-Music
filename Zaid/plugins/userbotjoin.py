@@ -15,9 +15,44 @@ from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from Zaid.Database.clientdb import *
 from Zaid import *
+from Zaid.status import *
 
 
-@Zaid.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))        
+
+@Zaid.on(events.NewMessage(pattern="^[!?/]join ?(.*)"))
+@Zaid.on(events.NewMessage(pattern="^[!?/]userbotjoin ?(.*)"))
+@is_admin
+async def _(e):
+    chat_id = e.chat_id
+    _assistant = await get_assistant(chat_id, "assistant")
+    assistant = _assistant["saveassistant"]
+    usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.join <Group Link/Username>"
+    if e.is_group:
+        umm = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        if len(e.text) > 6:
+            bc = umm[0]
+            text = "Joining..."
+            event = await e.reply(text, parse_mode=None, link_preview=None )
+            try:
+                if int(assistant) == 1:
+                   await client(functions.channels.JoinChannelRequest(channel=bc))
+                if int(assistant) == 2:
+                   await client2(functions.channels.JoinChannelRequest(channel=bc))
+                if int(assistant) == 3:
+                   await client3(functions.channels.JoinChannelRequest(channel=bc))
+                if int(assistant) == 4:
+                   await client4(functions.channels.JoinChannelRequest(channel=bc))
+                if int(assistant) == 5:
+                   await client5(functions.channels.JoinChannelRequest(channel=bc))
+                await event.edit("Succesfully Joined")
+            except Exception as e:
+                await event.edit(str(e))   
+        else:
+            await e.reply(usage, parse_mode=None, link_preview=None )
+
+
+@Zaid.on(events.NewMessage(pattern="^[!?/]pjoin ?(.*)"))
+@is_admin        
 async def _(e):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
