@@ -239,24 +239,7 @@ async def play(event):
         if search == 0:
             await botman.edit(
                 "**Can't Find Song** Try searching with More Specific Title"
-            )
-    if event.is_group:
-        try:
-            if int(assistant) == 1:
-               await cli1(ImportChatInviteRequest(link.link))
-            if int(assistant) == 2:
-               await client2(ImportChatInviteRequest(link.link))
-            if int(assistant) == 3:
-               await client3(ImportChatInviteRequest(link.link))
-            if int(assistant) == 4:
-               await client4(ImportChatInviteRequest(link.link))
-            if int(assistant) == 5:
-               await client5(ImportChatInviteRequest(link.link))
-            if int(assistant) == 6:
-               await cli1(ImportChatInviteRequest(link.link))
-        except Exception as e:
-            print(e)
-            pass    
+            )    
         else:
             songname = search[0]
             title = search[0]
