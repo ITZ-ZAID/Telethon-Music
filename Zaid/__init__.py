@@ -24,24 +24,28 @@ if STRING_SESSION2:
    call_py2 = PyTgCalls(client2)
 else:
    client2 = None
+   call_py3 = PyTgCalls(client2)
 
 if STRING_SESSION3:
    client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
    call_py3 = PyTgCalls(client3)
 else:
    client3 = None
+   call_py3 = PyTgCalls(client3)
 
 if STRING_SESSION4:
    client4 = TelegramClient(StringSession(STRING_SESSION4), API_ID, API_HASH)
    call_py4 = PyTgCalls(client4)
 else:
    client4 = None
+   call_py4 = PyTgCalls(client4)
 
 if STRING_SESSION5:
    client5 = TelegramClient(StringSession(STRING_SESSION5), API_ID, API_HASH)
    call_py5 = PyTgCalls(client5)
 else:
    client5 = None
+   call_py5 = PyTgCalls(client5)
 
 
 call_py = PyTgCalls(client)
