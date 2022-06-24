@@ -46,7 +46,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = await event.client.invoke(GetParticipantsRequest(channel=InputChannel(peer_id, access_hash), filter=ChannelParticipantsSearch(ASSID), offset=0, limit=200))
+            b = await event.client(GetParticipantsRequest(channel=InputChannel(peer_id, access_hash), filter=ChannelParticipantsSearch(ASSID), offset=0, limit=200))
         except UserNotParticipantError:
             if event.is_group:
                 try:
