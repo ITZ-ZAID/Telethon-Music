@@ -14,10 +14,11 @@ from telethon.tl import functions
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from Zaid.Database.clientdb import *
+from Zaid import *
 
 
-
-@Zaid.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))        
+@Zaid.on(events.NewMessage(incoming=True, pattern=r"\[/!?]pjoin"))
+@Zaid.on(events.NewMessage(incoming=True, pattern=r"\[/!?]privatejoin"))        
 async def _(e):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
