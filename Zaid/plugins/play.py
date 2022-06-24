@@ -223,6 +223,8 @@ async def play(event):
     else:
         ran_ass = _assistant["saveassistant"]
     assistant = _assistant['saveassistant']
+    if event.chat_username:
+       try:
     if (
         replied
         and not replied.audio
