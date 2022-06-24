@@ -1,6 +1,7 @@
 
 import asyncio
 import glob
+import telethon
 from pathlib import Path
 from Zaid.utils import load_plugins
 import logging
@@ -21,23 +22,23 @@ for name in files:
 async def start_bot():
     print("[INFO]: STARTING BOT CLIENT")
     if client:
-       botme = client.get_me()
+       botme = await client.get_me()
        botid = telethon.utils.get_peer_id(botme)
        ASSID.append(botid)
     if client2:
-       botme2 = client2.get_me()
+       botme2 = await client2.get_me()
        botid2 = telethon.utils.get_peer_id(botme2)
        ASSID2.append(botid2)
     if client3:
-       botme3 = client3.get_me()
+       botme3 = await client3.get_me()
        botid3 = telethon.utils.get_peer_id(botme3)
        ASSID3.append(botid3)
     if client4:
-       botme4 = client4.get_me()
+       botme4 = await client4.get_me()
        botid4 = telethon.utils.get_peer_id(botme4)
        ASSID4.append(botid4)
     if client5:
-       botme5 = client5.get_me()
+       botme5 = await client5.get_me()
        botid5 = telethon.utils.get_peer_id(botme5)
        ASSID5.append(botid5)
     
