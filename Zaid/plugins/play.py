@@ -838,9 +838,9 @@ async def vc_resume(event, perm):
                await call_py.resume_stream(chat_id)
             await event.reply(event, "**Streaming Started Back 🔙**")
         except Exception as e:
-            await event.reply(event, f"**ERROR:** `{e}`")
+            await event.reply(f"**ERROR:** `{e}`")
     else:
-        await event.reply(event, "**Nothing Is Streaming**")
+        await event.reply("**Nothing Is Streaming**")
 
 
 @call_py.on_stream_end()
