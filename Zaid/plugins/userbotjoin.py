@@ -22,7 +22,7 @@ from Zaid.status import *
 @Zaid.on(events.NewMessage(pattern="^[!?/]join ?(.*)"))
 @Zaid.on(events.NewMessage(pattern="^[!?/]userbotjoin ?(.*)"))
 @is_admin
-async def _(e):
+async def _(e, perm):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
     assistant = _assistant["saveassistant"]
@@ -53,7 +53,7 @@ async def _(e):
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]pjoin ?(.*)"))
 @is_admin        
-async def _(e):
+async def _(e, perm):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
     assistant = _assistant["saveassistant"]
