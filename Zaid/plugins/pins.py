@@ -1,7 +1,7 @@
 from telethon import events, Button, types
 from Zaid import Zaid
 from Zaid.status import *
-from config import Config
+import Config
 
 PINS_TEXT = """
 **✘ All the pin related commands can be found here; keep your chat up to date on the latest news with a simple pinned message!**
