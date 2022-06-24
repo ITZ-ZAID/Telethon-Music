@@ -12,32 +12,32 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
                     level=logging.INFO)
 
 
-from Config import Config
-BOT_USERNAME = Config.BOT_USERNAME
+from Config import *
+BOT_USERNAME = BOT_USERNAME
 
-bot = TelegramClient('Zaid', api_id=Config.API_ID, api_hash=Config.API_HASH)
-Zaid = bot.start(bot_token=Config.BOT_TOKEN)
-client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Config.API_HASH)
+bot = TelegramClient('Zaid', api_id=API_ID, api_hash=API_HASH)
+Zaid = bot.start(bot_token=BOT_TOKEN)
+client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 
-if not Config.STRING_SESSION2:
+if not STRING_SESSION2:
    client2 = None
 else:
-   client2 = TelegramClient(StringSession(Config.STRING_SESSION2), Config.API_ID, Config.API_HASH)
+   client2 = TelegramClient(StringSession(STRING_SESSION2), API_ID, API_HASH)
 
-if not Config.STRING_SESSION3:
+if not STRING_SESSION3:
    client3 = None
 else:
-   client3 = TelegramClient(StringSession(Config.STRING_SESSION3), Config.API_ID, Config.API_HASH)
+   client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
 
-if not Config.STRING_SESSION4:
+if not STRING_SESSION4:
    client4 = None
 else:
-   client4 = TelegramClient(StringSession(Config.STRING_SESSION4), Config.API_ID, Config.API_HASH)
+   client4 = TelegramClient(StringSession(STRING_SESSION4), API_ID, API_HASH)
 
-if not Config.STRING_SESSION5:
+if not STRING_SESSION5:
    client5 = None
 else:
-   client5 = TelegramClient(StringSession(Config.STRING_SESSION5), Config.API_ID, Config.API_HASH)
+   client5 = TelegramClient(StringSession(STRING_SESSION5), API_ID, API_HASH)
 
 
 call_py = PyTgCalls(client)
@@ -51,22 +51,22 @@ call_py.start()
 random_assistant.append(1)
 random_assistant.append(6)
 
-if Config.STRING_SESSION2 != "None":
+if STRING_SESSION2 != "None":
    client2.start()
    call_py2.start()
    random_assistant.append(2)
 
-if Config.STRING_SESSION3 != "None":
+if STRING_SESSION3 != "None":
    client3.start()
    call_py3.start()
    random_assistant.append(3)
 
-if Config.STRING_SESSION4 != "None":
+if STRING_SESSION4 != "None":
    client4.start()
    call_py4.start()
    random_assistant.append(4)
 
-if Config.STRING_SESSION5 != "None":
+if STRING_SESSION5 != "None":
    client5.start()
    call_py5.start()
    random_assistant.append(5)
