@@ -223,9 +223,9 @@ async def play(event):
     else:
         ran_ass = _assistant["saveassistant"]
     assistant = _assistant['saveassistant']
-    invitelink = link.link
-    if invitelink.startswith("https://t.me/+"):
-        invitelink = invitelink.replace(
+    invitelinnk = link.link
+    if invitelinnk.startswith("https://t.me/+"):
+        invitelink = invitelinnk.replace(
             "https://t.me/+", "https://t.me/joinchat/"
         )
         if int(assistant) == 1:
