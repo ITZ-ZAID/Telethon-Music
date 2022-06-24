@@ -10,3 +10,4 @@ speedtest-cli
 python-dotenv
 motor
 pymongo[srv]
+pyrogram
