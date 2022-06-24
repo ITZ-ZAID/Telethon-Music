@@ -24,7 +24,7 @@ def AssistantAdd(mystic):
     async def wrapper(event):
         chat = await event.get_chat()
         _assistant = await get_assistant(event.chat_id, "assistant")
-        assistant = _assistant['saveassistant']
+        assistant = _assistant,['saveassistant']
         if not _assistant:
             if DEFAULT_ASS:
                ran_ass = DEFAULT_ASS
