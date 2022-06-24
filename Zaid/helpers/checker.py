@@ -48,7 +48,18 @@ def AssistantAdd(mystic):
                         invitelink = invitelink.replace(
                             "https://t.me/+", "https://t.me/joinchat/"
                         )
-                    await ASS_ACC.join_chat(invitelink)
+                    if int(assistant) == 1:
+                       await cli1(ImportChatInviteRequest(invitelink))
+                    if int(assistant) == 2:
+                       await client2(ImportChatInviteRequest(invitelink))
+                    if int(assistant) == 3:
+                       await client3(ImportChatInviteRequest(invitelink))
+                    if int(assistant) == 4:
+                        await client4(ImportChatInviteRequest(invitelink))
+                    if int(assistant) == 5:
+                        await client5(ImportChatInviteRequest(invitelink))
+                    if int(assistant) == 6:
+                        await cli1(ImportChatInviteRequest(invitelink))
                     await event.reply(
                         f"Joined Successfully",
                     )
