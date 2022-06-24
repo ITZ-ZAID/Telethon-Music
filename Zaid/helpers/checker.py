@@ -23,7 +23,6 @@ from Zaid.Database.clientdb import get_assistant, save_assistant
 
 def AssistantAdd(mystic):
     async def wrapper(event):
-        chat = await event.get_chat()
         _assistant = await get_assistant(event.chat_id, "assistant")
         if not _assistant:
             if DEFAULT_ASS:
