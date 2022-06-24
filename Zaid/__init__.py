@@ -20,24 +20,24 @@ Zaid = bot.start(bot_token=BOT_TOKEN)
 client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 
 if not STRING_SESSION2:
-   client2 = None
-else:
    client2 = TelegramClient(StringSession(STRING_SESSION2), API_ID, API_HASH)
-
-if not STRING_SESSION3:
-   client3 = None
 else:
+   client2 = None
+
+if STRING_SESSION3:
    client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
-
-if not STRING_SESSION4:
-   client4 = None
 else:
+   client3 = None
+
+if STRING_SESSION4:
    client4 = TelegramClient(StringSession(STRING_SESSION4), API_ID, API_HASH)
-
-if not STRING_SESSION5:
-   client5 = None
 else:
+   client4 = None
+
+if STRING_SESSION5:
    client5 = TelegramClient(StringSession(STRING_SESSION5), API_ID, API_HASH)
+else:
+   client5 = None
 
 
 call_py = PyTgCalls(client)
@@ -51,22 +51,22 @@ call_py.start()
 random_assistant.append(1)
 random_assistant.append(6)
 
-if STRING_SESSION2 != "None":
+if client2:
    client2.start()
    call_py2.start()
    random_assistant.append(2)
 
-if STRING_SESSION3 != "None":
+if client3:
    client3.start()
    call_py3.start()
    random_assistant.append(3)
 
-if STRING_SESSION4 != "None":
+if client4:
    client4.start()
    call_py4.start()
    random_assistant.append(4)
 
-if STRING_SESSION5 != "None":
+if client5:
    client5.start()
    call_py5.start()
    random_assistant.append(5)
