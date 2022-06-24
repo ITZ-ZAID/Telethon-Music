@@ -42,7 +42,7 @@ from Zaid.helpers.queues import (
 )
 from Zaid.Database.clientdb import *
 from telethon import Button, events
-from Config import Config
+import Config
 
 from Zaid.helpers.thumbnail import gen_thumb
 
