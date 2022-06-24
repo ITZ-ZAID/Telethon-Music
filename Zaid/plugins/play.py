@@ -335,7 +335,7 @@ async def play(event):
                     await botman.edit(f"`{ep}`")
 
     else:
-        botman = await edit_or_reply(event, "📥 **Downloading**")
+        botman = await event.reply("📥 **Downloading**")
         dl = await replied.download_media()
         link = f"https://t.me/c/{chat.id}/{event.reply_to_msg_id}"
         if replied.audio:
