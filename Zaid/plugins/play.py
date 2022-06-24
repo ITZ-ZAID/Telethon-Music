@@ -241,6 +241,9 @@ async def play(event):
               await client5(ImportChatInviteRequest(invitelink))
            if int(assistant) == 6:
               await cli1(ImportChatInviteRequest(invitelink))
+       except Exception as e:
+           print(e)
+           pass
     if (
         replied
         and not replied.audio
