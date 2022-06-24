@@ -25,9 +25,9 @@ else:
    client2 = None
 
 if STRING_SESSION3:
-   client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
-else:
    client3 = None
+else:
+   client3 = TelegramClient(StringSession(STRING_SESSION3), API_ID, API_HASH)
 
 if STRING_SESSION4:
    client4 = TelegramClient(StringSession(STRING_SESSION4), API_ID, API_HASH)
