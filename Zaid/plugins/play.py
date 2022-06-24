@@ -222,7 +222,7 @@ async def play(event):
         await save_assistant(chat_id, "assistant", assis)
     else:
         ran_ass = _assistant["saveassistant"]
-    assistant = _assistant["saveassistant"]
+    assistant = _assistant[saveassistant]
     if (
         replied
         and not replied.audio
