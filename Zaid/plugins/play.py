@@ -223,22 +223,18 @@ async def play(event):
     else:
         ran_ass = _assistant["saveassistant"]
     assistant = _assistant['saveassistant']
-    try:
-        if int(assistant) == 1:
-           await cli1(ImportChatInviteRequest(link.link))
-        if int(assistant) == 2:
-           await client2(ImportChatInviteRequest(link.link))
-        if int(assistant) == 3:
-           await client3(ImportChatInviteRequest(link.link))
-        if int(assistant) == 4:
-           await client4(ImportChatInviteRequest(link.link))
-        if int(assistant) == 5:
-           await client5(ImportChatInviteRequest(link.link))
-        if int(assistant) == 6:
-           await cli1(ImportChatInviteRequest(link.link))
-    except Exception as e:
-        print(e)
-        pass
+    if int(assistant) == 1:
+       await cli1(ImportChatInviteRequest(link.link))
+    if int(assistant) == 2:
+       await client2(ImportChatInviteRequest(link.link))
+    if int(assistant) == 3:
+       await client3(ImportChatInviteRequest(link.link))
+    if int(assistant) == 4:
+       await client4(ImportChatInviteRequest(link.link))
+    if int(assistant) == 5:
+       await client5(ImportChatInviteRequest(link.link))
+    if int(assistant) == 6:
+       await cli1(ImportChatInviteRequest(link.link))
     if (
         replied
         and not replied.audio
