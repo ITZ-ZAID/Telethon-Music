@@ -44,6 +44,7 @@ def AssistantAdd(mystic):
                 "saveassistant": ran_ass,
             }
             await save_assistant(event.chat_id, "assistant", assis)
+        assistant = _assistant['saveassistant']
         try:
             if int(assistant) == 1:
                b = await event.client(telethon.tl.functions.channels.GetParticipantRequest(event.chat_id, ASSID))
