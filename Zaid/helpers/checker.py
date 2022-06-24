@@ -50,7 +50,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = await pgram.get_chat_member(event.chat_id, ASSID)
+            b = await pgram.get_chat_member(event.chat_id, 5154917043)
         except UserNotParticipant:
             if event.is_group:
                 try:
