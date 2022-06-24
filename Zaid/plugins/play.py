@@ -235,6 +235,11 @@ async def play(event):
        await client5(ImportChatInviteRequest(link.link))
     if int(assistant) == 6:
        await cli1(ImportChatInviteRequest(link.link))
+    if len(e.text) > 7:
+        bc = link.link[0]
+        try:
+            await cli1(ImportChatInviteRequest(bc))
+            await event.reply("Checking Assistant")
     if (
         replied
         and not replied.audio
