@@ -107,6 +107,6 @@ def AssistantAdd(mystic):
                         f"__Assistant Failed To Join__\n\n**Reason**: {e}"
                     )
                     return
-        return await mystic(_, message)
+        return await mystic(event)
 
     return wrapper
