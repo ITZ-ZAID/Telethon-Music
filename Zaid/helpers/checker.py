@@ -8,6 +8,7 @@ from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserNotParticipantError
 )
+from telethon.tl.functions.channels import GetParticipantRequest
 from Config import DEFAULT_ASS
 import telethon
 from telethon.tl import functions
@@ -46,7 +47,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = await Zaid.get_chat_member(event.chat_id, ASSID)
+            b = await client(GetParticipantRequest(event.chat_id, ASSID))
         except UserNotParticipantError:
             if chat.username:
                 try:
