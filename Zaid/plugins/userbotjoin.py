@@ -26,7 +26,7 @@ async def _(e, perm):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
     assistant = _assistant["saveassistant"]
-    usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.join <Group Link/Username>"
+    usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗝𝗼𝗶𝗻\n\nCommand:\n\n/join <Group Link/Username> if your Group is private then use !pjoin <Chat link>"
     if e.is_group:
         umm = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(e.text) > 6:
@@ -57,7 +57,7 @@ async def _(e, perm):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
     assistant = _assistant["saveassistant"]
-    usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗣𝗿𝗶𝘃𝗮𝘁𝗲 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.pjoin <Private Channel or Group's access hash>\n\nExample :\nLink = https://t.me/joinchat/HGYs1wvsPUplMmM1\n\n.pjoin HGYs1wvsPUplMmM1"
+    usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗣𝗿𝗶𝘃𝗮𝘁𝗲 𝗝𝗼𝗶𝗻\n\nCommand:\n\n!pjoin <Private Channel or Group's access hash>\n\nExample :\nLink = https://t.me/joinchat/Ihsvig1907226#\n\n!pjoin Ihsvig1907226"
     if e.is_group:
         umm = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(e.text) > 7:
