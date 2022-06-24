@@ -9,6 +9,7 @@ from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserNotParticipantError
 )
+import telethon
 from telethon.tl import functions
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
