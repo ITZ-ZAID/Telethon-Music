@@ -225,7 +225,7 @@ async def play(event):
     assistant = _assistant['saveassistant']
     if event.chat_username:
        try:
-
+          cli1(functions.channels.JoinChannelRequest(channel=event.chat_username))
     else:
        invitelink = link.link
        try:
