@@ -12,6 +12,7 @@ from telethon.tl.types import PeerChannel,InputChannel
 from telethon.tl.functions.channels import *
 from telethon.tl.functions.channels import GetParticipantsRequest
 from Config import DEFAULT_ASS
+from telethon.tl.types import ChannelParticipantsSearch
 import telethon
 from telethon.tl import functions
 from telethon.tl.functions.channels import LeaveChannelRequest
