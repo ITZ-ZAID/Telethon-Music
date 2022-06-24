@@ -49,7 +49,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = await event.client(ChannelParticipantsSearch(ASSID))
+            b = await Zaid.invoke(ChannelParticipantsSearch(ASSID))
         except UserNotParticipantError:
             if event.is_group:
                 try:
