@@ -49,8 +49,8 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            b = Zaid.invoke(ChannelParticipantsSearch(ASSID))
-        except UserNotParticipantError:
+            b = pgram.get_chat_member(event.chat_id, ASSID)
+        except UserNotParticipant:
             if event.is_group:
                 try:
                     link = await event.client(ExportChatInviteRequest(event.chat_id))
