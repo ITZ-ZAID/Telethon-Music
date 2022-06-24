@@ -15,12 +15,12 @@ from Zaid import random_assistant
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
-from Zaid.Database.clientdb import getassistant, save_assistant
+from Zaid.Database.clientdb import get_assistant, save_assistant
 
 
 def AssistantAdd(mystic):
     async def wrapper(event):
-        _assistant = await getassistant(event.chat_id, "assistant")
+        _assistant = await get_assistant(event.chat_id, "assistant")
         if not _assistant:
             ran_ass = random.choice(random_assistant)
             assis = {
@@ -50,7 +50,7 @@ def AssistantAdd(mystic):
             if event.chat_username:
                 try:
                     await ASS_ACC.join_chat(message.chat.username)
-                except UserAlreadyParticipant:
+                except UserAlreadyParticipantError:
                     pass
                 except Exception as e:
                     await event.reply(
@@ -59,7 +59,7 @@ def AssistantAdd(mystic):
                     return
             else:
                 try:
-                    link = await Zaid(ExportChatInviteRequest(event.chat_id))
+                    link = await event.client(ExportChatInviteRequest(event.chat_id))
                     if invitelink.startswith("https://t.me/+"):
                         invitelink = invitelink.replace(
                             "https://t.me/+", "https://t.me/joinchat/"
