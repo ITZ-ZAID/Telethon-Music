@@ -17,8 +17,7 @@ from Zaid.Database.clientdb import *
 from Zaid import *
 
 
-@Zaid.on(events.NewMessage(incoming=True, pattern=r"\[/!?]pjoin"))
-@Zaid.on(events.NewMessage(incoming=True, pattern=r"\[/!?]privatejoin"))        
+@Zaid.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))        
 async def _(e):
     chat_id = e.chat_id
     _assistant = await get_assistant(chat_id, "assistant")
@@ -51,7 +50,7 @@ async def _(e):
             await e.reply(usage, parse_mode=None, link_preview=None )
             
         
-@Zaid.on(events.NewMessage(incoming=True, pattern=r"\[!?/]leave"))        
+@Zaid.on(events.NewMessage(incoming=True, pattern=r"\.leave"))        
 async def _(e):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗟𝗲𝗮𝘃𝗲\n\nCommand:\n\n.leave <Channel or Chat ID>"
     if e.sender_id in SUDO_USERS:
