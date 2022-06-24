@@ -1,6 +1,7 @@
 from Zaid import Zaid, BOT_USERNAME
 from Config import CHANNEL as Config.CHANNEL, SUPPORT as Config.SUPPORT
 from telethon import events, Button
+from Config import MANAGEMENT_MODE as Config.MANAGEMENT_MODE
 
 PM_START_TEXT = """
 ʜᴇʏᴀ! {}
