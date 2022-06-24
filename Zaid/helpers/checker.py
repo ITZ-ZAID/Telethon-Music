@@ -5,6 +5,11 @@ ASSIDS = []
 from Zaid import *
 from telethon import *
 from Zaid.helpers.assistant import get_assistant_details
+from telethon.errors.rpcerrorlist import (
+    UserAlreadyParticipantError,
+    UserPrivacyRestrictedError,
+    UserNotMutualContactError
+)
 from Zaid import random_assistant
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
@@ -50,7 +55,7 @@ def AssistantAdd(mystic):
                             "https://t.me/+", "https://t.me/joinchat/"
                         )
                     if int(assistant) == 1:
-                       await cli1(ImportChatInviteRequest(invitelink))
+                       await client(ImportChatInviteRequest(invitelink))
                     if int(assistant) == 2:
                        await client2(ImportChatInviteRequest(invitelink))
                     if int(assistant) == 3:
@@ -64,7 +69,7 @@ def AssistantAdd(mystic):
                     await event.reply(
                         f"Joined Successfully",
                     )
-                except UserAlreadyParticipant:
+                except UserAlreadyParticipantError:
                     pass
                 except Exception as e:
                     await event.reply(
