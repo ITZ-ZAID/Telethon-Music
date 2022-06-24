@@ -213,7 +213,6 @@ async def play(event):
     from_user = vcmention(event.sender)
     link = await Zaid(ExportChatInviteRequest(event.chat_id))
     _assistant = await get_assistant(chat_id, "assistant")
-    assistant = _assistant["saveassistant"]
     if not _assistant:
         ran_ass = random.choice(random_assistant)
         assis = {
@@ -222,6 +221,7 @@ async def play(event):
         await save_assistant(chat_id, "assistant", assis)
     else:
         ran_ass = _assistant["saveassistant"]
+    assistant = _assistant["saveassistant"]
     if (
         replied
         and not replied.audio
