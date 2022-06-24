@@ -1,3 +1,19 @@
+import os
+import sys
+import random
+from datetime import datetime
+from os import execl
+from telethon import TelegramClient, events
+from telethon.sessions import StringSession
+from telethon.tl.functions.account import UpdateProfileRequest
+import asyncio
+from Config import SUDO_USERS
+import telethon.utils
+from telethon.tl import functions
+from telethon.tl.functions.channels import LeaveChannelRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
+
+
 
 @Zaid.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))        
 async def _(e):
