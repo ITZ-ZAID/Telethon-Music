@@ -47,7 +47,7 @@ def AssistantAdd(mystic):
                 "saveassistant": ran_ass,
             }
             await save_assistant(event.chat_id, "assistant", assis)
-        assistant = _assistant["saveassistant"]
+        assistant = _assistant['saveassistant']
         try:
             permissions = await Zaid.get_permissions(event.chat_id, ASSID)
         except UserNotParticipantError:
