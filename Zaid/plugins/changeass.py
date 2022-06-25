@@ -16,6 +16,8 @@ ass_num_list = ["1", "2", "3", "4", "5"]
 @is_admin
 async def assis_change(event, perm):
     usage = f"**Usage:**\n/changeassistant [ASS_NO]\n\nSelect from them\n{' | '.join(ass_num_list)}"
+    if len(e.text) != 2:
+        return await event.reply(usage)
     num = event.text.split(None, 1)[1].strip()
     if num not in ass_num_list:
         return await event.reply(usage)
