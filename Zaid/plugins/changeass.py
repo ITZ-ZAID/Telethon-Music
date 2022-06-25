@@ -16,15 +16,14 @@ ass_num_list = ["1", "2", "3", "4", "5"]
 @is_admin
 async def assis_change(event, perm):
     usage = f"**Usage:**\n/changeassistant [ASS_NO]\n\nSelect from them\n{' | '.join(ass_num_list)}"
-    if len(e.text) != 2:
-        return await event.reply(usage)
+    zaid = await event.reply(usage)
     num = event.text.split(None, 1)[1].strip()
     if num not in ass_num_list:
-        return await event.reply(usage)
+        return await zaid.edit(usage)
     ass_num = int(event.text.strip().split()[1])
     _assistant = await get_assistant(event.chat_id, "assistant")
     if not _assistant:
-        return await event.reply(
+        return await zaid.edit(
             "No Pre-Saved Assistant Found.\n\nYou can set Assistant Via /setassistant"
         )
     else:
@@ -33,7 +32,7 @@ async def assis_change(event, perm):
         "saveassistant": ass_num,
     }
     await save_assistant(event.chat_id, "assistant", assis)
-    await event.reply(
+    await zaid.edit(
         f"**Changed Assistant**\n\nChanged Assistant Account from **{ass}** to Assistant Number **{ass_num}**"
     )
 
@@ -45,16 +44,17 @@ ass_num_list2 = ["1", "2", "3", "4", "5", "Random"]
 @is_admin
 async def set_assi(event, perm):
     usage = f"**Usage:**\n/setassistant [ASS_NO or Random]\n\nSelect from them\n{' | '.join(ass_num_list2)}\n\nUse 'Random' to set random Assistant"
+    zaid = await message.reply_text(usage)
     query = event.text.split(None, 1)[1].strip()
     if query not in ass_num_list2:
-        return await event.reply(usage)
+        return await zaid.edit(usage)
     if str(query) == "Random":
         ran_ass = random.choice(random_assistant)
     else:
         ran_ass = int(event.text.strip().split()[1])
     _assistant = await get_assistant(event.chat_id, "assistant")
     if not _assistant:
-        await event.reply(
+        await zaid.edit(
             f"**__Music Bot Assistant Alloted__**\n\nAssistant No. **{ran_ass}**"
         )
         assis = {
@@ -63,6 +63,21 @@ async def set_assi(event, perm):
         await save_assistant(event.chat_id, "assistant", assis)
     else:
         ass = _assistant["saveassistant"]
-        return await event.reply(
+        return await zaid.edit(
             f"Pre-Saved Assistant Number {ass} Found.\n\nYou can change Assistant Via /changeassistant"
+        )
+
+
+@Zaid.on(events.NewMessage(pattern=r"^[?!/]checkassistant"))
+@is_admin
+async def check_ass(event, perm):
+    _assistant = await get_assistant(event.chat_id, "assistant")
+    if not _assistant:
+        return await event.reply(
+            "No Pre-Saved Assistant Found.\n\nYou can set Assistant Via /play"
+        )
+    else:
+        ass = _assistant["saveassistant"]
+        return await event.reply(
+            f"Pre-Saved Assistant Found\n\nAssistanty Number {ass} "
         )
