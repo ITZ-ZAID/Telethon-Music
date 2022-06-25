@@ -12,9 +12,9 @@ from Zaid.Database.clientdb import get_assistant, save_assistant
 ass_num_list = ["1", "2", "3", "4", "5"]
 
 
-@Zaid.on(events.NewMessage(pattern=r"^[?!]changeassistant"))
+@Zaid.on(events.NewMessage(pattern=r"^[?!/]changeassistant"))
 @is_admin
-async def assis_change(event):
+async def assis_change(event, perm):
     usage = f"**Usage:**\n/changeassistant [ASS_NO]\n\nSelect from them\n{' | '.join(ass_num_list)}"
     num = event.text.split(None, 1)[1].strip()
     if num not in ass_num_list:
@@ -39,9 +39,9 @@ async def assis_change(event):
 ass_num_list2 = ["1", "2", "3", "4", "5", "Random"]
 
 
-@Zaid.on(events.NewMessage(pattern=r"^[?!]setassistant"))
+@Zaid.on(events.NewMessage(pattern=r"^[?!/]setassistant"))
 @is_admin
-async def set_assi(event):
+async def set_assi(event, perm):
     usage = f"**Usage:**\n/setassistant [ASS_NO or Random]\n\nSelect from them\n{' | '.join(ass_num_list2)}\n\nUse 'Random' to set random Assistant"
     query = event.text.split(None, 1)[1].strip()
     if query not in ass_num_list2:
