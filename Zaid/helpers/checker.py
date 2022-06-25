@@ -57,7 +57,7 @@ def AssistantAdd(mystic):
                     invitelink = link.link
                     if invitelink.startswith("https://t.me/+"):
                         invitelink = invitelink.replace(
-                            "https://t.me/+", "https://t.me/joinchat/"
+                            "https://t.me/+", ""
                         )
                     if int(assistant) == 1:
                        await client(ImportChatInviteRequest(invitelink))
