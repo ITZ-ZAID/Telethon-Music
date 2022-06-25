@@ -47,6 +47,8 @@ import Config
 
 from Zaid.helpers.thumbnail import gen_thumb
 
+from Zaid.helpers.checker import AssistantAdd
+
 def vcmention(user):
     full_name = get_display_name(user)
     if not isinstance(user, types.User):
@@ -204,6 +206,7 @@ btnn =[
 
 #play
 @Zaid.on(events.NewMessage(pattern="^[?!/]play"))
+@AssistantAdd
 async def play(event):
     title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
