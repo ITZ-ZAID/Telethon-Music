@@ -49,7 +49,7 @@ def AssistantAdd(mystic):
             await save_assistant(event.chat_id, "assistant", assis)
         assistant = _assistant['saveassistant']
         try:
-            permissions = await event.client(GetParticipantRequest(int(event.chat_id), ASSID))
+            permissions = await event.client(GetParticipantRequest(int(event.chat_id), 5154917043))
         except UserNotParticipantError:
             if event.is_group:
                 try:
