@@ -1,5 +1,5 @@
 import asyncio
-
+from Zaid import Zaid
 from telethon import events
 from telethon.errors import UserNotParticipantError
 from telethon.tl.functions.channels import GetParticipantRequest
@@ -11,7 +11,7 @@ from YinsRobot import telethn as client
 spam_chats = []
 
 
-@client.on(events.NewMessage(pattern="^/tagall|@all|/all ?(.*)"))
+@Zaid.on(events.NewMessage(pattern="^/tagall|@all|/all ?(.*)"))
 async def mentionall(event):
     chat_id = event.chat_id
     if event.is_private:
