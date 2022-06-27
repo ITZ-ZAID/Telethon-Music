@@ -269,7 +269,7 @@ async def vplay(event):
         xnxx = await event.reply("`SEK GOLEKI VIDIO...`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
-        RESOLUSI = 720
+        RESOLUSI = 480
         hmmm = HighQualityVideo()
         if search == 0:
             await xnxx.edit(
@@ -323,7 +323,7 @@ async def vplay(event):
         dl = await replied.download_media()
         link = f"https://t.me/c/{chat.id}/{event.reply_to_msg_id}"
         if len(event.text.split()) < 2:
-            RESOLUSI = 720
+            RESOLUSI = 480
         else:
             pq = event.text.split(maxsplit=1)[1]
             RESOLUSI = int(pq)
@@ -358,7 +358,7 @@ async def vplay(event):
         xnxx = await event.reply("`Searching...`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
-        RESOLUSI = 720
+        RESOLUSI = 480
         hmmm = HighQualityVideo()
         if search == 0:
             await xnxx.edit("**KAGA KETEMU TOD**")
