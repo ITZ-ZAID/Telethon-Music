@@ -19,7 +19,7 @@ async def mentionall(event):
 
     is_admin = False
     try:
-        partici_ = await client(GetParticipantRequest(
+        partici_ = await Zaid(GetParticipantRequest(
             event.chat_id,
             event.sender_id
         ))
