@@ -1,7 +1,7 @@
 import os
 
 class Config(object):
-    API_ID = int(os.environ.get("APP_ID", "14918875"))
+    API_ID = int(os.environ.get("APP_ID", "16715400"))
     API_HASH = os.environ.get("API_HASH", "2de611a73f73b8da8b0bcee9f855c815")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "5442486445:AAGzz1Zk4sJDOiodkIbbEnnXK2G3rm_ftrg")
     STRING_SESSION = os.environ.get("STRING_SESSION", "")
