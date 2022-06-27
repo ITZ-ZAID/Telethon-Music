@@ -3,10 +3,10 @@ import os
 class Config(object):
     API_ID = int(os.environ.get("APP_ID", "14918875"))
     API_HASH = os.environ.get("API_HASH", "cfed63320741ca5ac3e4c3535d6d8302")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "5442486445:AAGzz1Zk4sJDOiodkIbbEnnXK2G3rm_ftrg")
     STRING_SESSION = os.environ.get("STRING_SESSION", "")
     HEROKU_MODE = os.environ.get("HEROKU_MODE", None)
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "ygabutbot")
     SUPPORT = os.environ.get("SUPPORT", "ygabutkan")
     CHANNEL = os.environ.get("CHANNEL", "ygabutkan")
     START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/b167d1dce40b9011892d7.jpg")
