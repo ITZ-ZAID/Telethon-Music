@@ -242,16 +242,14 @@ async def vc_end(event, perm):
         await event.reply("**Ntg is Streaming**")
 
 
-tombol =[
-    [Button.url("💁 Sᴜᴘᴘᴏʀᴛ", url=f"t.me/sasimo_abiiezz")], [Button.inline("Cʟᴏꜱᴇ 🗑️", data="cls")]]
 
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]vplay"))
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
-        anu = await event.reply("KALAU MAU VPLAY SILAHKAN BELI BOT MUSIC.")
-        await event.client.send_file(chat_id, caption=anu, buttons=tombol)
-        return
+        await event.reply("KALAU MAU VPLAY SILAHKAN BELI BOT MUSIC!", buttons=[
+       [Button.url("PC SINI KLO MO NANYA!", "t.me/baytoddd)]])
+       return
     title = ' '.join(event.text[6:])
     replied = await event.get_reply_message()
     sender = await event.get_sender()
