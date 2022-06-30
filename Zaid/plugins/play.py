@@ -247,6 +247,9 @@ async def vc_end(event, perm):
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]vplay"))
 async def vplay(event):
+    if Config.HEROKU_MODE == "ENABLE":
+        await event.reply("KALAU MAU VPLAY SILAHKAN BELI BOT MUSIC.")
+        return
     title = ' '.join(event.text[6:])
     replied = await event.get_reply_message()
     sender = await event.get_sender()
