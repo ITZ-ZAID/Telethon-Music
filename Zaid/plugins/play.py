@@ -28,7 +28,7 @@ from youtubesearchpython import VideosSearch
 fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 from Zaid import call_py, Zaid, client as Client
-owner = "1669178360"
+owner = "12479561"
 from Zaid.helpers.yt_dlp import bash
 from Zaid.helpers.chattitle import CHAT_TITLE
 from Zaid.helpers.queues import (
@@ -149,12 +149,12 @@ async def play(event):
     ):
         return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**Give Me Your Query Which You want to Play**\n\n **Example**: `/play Nira Ishq Bass boosted`", buttons=btnn)
     elif replied and not replied.audio and not replied.voice or not replied:
-        botman = await event.reply("`Featching Details...`")
+        botman = await event.reply("`SABAR YGY...`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
         if search == 0:
             await botman.edit(
-                "**Can't Find Song** Try searching with More Specific Title"
+                "**GAJELAS LU TOD** BISA LEBIH SPESIFIK LAGI KAGA"
             )     
         else:
             songname = search[0]
@@ -235,7 +235,7 @@ async def vc_end(event, perm):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await event.reply("**Streaming Ended**")
+            await event.reply("**LAGUNYA DI MATIIN SAMA SI KENTOD**")
         except Exception as e:
             await event.reply(f"**ERROR:** `{e}`")
     else:
@@ -244,11 +244,11 @@ async def vc_end(event, perm):
 
 
 
-
 @Zaid.on(events.NewMessage(pattern="^[?!/]vplay"))
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
-        await event.reply("__Currently Heroku Mode is ENABLED so You Can't Stream Video because Video Streaming Cause of Banning Your Heroku Account__.")
+        await event.reply("KALAU MAU VPLAY SILAHKAN BELI BOT MUSIC!", buttons=[
+        [Button.url("PC SINI KLO MO NANYA!", "t.me/baytoddd")]])
         return
     title = ' '.join(event.text[6:])
     replied = await event.get_reply_message()
@@ -269,10 +269,10 @@ async def vplay(event):
     ):
         return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**Give Me Your Query Which You want to Stream**\n\n **Example**: `/vplay Nira Ishq Bass boosted`", buttons=btnn)
     if replied and not replied.video and not replied.document:
-        xnxx = await event.reply("`Searching Video Details...`")
+        xnxx = await event.reply("`SEK GOLEKI VIDIO...`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
-        RESOLUSI = 720
+        RESOLUSI = 480
         hmmm = HighQualityVideo()
         if search == 0:
             await xnxx.edit(
@@ -322,11 +322,11 @@ async def vplay(event):
                     await xnxx.edit(f"`{ep}`")
 
     elif replied:
-        xnxx = await event.reply("📥 **Downloading Replied File**")
+        xnxx = await event.reply("📥 **SABAR YA SAYANG**")
         dl = await replied.download_media()
         link = f"https://t.me/c/{chat.id}/{event.reply_to_msg_id}"
         if len(event.text.split()) < 2:
-            RESOLUSI = 720
+            RESOLUSI = 480
         else:
             pq = event.text.split(maxsplit=1)[1]
             RESOLUSI = int(pq)
@@ -361,10 +361,10 @@ async def vplay(event):
         xnxx = await event.reply("`Searching...`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
-        RESOLUSI = 720
+        RESOLUSI = 480
         hmmm = HighQualityVideo()
         if search == 0:
-            await xnxx.edit("**Unable To featch your Query**")
+            await xnxx.edit("**KAGA KETEMU TOD**")
         else:
             songname = search[0]
             title = search[0]
