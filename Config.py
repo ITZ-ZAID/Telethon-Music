@@ -6,6 +6,7 @@ class Config(object):
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     STRING_SESSION = os.environ.get("STRING_SESSION", "")
     HEROKU_MODE = os.environ.get("HEROKU_MODE", None)
+    MANAGEMENT_MODE = os.environ.get("MANAGEMENT_MODE", None)
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "Zaid2_Robot")
     SUPPORT = os.environ.get("SUPPORT", "TheSupportChat")
     CHANNEL = os.environ.get("CHANNEL", "TheUpdatesChannel")

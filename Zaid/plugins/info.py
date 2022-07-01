@@ -1,6 +1,7 @@
 from telethon import events, Button, types
 from Zaid import Zaid
 from Zaid.status import *
+from config import Config
 from telethon.tl.types import ChannelParticipantsAdmins
 from datetime import timedelta
 from telethon.tl.functions.photos import GetUserPhotosRequest as P
@@ -16,6 +17,8 @@ MISC_HELP = """
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]id"))
 async def id(event):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
 
     if event.is_private:
        await event.reply(f"Your id is `{event.sender_id}`.")
@@ -35,7 +38,8 @@ async def id(event):
  
 @Zaid.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
 async def info(event):
-
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     sed = await Zaid(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
     hn = await Zaid(GetFullUserRequest(event.sender_id))
     text = "**✘ UserInfo:**\n\n"

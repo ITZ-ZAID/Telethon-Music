@@ -1,6 +1,7 @@
 from telethon import events, Button, types
 from Zaid import Zaid
 from Zaid.status import *
+from config import Config
 
 LOCKS_HELP = """
 **✘ Do stickers annoy you? or want to avoid people sharing links? or pictures? You're in the right place!**
@@ -13,6 +14,8 @@ LOCKS_HELP = """
 @Zaid.on(events.NewMessage(pattern="^[!?/]lock ?(.*)"))
 @is_admin
 async def lock(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.change_info:
       await event.reply("You are missing the following rights to use this command:CanChangeInfo")
       return
@@ -63,6 +66,8 @@ async def lock(event, perm):
 @Zaid.on(events.NewMessage(pattern="^[!?/]unlock ?(.*)"))
 @is_admin
 async def unlock(event, perm):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     if not perm.change_info:
       await event.reply("You are missing the following rights to use this command:CanChangeInfo")
       return
@@ -112,6 +117,8 @@ async def unlock(event, perm):
 
 @Zaid.on(events.NewMessage(pattern="^[!?/]locktypes"))
 async def locktypes(event):
+    if Config.MANAGEMENT_MODE == "ENABLE":
+        return
     TEXT = """
 **Locks:**
 
