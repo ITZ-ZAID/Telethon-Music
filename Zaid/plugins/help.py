@@ -34,4 +34,4 @@ async def _(event):
 async def _(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
-     await event.edit(HELP_TEXT, buttons=btn)
+    await event.edit(HELP_TEXT, buttons=btn)
