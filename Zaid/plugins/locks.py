@@ -1,7 +1,7 @@
 from telethon import events, Button, types
 from Zaid import Zaid
 from Zaid.status import *
-from config import Config
+from Config import Config
 
 LOCKS_HELP = """
 **✘ Do stickers annoy you? or want to avoid people sharing links? or pictures? You're in the right place!**
