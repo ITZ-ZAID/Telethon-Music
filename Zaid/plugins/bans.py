@@ -1,6 +1,6 @@
 from Zaid import Zaid
 from Zaid.status import *
-from config import Config
+from Config import Config
 from telethon import events, Button
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
