@@ -11,7 +11,7 @@ from telethon.errors.rpcerrorlist import (
 from telethon.tl.types import PeerChannel,InputChannel
 from telethon.tl.functions.channels import *
 from telethon.tl.functions.channels import GetParticipantsRequest
-from Config import ASSISTANT_ID
+from Config import Config
 from telethon.tl.types import ChannelParticipantsSearch
 import telethon
 from telethon.tl import functions
@@ -25,7 +25,7 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 def AssistantAdd(mystic):
     async def wrapper(event):
         try:
-            permissions = await event.client(GetParticipantRequest(int(event.chat_id), ASSISTANT_ID))
+            permissions = await event.client(GetParticipantRequest(int(event.chat_id), Config.ASSISTANT_ID))
         except UserNotParticipantError:
             if event.is_group:
                 try:
