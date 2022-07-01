@@ -1,5 +1,7 @@
 from telethon import events, Button
 from Zaid import Zaid, BOT_USERNAME
+from Config import Config
+
 
 btn =[
     [Button.inline("Admin", data="admin"), Button.inline("Bans", data="bans")],
