@@ -29,6 +29,11 @@
             "required": false,
             "value": "Zaid2_Robot"
         },
+        "ASSISTANT_ID": {
+            "description": "Fill there your Assistant id",
+            "required": true,
+            "value": "1669178360"
+        },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
