@@ -42,7 +42,7 @@ from telethon import Button, events
 from Config import Config
 
 from Zaid.helpers.thumbnail import gen_thumb
-
+from Zaid.helpers.joiner import AssistantAdd
 
 def vcmention(user):
     full_name = get_display_name(user)
@@ -131,6 +131,7 @@ btnn =[
 
 #play
 @Zaid.on(events.NewMessage(pattern="^[?!/]play"))
+@AssistantAdd
 async def play(event):
     title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
@@ -246,6 +247,7 @@ async def vc_end(event, perm):
 
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]vplay"))
+@AssistantAdd
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
         await event.reply("__Currently Heroku Mode is ENABLED so You Can't Stream Video because Video Streaming Cause of Banning Your Heroku Account__.")
