@@ -2,7 +2,7 @@ from telethon import events, Button
 from Zaid import Zaid
 from Zaid.status import *
 import time
-from config import Config
+from Config import Config
 
 PR_HELP = """
 **✘ Need to delete lots of messages? That's what purges are for!**
