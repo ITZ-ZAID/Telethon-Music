@@ -1,7 +1,7 @@
 from telethon import events, Button
 from Zaid import Zaid
 from Zaid.status import *
-from config import Config
+from Config import Config
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
 from telethon.tl.functions.users import GetFullUserRequest
