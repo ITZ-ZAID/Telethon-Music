@@ -1,4 +1,4 @@
-
+import telethon
 import glob
 from pathlib import Path
 from Zaid.utils import load_plugins
