@@ -14,6 +14,7 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 
 from Config import Config
 BOT_USERNAME = Config.BOT_USERNAME
+ASSISTANT_ID = []
 
 bot = TelegramClient('Zaid', api_id=Config.API_ID, api_hash=Config.API_HASH)
 Zaid = bot.start(bot_token=Config.BOT_TOKEN)
