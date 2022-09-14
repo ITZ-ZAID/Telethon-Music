@@ -37,6 +37,7 @@ from Zaid.helpers.queues import (
     clear_queue,
     get_queue,
     pop_an_item,
+    active,
 )
 from telethon import Button, events
 from Config import Config
@@ -92,6 +93,7 @@ async def skip_current_song(chat_id: int):
     if len(chat_queue) == 1:
         await call_py.leave_group_call(chat_id)
         clear_queue(chat_id)
+        active.remove(chat_id)
         return 1
     songname = chat_queue[1][0]
     url = chat_queue[1][1]
@@ -125,8 +127,8 @@ async def _(event):
      await event.delete()
 
 btnn =[
-    [Button.url("💁 Sᴜᴘᴘᴏʀᴛ", url=f"t.me/{Config.SUPPORT}"), Button.url("Cʜᴀɴɴᴇʟ 🙋", url=f"t.me/{Config.CHANNEL}")],
-    [Button.inline("Cʟᴏꜱᴇ 🗑️", data="cls")]]
+    [Button.url("sᴜᴘᴘᴏʀᴛ ⚙️", url=f"t.me/{Config.SUPPORT}"), Button.url("cʜᴀɴɴᴇʟ 🇮🇳", url=f"t.me/{Config.CHANNEL}")],
+    [Button.inline("cʟᴏꜱᴇ 🗑️", data="cls")]]
 
 
 #play
@@ -526,15 +528,21 @@ async def stream_end_handler(_, u: Update):
 async def closedvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
+    if chat_id in active:
+        active.remove(chat_id)
 
 
 @call_py.on_left()
 async def leftvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
+    if chat_id in active:
+        active.remove(chat_id)
 
 
 @call_py.on_kicked()
 async def kickedvc(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
+    if chat_id in active:
+        active.remove(chat_id)
