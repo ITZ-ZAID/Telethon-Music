@@ -35,4 +35,6 @@ def clear_queue(chat_id: int):
     if chat_id not in QUEUE:
         return 0
     QUEUE.pop(chat_id)
+    if chat_id in active:
+        active.remove(chat_id)
     return 1
