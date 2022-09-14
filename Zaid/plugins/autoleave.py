@@ -1,9 +1,10 @@
 import asyncio
 from Zaid import call_py, client
-from Config import AUTO_LEAVE, AUTO_LEAVE_TIME
+from Config import Config
 from telethon.tl.functions.channels import LeaveChannelRequest
 
-
+AUTO_LEAVE_TIME = Config.AUTO_LEAVE_TIME
+AUTO_LEAVE = Config.AUTO_LEAVE
 
 async def leave_from_inactive_call():
   if AUTO_LEAVE == True:
