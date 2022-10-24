@@ -5,6 +5,7 @@ class Config(object):
     API_HASH = os.environ.get("API_HASH", "4e984ea35f854762dcde906dce426c2d")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     STRING_SESSION = os.environ.get("STRING_SESSION", "")
+    MANAGEMENT_MODE = os.environ.get("MANAGEMENT_MODE", None)
     HEROKU_MODE = os.environ.get("HEROKU_MODE", None)
     BOT_USERNAME = os.environ.get("BOT_USERNAME")
     SUPPORT = os.environ.get("SUPPORT", "TheSupportChat") # Your Support
