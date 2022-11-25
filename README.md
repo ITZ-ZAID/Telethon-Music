@@ -30,9 +30,9 @@ Note: This Code Based On Telethon So You need [Telethon String Session](https://
 sudo apt update && apt upgrade -y
 sudo apt install git curl python3-pip ffmpeg -y
 pip3 install -U pip
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
-sudo apt-get install -y nodejs
-npm i -g npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
+source ~/.bashrc
+nvm install v18 #nodejs 18+
 git clone https://github.com/ITZ-ZAID/Telethon-Music # clone the repo.
 cd Telethon-Music
 pip3 install -U -r requirements.txt
