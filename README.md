@@ -9,8 +9,8 @@
 
 ## ᴅᴇᴘʟᴏʏ
 
-Note: This Code Based On Telethon So You need [Telethon String Session](https://telethon.netlify.app/) And A bot token from @botfather 
-Or Before hosting uh need to fill all config
+Note: This Code Based On Telethon So You need [Telethon String Session](https://telethon.netlify.app/) And A bot token from @botfather Or Before hosting uh need to fill all config
+
 [ꜰᴏʀᴋ ᴅᴇᴘʟᴏʏ ɪꜱ ʜɪɢʜʟʏ ʀᴇᴄᴏᴍᴍᴇɴᴅᴇᴅ](https://telegra.ph/file/5bcf79f948ca06030640c.mp4)
 
 <p align="center"><a href="https://scalingo.com/"> <img src="https://img.shields.io/badge/Deploy%20To%20Scalingo-blue?style=for-the-badge&logo=scalingo" width="220" height="38.45"/></a></p>
