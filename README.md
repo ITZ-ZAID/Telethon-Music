@@ -11,13 +11,13 @@
 
 <p align="center">Releasehub Tutorial </p>
 
-<p align="center"><a href="https://youtu.be/IDDyldUHOKo"> <img src="https://img.shields.io/badge/Youtube%20Deploy-red?style=for-the-badge&logo=releasehub" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://youtu.be/IDDyldUHOKo"> <img src="https://img.shields.io/badge/Releasehub%20Deploy-black?style=for-the-badge&logo=youtube" width="220" height="38.45"/></a></p>
 
 # 
 
 <p align="center">Scalingo Tutorial </p>
 
-<p align="center"><a href="https://youtu.be/NjKUeaAM0RI"> <img src="https://img.shields.io/badge/Youtube%20Deploy-red?style=for-the-badge&logo=scalingo" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://youtu.be/NjKUeaAM0RI"> <img src="https://img.shields.io/badge/Scalingo%20Deploy-blue?style=for-the-badge&logo=youtube" width="220" height="38.45"/></a></p>
 
 ## ᴅᴇᴘʟᴏʏ
 
