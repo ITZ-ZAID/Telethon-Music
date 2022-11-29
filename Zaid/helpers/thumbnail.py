@@ -8,7 +8,8 @@ import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps, ImageChops
 from youtubesearchpython.__future__ import VideosSearch
  
-from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
+MUSIC_BOT_NAME = "Telethon Music"
+YOUTUBE_IMG_URL = ""
 from back import files
  
 def changeImageSize(maxWidth, maxHeight, image):
