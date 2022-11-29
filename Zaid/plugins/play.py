@@ -60,8 +60,7 @@ def ytsearch(query: str):
         url = data["link"]
         duration = data["duration"]
         thumbnail = f"https://i.ytimg.com/vi/{data['id']}/hqdefault.jpg"
-        videoid = data["id"]
-        return [songname, url, duration, thumbnail, videoid]
+        return [songname, url, duration, thumbnail]
     except Exception as e:
         print(e)
         return 0
@@ -166,11 +165,10 @@ async def play(event):
             url = search[1]
             duration = search[2]
             thumbnail = search[3]
-            videoid = search[4]
             userid = sender.id
             titlegc = chat.title
             ctitle = await CHAT_TITLE(titlegc)
-            thumb = await gen_thumb(videoid)
+            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
             format = "best[height<=?720][width<=?1280]"
             hm, ytlink = await ytdl(format, url)
             if hm == 0:
@@ -292,9 +290,8 @@ async def vplay(event):
             url = search[1]
             duration = search[2]
             thumbnail = search[3]
-            videoid = search[4]
             ctitle = await CHAT_TITLE(titlegc)
-            thumb = await gen_thumb(videoid)
+            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
             format = "best[height<=?720][width<=?1280]"
             hm, ytlink = await ytdl(format, url)
             if hm == 0:
@@ -378,9 +375,8 @@ async def vplay(event):
             url = search[1]
             duration = search[2]
             thumbnail = search[3]
-            videoid = search[4]
             ctitle = await CHAT_TITLE(titlegc)
-            thumb = await gen_thumb(videoid)
+            thumb = await gen_thumb(thumbnail, title, userid, ctitle)
             format = "best[height<=?720][width<=?1280]"
             hm, ytlink = await ytdl(format, url)
             if hm == 0:
