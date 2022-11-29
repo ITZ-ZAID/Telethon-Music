@@ -10,7 +10,7 @@ from youtubesearchpython.__future__ import VideosSearch
  
 MUSIC_BOT_NAME = "Telethon Music"
 YOUTUBE_IMG_URL = "https://telegra.ph/file/95d96663b73dbf278f28c.jpg"
-from Zaid.helpers.thumnail import files
+from Zaid.helpers.thumb import files
  
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
