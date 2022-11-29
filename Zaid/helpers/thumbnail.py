@@ -10,7 +10,11 @@ from youtubesearchpython.__future__ import VideosSearch
  
 MUSIC_BOT_NAME = "Telethon Music"
 YOUTUBE_IMG_URL = "https://telegra.ph/file/95d96663b73dbf278f28c.jpg"
-from Zaid.helpers.thumb import files
+files = [] 
+
+for filename in os.listdir("./thumbnail"): 
+     if filename.endswith("PNG"): 
+         files.append(filename[:-4])
  
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -68,14 +72,15 @@ async def gen_thumb(videoid):
         
  
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"back/{anime}.PNG")
+        bg = Image.open(f"thumbnail/{anime}.PNG")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
- 
+        cir = Image.open(f"thumbnail/IMG_20221129_201846_195.png") 
         image3 = changeImageSize(1280, 720, bg)
+        circle = changeImageSize(1280, 720, cir)
         image5 = image3.convert("RGBA")
         Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
  
@@ -99,13 +104,12 @@ async def gen_thumb(videoid):
         width = int((1280 - 365)/ 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (width + 2, 134), mask=logo)
- 
- 
+        background.paste(circle, mask=circle)
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("assets/font2.ttf", 45)
-        font2 = ImageFont.truetype("assets/font2.ttf", 70)
-        arial = ImageFont.truetype("assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("assets/font.ttf", 30)
+        font = ImageFont.truetype("thumbnail/font2.ttf", 45)
+        font2 = ImageFont.truetype("thumbnail/font2.ttf", 70)
+        arial = ImageFont.truetype("thumbnail/font2.ttf", 30)
+        name_font = ImageFont.truetype("thumbnail/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         try:
@@ -132,6 +136,3 @@ async def gen_thumb(videoid):
     except Exception as e:
         print(e)
         return YOUTUBE_IMG_URL
- 
- 
- 
