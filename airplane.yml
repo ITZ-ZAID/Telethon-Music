@@ -1,0 +1,19 @@
+# airplane.yml
+name: airplane
+on:
+  push:
+    branches:
+      # Or "master"
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: airplanedev/airplane-deploy@v1
+        with:
+          # Generate a new API key from the CLI by running `airplane apikeys create <key name>`.
+          # Add your API key as a secret: https://docs.github.com/en/actions/security-guides/encrypted-secrets
+          api-key: ${{ secrets.AIRPLANE_API_KEY }}
+          # Find this at https://app.airplane.dev/settings/team
+          team-id: <your_team_id>
