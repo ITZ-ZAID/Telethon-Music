@@ -52,7 +52,7 @@ async def bash(cmd):
 
 
 ydl_opts = {
-    "format": "bestaudio[ext=m4a]",
+    "format": "best",
     "geo-bypass": True,
     "noprogress": True,
     "user-agent": "Mozilla/5.0 (Linux; Android 7.0; k960n_mt6580_32_n) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36",
