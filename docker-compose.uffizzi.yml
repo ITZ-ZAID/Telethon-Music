@@ -44,9 +44,7 @@ services:
       - source: nginx-vote-conf
         target: /etc/nginx/conf.d/vote.conf
 # Loadbalancer configuration
-configs:
-  nginx-vote-conf:
-    file: ./vote.conf   
+   
 # Postgres credentials
 secrets:
   pg_user:
