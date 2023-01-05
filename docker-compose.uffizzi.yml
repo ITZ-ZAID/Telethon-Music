@@ -6,7 +6,7 @@ x-uffizzi:
 services:
   app:
     build:
-      context: https://github.com/Init-App/init#development
+      context: https://github.com/ITZ-ZAID/Telethon-Music
       dockerfile: Dockerfile
     environment:
       NODE_ENV: staging
@@ -31,13 +31,6 @@ services:
     cap_add:
       - SYS_ADMIN
     restart: always
-    volumes:
-      - /:/hostfs:ro
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
-      - /sys/kernel/debug:/sys/kernel/debug
-      - /sys:/host/sys:ro
-      - /dev:/hostfs/dev:ro
 volumes:
   data:
 
