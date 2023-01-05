@@ -13,12 +13,10 @@ services:
     deploy:
       resources:
         limits:
-          memory: 250M
+          memory: 2500M
     restart: always
     ports:
       - "3000:3000"
-  logging:
-    image: sematext/agent:master-arm64
     privileged: true
     depends_on:
       - app
@@ -33,36 +31,3 @@ services:
     restart: always
 volumes:
   data:
-
-
-secrets:
-  NEXT_PUBLIC_LOGFLARE_API_KEY:
-    external: true
-    name: "NEXT_PUBLIC_LOGFLARE_API_KEY"
-  NEXT_PUBLIC_LOGFLARE_SOURCE_ID:
-    external: true
-    name: "NEXT_PUBLIC_LOGFLARE_SOURCE_ID"
-  VERCEL_GIT_COMMIT_SHA:
-    external: true
-    name: "VERCEL_GIT_COMMIT_SHA"
-  SENTRY_AUTH_TOKEN:
-    external: true
-    name: "SENTRY_AUTH_TOKEN"
-  NEXT_PUBLIC_SENTRY_DSN:
-    external: true
-    name: "NEXT_PUBLIC_SENTRY_DSN"
-  SENTRY_PROJECT:
-    external: true
-    name: "SENTRY_PROJECT"
-  SENTRY_ORG:
-    external: true
-    name: "SENTRY_ORG"
-  NEXT_PUBLIC_SENTRY_ENV:
-    external: true
-    name: "NEXT_PUBLIC_SENTRY_ENV"
-  NEXT_PUBLIC_SUPABASE_ANON_KEY:
-    external: true
-    name: "NEXT_PUBLIC_SUPABASE_ANON_KEY"
-  NEXT_PUBLIC_SUPABASE_URL:
-    external: true
-    name: "NEXT_PUBLIC_SUPABASE_URL"
