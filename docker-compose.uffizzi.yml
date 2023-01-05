@@ -5,15 +5,13 @@ x-uffizzi:
 
 services:
   app:
-    build:
-      context: https://github.com/ITZ-ZAID/Telethon-Music
-      dockerfile: Dockerfile
+    build: .
     environment:
       NODE_ENV: staging
     deploy:
       resources:
         limits:
-          memory: 2500M
+          memory: 4000M
     restart: always
     ports:
       - "3000:3000"
@@ -22,6 +20,5 @@ services:
       - app
     cap_add:
       - SYS_ADMIN
-    restart: always
 volumes:
   data:
