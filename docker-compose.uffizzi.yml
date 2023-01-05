@@ -1,13 +1,3 @@
-# Uffizzi extension
-x-uffizzi:
-  ingress:    # required
-    service: foo:latest
-    port: 8080
-  continuous_previews:
-    deploy_preview_when_pull_request_is_opened: true
-    delete_preview_when_pull_request_is_closed: true
-    share_to_github: true
-# Vote applicaiton
 services:
   redis:
     image: redis:latest
