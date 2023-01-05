@@ -1,5 +1,7 @@
 # Uffizzi extension
-
+services:
+  foo:
+    image: foo:latest
 x-uffizzi:
   ingress:
     service: foo
