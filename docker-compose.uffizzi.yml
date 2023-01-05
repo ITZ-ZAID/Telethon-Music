@@ -1,45 +1,75 @@
 x-uffizzi:
   ingress:
     service: app
-    port: 8080
-
+    port: 80
 
 services:
-  redis:
-    image: redis:latest
-  postgres:
-    image: postgres:9.6
-    secrets:
-      - pg_user
-      - pg_password
-  worker:
-    build: .  # defaults to ./Dockerfile
+  app:
+    build:
+      context: https://github.com/Init-App/init#development
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: staging
     deploy:
       resources:
         limits:
           memory: 250M
-  result:
-    build:
-      context: https://github.com/UffizziCloud/example-voting-result#main
-      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+  logging:
+    image: sematext/agent:master-arm64
+    privileged: true
+    depends_on:
+      - app
     environment:
-      PORT: 8088
-  vote:
-    build:
-      context: https://github.com/UffizziCloud/example-voting-vote  # defaults to "Default branch" as set in GitHub (usually main/master)
-      dockerfile: Dockerfile
-    deploy:
-      resources:
-        limits:
-          memory: 250M
-    environment:
-      PORT: 8888
+      - INFRA_TOKEN=c66e9c70-abb9-4e7b-9a7f-af309f98a002
+      - SERVER_BASE_URL=https://spm-receiver.sematext.com
+      - LOGS_RECEIVER_URL=https://logsene-receiver.sematext.com
+      - EVENT_RECEIVER_URL=https://event-receiver.sematext.com
+      - COMMAND_SERVER_URL=https://command.sematext.com
+    cap_add:
+      - SYS_ADMIN
+    restart: always
+    volumes:
+      - /:/hostfs:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+      - /sys/kernel/debug:/sys/kernel/debug
+      - /sys:/host/sys:ro
+      - /dev:/hostfs/dev:ro
+volumes:
+  data:
 
-# Postgres credentials
+
 secrets:
-  pg_user:
-    external: true               # indicates value is external to this repository
-    name: "POSTGRES_USER"        # i.e., value should be added in the Uffizzi Dashboard
-  pg_password:
-    external: true               # indicates value is external to this repository
-    name: "POSTGRES_PASSWORD"    # i.e., value should be added in the Uffizzi Dashboard
+  NEXT_PUBLIC_LOGFLARE_API_KEY:
+    external: true
+    name: "NEXT_PUBLIC_LOGFLARE_API_KEY"
+  NEXT_PUBLIC_LOGFLARE_SOURCE_ID:
+    external: true
+    name: "NEXT_PUBLIC_LOGFLARE_SOURCE_ID"
+  VERCEL_GIT_COMMIT_SHA:
+    external: true
+    name: "VERCEL_GIT_COMMIT_SHA"
+  SENTRY_AUTH_TOKEN:
+    external: true
+    name: "SENTRY_AUTH_TOKEN"
+  NEXT_PUBLIC_SENTRY_DSN:
+    external: true
+    name: "NEXT_PUBLIC_SENTRY_DSN"
+  SENTRY_PROJECT:
+    external: true
+    name: "SENTRY_PROJECT"
+  SENTRY_ORG:
+    external: true
+    name: "SENTRY_ORG"
+  NEXT_PUBLIC_SENTRY_ENV:
+    external: true
+    name: "NEXT_PUBLIC_SENTRY_ENV"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY:
+    external: true
+    name: "NEXT_PUBLIC_SUPABASE_ANON_KEY"
+  NEXT_PUBLIC_SUPABASE_URL:
+    external: true
+    name: "NEXT_PUBLIC_SUPABASE_URL"
