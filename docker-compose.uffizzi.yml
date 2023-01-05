@@ -1,3 +1,13 @@
+# Uffizzi extension
+
+x-uffizzi:
+  ingress:
+    service: foo
+    port: 8080
+  continuous_previews: 
+    deploy_preview_when_image_tag_is_created: true
+    delete_preview_after: 48h
+    share_to_github: true
 services:
   redis:
     image: redis:latest
