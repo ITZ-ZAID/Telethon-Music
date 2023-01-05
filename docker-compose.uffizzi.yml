@@ -1,7 +1,7 @@
 # Uffizzi extension
 x-uffizzi:
   ingress:    # required
-    service: debian:latest
+    service: foo:latest
     port: 8080
   continuous_previews:
     deploy_preview_when_pull_request_is_opened: true
