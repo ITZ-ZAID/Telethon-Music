@@ -38,13 +38,7 @@ services:
           memory: 250M
     environment:
       PORT: 8888
-  loadbalancer:
-    image: nginx:latest
-    configs:
-      - source: nginx-vote-conf
-        target: /etc/nginx/conf.d/vote.conf
-# Loadbalancer configuration
-   
+
 # Postgres credentials
 secrets:
   pg_user:
