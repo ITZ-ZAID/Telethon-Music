@@ -1,7 +1,14 @@
+services:
+  foo:
+    image: foo:latest
+  nginx-loadbalancer:
+    image: nginx:latest
 x-uffizzi:
   ingress:
     service: nginx-loadbalancer
     port: 8080
+
+
 services:
   redis:
     image: redis:latest
