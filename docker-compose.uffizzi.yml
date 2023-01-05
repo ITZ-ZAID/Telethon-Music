@@ -15,10 +15,13 @@ services:
     restart: always
     ports:
       - "3000:3000"
+  logging:
+    image: sematext/agent:master-arm64
     privileged: true
     depends_on:
       - app
     cap_add:
       - SYS_ADMIN
+    restart: always
 volumes:
   data:
