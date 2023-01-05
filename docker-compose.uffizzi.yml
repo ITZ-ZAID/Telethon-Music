@@ -1,5 +1,6 @@
 x-uffizzi:
   ingress:
+    service: nginx:latest
     port: 8080
 
 
