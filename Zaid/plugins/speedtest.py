@@ -11,15 +11,12 @@ def testspeed(m):
     try:
         test = speedtest.Speedtest()
         test.get_best_server()
-        m = m.edit("Running Download SpeedTest")
         test.download()
-        m = m.edit("Running Upload SpeedTest")
         test.upload()
         test.results.share()
         result = test.results.dict()
-        m = m.edit("Sharing SpeedTest Results")
     except Exception as e:
-        return m.edit(e)
+        return
     return result
 
 @Zaid.on(events.NewMessage(pattern="^/speedtest"))
