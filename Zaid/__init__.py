@@ -29,6 +29,7 @@ class Bot():
         await client.start()
         await call_py.start()
         print('Bot started')
+        Zaid.run_until_disconnected()
 
 
     async def stop(*args):
