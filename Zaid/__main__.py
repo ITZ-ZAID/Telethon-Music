@@ -21,16 +21,7 @@ for name in files:
         load_plugins(plugin_name.replace(".py", ""))
 
 
-async def start_bot():
-     print("[INFO]: LOADING ASSISTANT DETAILS")
-     botme = await client.get_me()
-     botid = telethon.utils.get_peer_id(botme)
-     print(f"[INFO]: ASSISTANT ID {botid}")
-     await asyncio.create_task(leave_from_inactive_call())
 
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(start_bot())
 
 print("[INFO]: SUCCESSFULLY STARTED BOT!")
 print("[INFO]: VISIT @TheUpdatesChannel")
