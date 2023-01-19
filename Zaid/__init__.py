@@ -24,13 +24,12 @@ call_py = PyTgCalls(client)
 
 
 class Bot(TelegramClient):
-   def __init__(self):
+    def __init__(self):
         super().__init__(
         "shortener",
         api_id=API_ID,
         api_hash=API_HASH,
         )
-
     async def start(self): 
         await super().start(bot_token=Config.BOT_TOKEN) 
         await Zaid.start(bot_token=Config.BOT_TOKEN)
