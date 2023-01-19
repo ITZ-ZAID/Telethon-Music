@@ -28,4 +28,5 @@ print("[INFO]: VISIT @TheUpdatesChannel")
 
 
 if __name__ == "__main__":
-    Bot().run_until_disconnected()
+    Bot()
+    Zaid.run_until_disconnected()
