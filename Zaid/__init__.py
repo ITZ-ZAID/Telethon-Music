@@ -32,7 +32,10 @@ class Bot():
 
 
     async def stop(*args):
+      try:
         await Zaid.stop()
         await client.stop()
         await call_py.stop()
         print('Bot Stopped Bye')
+      except:
+        pass
