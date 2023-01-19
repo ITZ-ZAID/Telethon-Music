@@ -39,5 +39,4 @@ class Bot(TelegramClient):
 
 
     async def stop(self, *args):
-        await super().stop()
         print('Bot Stopped Bye')
