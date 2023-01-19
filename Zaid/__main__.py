@@ -4,7 +4,7 @@ import glob
 from pathlib import Path
 from Zaid.utils import load_plugins
 import logging
-from Zaid import Bot 
+from Zaid import Bot, Zaid
 from Zaid import client, ASSISTANT_ID
 from Zaid.plugins.autoleave import leave_from_inactive_call
 
@@ -25,3 +25,4 @@ print("[INFO]: VISIT @TheUpdatesChannel")
 
 if __name__ == "__main__":
     Bot()
+    Zaid.run_until_disconnected()
