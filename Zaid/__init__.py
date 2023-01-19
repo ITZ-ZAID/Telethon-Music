@@ -22,20 +22,19 @@ Zaid = TelegramClient('Zaid', api_id=Config.API_ID, api_hash=Config.API_HASH)
 client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Config.API_HASH)
 call_py = PyTgCalls(client)
 
-class Bot():
 
-    async def start():  
-        await Zaid.start(bot_token=Config.BOT_TOKEN)
-        await client.start()
-        await call_py.start()
-        print('Bot started')
+async def start():  
+    await Zaid.start(bot_token=Config.BOT_TOKEN)
+    await client.start()
+    await call_py.start()
+    print('Bot started')
 
 
-    async def stop(*args):
-      try:
+async def stop(*args):
+    try:
         await Zaid.stop()
         await client.stop()
         await call_py.stop()
         print('Bot Stopped Bye')
-      except:
+    except:
         pass
