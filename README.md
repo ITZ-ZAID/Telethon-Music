@@ -1,4 +1,3 @@
-
 # Telethon-Music
 
 #
@@ -26,6 +25,10 @@ Note: This Code Based On Telethon So You need [Telethon String Session](https://
 [ꜰᴏʀᴋ ᴅᴇᴘʟᴏʏ ɪꜱ ʜɪɢʜʟʏ ʀᴇᴄᴏᴍᴍᴇɴᴅᴇᴅ](https://telegra.ph/file/5bcf79f948ca06030640c.mp4)
 
 <p align="center"><a href="https://my.scalingo.com/deploy?template=https://github.com/ITZ-ZAID/Telethon-Music"> <img src="https://cdn.scalingo.com/deploy/button.svg" width="220" height="38.45"/></a></p>
+
+## Deploy To Koyeb
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/ITZ-ZAID/Telethon-Music&env[ASSISTANT_ID]&env[BOT_TOKEN]&env[STRING_SESSION]&branch=master&name=telethon)
 
 ## Workflows hosting
 
