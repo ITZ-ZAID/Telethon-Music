@@ -1,5 +1,6 @@
 import os
-
+from aiohttp import web
+from route import web_server
 from telethon import TelegramClient
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
@@ -29,8 +30,8 @@ class Bot():
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"       
-        await web.TCPSite(app, bind_address, PORT).start()     
-        print(f"🕸️ Web 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
+        await web.TCPSite(app, bind_address, 8080).start()     
+        print(f"🕸️ Web Started ⚡️⚡️⚡️")
 
 
     async def stop(*args):
