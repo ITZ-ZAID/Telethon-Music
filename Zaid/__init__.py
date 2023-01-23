@@ -17,28 +17,21 @@ BOT_USERNAME = Config.BOT_USERNAME
 ASSISTANT_ID = Config.ASSISTANT_ID
 
 Zaid = TelegramClient('Zaid', api_id=Config.API_ID, api_hash=Config.API_HASH)
-
+Zaid.start(bot_token=Config.BOT_TOKEN)
 
 client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Config.API_HASH)
 call_py = PyTgCalls(client)
+client.start()
+call_py.start()
+
+class Bot():
+    async def start():
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"       
+        await web.TCPSite(app, bind_address, PORT).start()     
+        print(f"🕸️ Web 𝚂𝚃𝙰𝚁𝚃𝙴𝙳 ⚡️⚡️⚡️")
 
 
-class Bot(TelegramClient):
-    def __init__(self):
-        super().__init__(
-        "shortener",
-        api_id=Config.API_ID,
-        api_hash=Config.API_HASH,
-        )
-    async def start(self):
-        await Zaid.start(bot_token=Config.BOT_TOKEN)
-        await client.start()
-        await call_py.start()
-        print('Bot started')
-
-
-    async def stop(self, *args):
-        await Zaid.stop()
-        await client.stop()
-        await call_py.stop()
+    async def stop(*args):
         print('Bot Stopped Bye')
