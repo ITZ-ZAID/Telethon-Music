@@ -232,22 +232,21 @@ async def play(event):
 
 
 #end
+
 @Zaid.on(events.NewMessage(pattern="^[/?!]end"))
 @is_admin
 async def vc_end(event, perm):
     chat_id = event.chat_id
+    from_user = vcmention(event.sender)
+    try:
+        await call_py.leave_group_call(chat_id)
+    except Exception:
+        pass
     if chat_id in QUEUE:
-        try:
-            await call_py.leave_group_call(chat_id)
-            clear_queue(chat_id)
-            await event.reply("**Streaming Ended**")
-        except Exception as e:
-            await event.reply(f"**ERROR:** `{e}`")
+        clear_queue(chat_id)
+        await event.reply(f"**Streaming Ended by {from_user}**")
     else:
-        await event.reply("**Ntg is Streaming**")
-
-
-
+        await event.reply("**Ntg is playing ~**")
 
 
 @Zaid.on(events.NewMessage(pattern="^[?!/]vplay"))
