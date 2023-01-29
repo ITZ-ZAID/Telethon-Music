@@ -1,4 +1,4 @@
 functions:
   - name: hello-world-python
     runtime: python3.8
-    handler: python3 -m Zaid 
+    handler: Zaid 
