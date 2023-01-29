@@ -1,4 +1,0 @@
-functions:
-  - name: hello-world-python
-    runtime: python3.8
-    handler: Zaid 
