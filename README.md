@@ -26,6 +26,11 @@ Note: This Code Based On Telethon So You need [Telethon String Session](https://
 
 <p align="center"><a href="https://my.scalingo.com/deploy?template=https://github.com/ITZ-ZAID/Telethon-Music"> <img src="https://cdn.scalingo.com/deploy/button.svg" width="220" height="38.45"/></a></p>
 
+## Deploy To Koyeb
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/ITZ-ZAID/Telethon-Music&env[ASSISTANT_ID]&env[BOT_TOKEN]&env[STRING_SESSION]&branch=master&name=telethon)
+
+
 ## Workflows hosting
 
 <h4>Click the button below to import this code. How to host? Simply import this code then fill your vars in config.py then go to Actions and check build logs!</h4>
