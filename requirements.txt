@@ -8,3 +8,5 @@ aiofiles
 youtube-search-python
 speedtest-cli
 numpy
+flask
+flask_restful
