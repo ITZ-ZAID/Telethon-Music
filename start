@@ -1,3 +1,0 @@
-git clone $REPO XYZ
-cd XYZ
-python3 -m Zaid
