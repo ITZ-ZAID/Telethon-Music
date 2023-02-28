@@ -13,7 +13,7 @@ YOUTUBE_IMG_URL = "https://telegra.ph/file/95d96663b73dbf278f28c.jpg"
 files = [] 
 
 for filename in os.listdir("./thumbnail"): 
-     if filename.endswith("PNG"): 
+     if filename.endswith("png"): 
          files.append(filename[:-4])
  
 def changeImageSize(maxWidth, maxHeight, image):
