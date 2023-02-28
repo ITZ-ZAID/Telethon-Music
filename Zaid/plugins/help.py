@@ -4,7 +4,7 @@ from Config import Config
 
 
 btn =[
-    [Button.inline("ᴀᴅᴍɪɴ", data="admin"), Button.inline("Play", data="play")],
+    [Button.inline("ᴀᴅᴍɪɴ", data="admin"), Button.inline("ᴘʟᴀʏ", data="play")],
     [Button.inline("ʜᴏᴍᴇ", data="start")]]
 
 HELP_TEXT = "ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ\n\nᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : `/`"
