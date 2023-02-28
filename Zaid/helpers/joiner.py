@@ -24,7 +24,7 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 def AssistantAdd(mystic):
     async def wrapper(event):
         try:
-            permissions = await event.client(GetParticipantRequest(int(event.chat_id), int(ASSISTANT_ID)))
+            permissions = await event.client.get_permissions(int(event.chat_id), int(ASSISTANT_ID))
         except UserNotParticipantError:
             if event.is_group:
                 try:
