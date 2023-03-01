@@ -4,10 +4,10 @@ from Config import Config
 
 
 btn =[
-    [Button.inline("Admin", data="admin"), Button.inline("Play", data="play")],
-    [Button.inline("Home", data="start")]]
+    [Button.inline("ᴀᴅᴍɪɴ", data="admin"), Button.inline("ᴘʟᴀʏ", data="play")],
+    [Button.inline("ʜᴏᴍᴇ", data="start")]]
 
-HELP_TEXT = "Welcome To help Menu Section\n\nClick on the Buttons!"
+HELP_TEXT = "ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ\n\nᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : `/`"
 
 
 @Zaid.on(events.NewMessage(pattern="[!?/]help"))

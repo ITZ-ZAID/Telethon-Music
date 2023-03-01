@@ -13,7 +13,7 @@ YOUTUBE_IMG_URL = "https://telegra.ph/file/95d96663b73dbf278f28c.jpg"
 files = [] 
 
 for filename in os.listdir("./thumbnail"): 
-     if filename.endswith("PNG"): 
+     if filename.endswith("png"): 
          files.append(filename[:-4])
  
 def changeImageSize(maxWidth, maxHeight, image):
@@ -72,7 +72,7 @@ async def gen_thumb(videoid):
         
  
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"thumbnail/{anime}.PNG")
+        bg = Image.open(f"thumbnail/{anime}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
