@@ -242,7 +242,7 @@ async def vc_end(event, perm):
         pass
     if chat_id in QUEUE:
         clear_queue(chat_id)
-        await event.reply(f"**Streaming Ended by {from_user}**")
+        await event.reply(f"**Streaming Ended**")
     else:
         await event.reply("**Ntg is playing ~**")
 
