@@ -218,7 +218,7 @@ async def play(event):
                     stream_type=StreamType().pulse_stream,
                 )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
-                caption = f"➻ **sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ**\n\n🌸 **ᴛɪᴛʟᴇ :** [{songname}]({link})\n🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {from_usee}"
+                caption = f"➻ **sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ**\n\n🌸 **ᴛɪᴛʟᴇ :** [{songname}]({link})\n🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {from_user}"
                 await event.client.send_file(chat_id, fotoplay, caption=caption, buttons=btnn)
                 await botman.delete()
             except Exception as ep:
