@@ -469,7 +469,7 @@ async def vc_skip(event, perm):
         if op == 0:
             await event.reply("**Nothing Is Streaming**")
         elif op == 1:
-            await event.reply("empty queue, leave voice chat", 10)
+            await event.reply("empty queue, leaving voice chat")
         else:
             await event.reply(
                 f"**⏭ Skipped**\n**🎧 Now Playing** - [{op[0]}]({op[1]})",
