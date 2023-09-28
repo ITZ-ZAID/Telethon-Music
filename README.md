@@ -6,22 +6,12 @@
 
 # Free Tutorials/Hosting Methods 
 
-<p align="center">Releasehub </p>
-
-<p align="center"><a href="https://youtu.be/IDDyldUHOKo"> <img src="https://img.shields.io/badge/Releasehub%20Deploy-black?style=for-the-badge&logo=youtube" width="220" height="38.45"/></a></p>
-
 <p align="center">Railway </p>
 
 <p align="center"><a href="https://youtu.be/Uzof6djzD-M"> <img src="https://img.shields.io/badge/Railway%20Deploy-black?style=for-the-badge&logo=railway" width="220" height="38.45"/></a></p> 
 
-<p align="center">Scalingo </p>
-
-<p align="center"><a href="https://youtu.be/NjKUeaAM0RI"> <img src="https://img.shields.io/badge/Scalingo%20Deploy-blue?style=for-the-badge&logo=youtube" width="220" height="38.45"/></a></p>
-
-<p align="center">Doprax </p>
-
-<p align="center"><a href="https://youtu.be/NjKUeaAM0RI"> <img src="https://img.shields.io/badge/Doprax%20Deploy-blue?style=for-the-badge&logo=youtube" width="220" height="38.45"/></a></p>
-
+<p align="center">Heroku </p>
+<p align="center"><a href="http://dashboard.heroku.com/new?template=https://github.com/Itz-Zaid/Telethon-Music"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-pink?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 ## Local Deployment Process
 ```sh
