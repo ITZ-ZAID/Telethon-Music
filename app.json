@@ -7,32 +7,32 @@
     "env": {
         "STRING_SESSION": {
             "description": "fill with the telethon session string from https://replit.com/@Itz-zaid/Generator",
-            "required": true
+            "BQDEMtPQlJjSgVKNBmqdXPzyplYD0_F5EzLW-fhUl6Eo2vi1XO5VI9u6NTPd-83VhXz7cPb9K0CV1F-aV93BHCYayuLkwFrNhT5cVvJ62c4ksMU_LT7umaLP6pIxdYppdKzg9MempSXsUGBuACSv2_UGHgd_08pDlY1BZqoCq16pHNpYavSGmmY_XIPXhEHQr4UvQSBwq2AsVtlraDmtDzym4RSq2N7APwvxjd60Eayu9s1ikpfCmfp9GdiCZh-9Nr2u0rRiI7acxX1_kmC6atka7EOEvvUhsH4gnpL1I9L4vwry6vpnNlTPlCptKa801_T18FyQLoiw1xDIpkSzUgZmAAAAAYmuX1IA": true
         },
         "SUPPORT": {
             "description": "Fill there your group username else leave",
             "required": false,
-            "value": "TheSupportChat"
+            "https://t.me/upscbpscgk": "TheSupportChat"
         },
         "CHANNEL": {
             "description": "Fill there your Channel username else leave",
             "required": false,
-            "value": "TheUpdatesChannel"
+            "https://t.me/quizbys": "TheUpdatesChannel"
         },
         "BOT_USERNAME": {
             "description": "Fill there your bot username",
             "required": false,
-            "value": "Zaid2_Robot"
+            "value": "@Inline_QuizHub_Bot"
         },
         "ASSISTANT_ID": {
             "description": "Go To @Zaid2_Robot Pm & Type /id",
             "required": false,
-            "value": "1234567890"
+            "value": "6604873554"
         },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
-            "value": ""
+            "value": "6598485624:AAEoWkwDCkV6pu5vV7C3YSo4fGMj7dKI34s"
         }
 
     }
