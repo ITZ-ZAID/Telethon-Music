@@ -28,7 +28,7 @@ from youtubesearchpython import VideosSearch
 fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 from Zaid import call_py, Zaid, client as Client
-owner = "1669178360"
+owner = "655594746"
 from Zaid.helpers.yt_dlp import bash, cookies
 from Zaid.helpers.chattitle import CHAT_TITLE
 from Zaid.helpers.queues import (
