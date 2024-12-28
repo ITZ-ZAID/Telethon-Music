@@ -68,7 +68,7 @@ def ytsearch(query: str):
 
 async def ytdl(format: str, link: str):
     cookie = cookies()
-    stdout, stderr = await bash(f'yt-dlp --cookies "{cookie}" -g -f "{format}" {link}')
+    stdout, stderr = await bash(f'yt-dlp --cookies "cookies/cookies.txt" -g -f "{format}" {link}')
     if stdout:
         return 1, stdout.split("\n")[0]
     return 0, stderr
