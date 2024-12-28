@@ -73,3 +73,6 @@ def download_lagu(format: str, url: str) -> str:
     info = ydl.extract_info(url, download=False)
     xyz = info["url"]
     return xyz
+
+
+
