@@ -29,7 +29,7 @@ fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 from Zaid import call_py, Zaid, client as Client
 owner = "1669178360"
-from Zaid.helpers.yt_dlp import bash, cookies
+from Zaid.helpers.yt_dlp import bash, ytdl
 from Zaid.helpers.chattitle import CHAT_TITLE
 from Zaid.helpers.queues import (
     QUEUE,
@@ -65,13 +65,6 @@ def ytsearch(query: str):
     except Exception as e:
         print(e)
         return 0
-
-async def ytdl(format: str, link: str):
-    cookie = cookies()
-    stdout, stderr = await bash(f'yt-dlp --cookies "{cookie}" -g -f "{format}" {link}')
-    if stdout:
-        return 1, stdout.split("\n")[0]
-    return 0, stderr
 
 
 async def skip_item(chat_id: int, x: int):
@@ -170,8 +163,8 @@ async def play(event):
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
-            hm, ytlink = await ytdl(format, url)
-            if hm == 0:
+            ytlink = await ytdl(format, url)
+            if ytlink == None:
                 await botman.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
@@ -293,8 +286,8 @@ async def vplay(event):
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
-            hm, ytlink = await ytdl(format, url)
-            if hm == 0:
+            ytlink = await ytdl(format, url)
+            if ytlink == None:
                 await xnxx.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
                 pos = add_to_queue(
@@ -379,8 +372,8 @@ async def vplay(event):
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
-            hm, ytlink = await ytdl(format, url)
-            if hm == 0:
+            ytlink = await ytdl(format, url)
+            if ytlink == None:
                 await xnxx.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
                 pos = add_to_queue(
