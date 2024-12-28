@@ -58,21 +58,22 @@ def cookies():
     cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
     return cookie_file
 
-def download_lagu(format: str, url: str) -> str:
-    ydl_opts = {
-        "format": format,
-        "geo-bypass": True,
-        "noprogress": True,
-        "user-agent": "Mozilla/5.0 (Linux; Android 7.0; k960n_mt6580_32_n) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36",
-        "extractor-args": "youtube:player_client=all",
-        "nocheckcertificate": True,
-        "outtmpl": "downloads/%(id)s.%(ext)s",
-        "cookiefile": cookies(),
-    }
-    ydl = YoutubeDL(ydl_opts)
-    info = ydl.extract_info(url, download=False)
-    xyz = info["url"]
-    return xyz
-
-
-
+async def ytdl(format: str, url: str):
+    loop = asyncio.get_running_loop()
+    def dlfile():
+        ydl_opts = {
+            "format": format,
+            "geo-bypass": True,
+            "noprogress": True,
+            "user-agent": "Mozilla/5.0 (Linux; Android 7.0; k960n_mt6580_32_n) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36",
+            "extractor-args": "youtube:player_client=all",
+            "nocheckcertificate": True,
+            "outtmpl": "downloads/%(id)s.%(ext)s",
+            "cookiefile": "cookies/cookies.txt",
+        }
+        ydl = YoutubeDL(ydl_opts)
+        info = ydl.extract_info(url, download=False)
+        xyz = info["url"]
+        return xyz
+    downloaded_file = await loop.run_in_executor(None, dlfile)
+    return downloaded_file
