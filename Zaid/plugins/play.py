@@ -29,7 +29,7 @@ fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 from Zaid import call_py, Zaid, client as Client
 owner = "1669178360"
-from Zaid.helpers.yt_dlp import bash
+from Zaid.helpers.yt_dlp import bash, cookies
 from Zaid.helpers.chattitle import CHAT_TITLE
 from Zaid.helpers.queues import (
     QUEUE,
@@ -66,9 +66,9 @@ def ytsearch(query: str):
         print(e)
         return 0
 
-
 async def ytdl(format: str, link: str):
-    stdout, stderr = await bash(f'yt-dlp -g -f "{format}" {link}')
+    cookie = cookies()
+    stdout, stderr = await bash(f'yt-dlp --cookies "{cookie}" -g -f "{format}" {link}')
     if stdout:
         return 1, stdout.split("\n")[0]
     return 0, stderr
