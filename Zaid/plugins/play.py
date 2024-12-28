@@ -167,7 +167,8 @@ async def play(event):
                 ytlink = await ytdl(format, url)
             except:
                 await botman.edit(f"Something Went Wrong, Kindly Check errors in terminal")
-            elif chat_id in QUEUE:
+                return
+            if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                 caption = f"✨ **ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ ᴀᴛ** {pos}\n\n❄ **ᴛɪᴛʟᴇ :** [{songname}]({url})\n⏱ **ᴅᴜʀᴀᴛɪᴏɴ :** {duration} ᴍɪɴᴜᴛᴇs\n🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {from_user}"
                 await botman.delete()
@@ -291,7 +292,8 @@ async def vplay(event):
                 ytlink = await ytdl(format, url)
             except:
                 await xnxx.edit(f"Something Went Wrong, Kindly Check errors in terminal")
-            elif chat_id in QUEUE:
+                return
+            if chat_id in QUEUE:
                 pos = add_to_queue(
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"**✨ ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ ᴀᴛ** {pos}\n\n❄ **ᴛɪᴛʟᴇ :** [{songname}]({url})\n⏱ **ᴅᴜʀᴀᴛɪᴏɴ :** {duration} ᴍɪɴᴜᴛᴇs\n🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {from_user}"
@@ -378,7 +380,8 @@ async def vplay(event):
                 ytlink = await ytdl(format, url)
             except:
                 await xnxx.edit(f"Something Went Wrong, Kindly Check errors in terminal")
-            elif chat_id in QUEUE:
+                return 
+            if chat_id in QUEUE:
                 pos = add_to_queue(
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"**✨ ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ ᴀᴛ** {pos}\n\n❄ **ᴛɪᴛʟᴇ :** [{songname}]({url})\n⏱ **ᴅᴜʀᴀᴛɪᴏɴ :** {duration} ᴍɪɴᴜᴛᴇs\n🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {from_user}"
