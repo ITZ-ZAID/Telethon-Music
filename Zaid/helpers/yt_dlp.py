@@ -50,6 +50,12 @@ async def bash(cmd):
     out = stdout.decode().strip()
     return out, err
 
+def cookies():
+    cookie_dir = "cookies"
+    cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
+
+    cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
+    return cookie_file
 
 ydl_opts = {
     "format": "best",
@@ -59,6 +65,7 @@ ydl_opts = {
     "extractor-args": "youtube:player_client=all",
     "nocheckcertificate": True,
     "outtmpl": "downloads/%(id)s.%(ext)s",
+    "cookiefile": cookies(),
 }
 ydl = YoutubeDL(ydl_opts)
 
