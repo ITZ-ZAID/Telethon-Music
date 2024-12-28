@@ -69,7 +69,7 @@ async def ytdl(format: str, url: str):
             "extractor-args": "youtube:player_client=all",
             "nocheckcertificate": True,
             "outtmpl": "downloads/%(id)s.%(ext)s",
-            "cookiefile": cookies(),
+            "cookiefile": "cookies/cookies.txt",
         }
         ydl = YoutubeDL(ydl_opts)
         info = ydl.extract_info(url, download=False)
@@ -77,6 +77,3 @@ async def ytdl(format: str, url: str):
         return xyz
     downloaded_file = await loop.run_in_executor(None, dlfile)
     return downloaded_file
-
-
-
