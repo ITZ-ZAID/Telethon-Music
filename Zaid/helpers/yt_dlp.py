@@ -1,6 +1,5 @@
 import re
 import hashlib
-import random
 import asyncio
 import shlex
 import os
@@ -51,28 +50,20 @@ async def bash(cmd):
     out = stdout.decode().strip()
     return out, err
 
-def cookies():
-    cookie_dir = "cookies"
-    cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
 
-    cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
-    return cookie_file
+ydl_opts = {
+    "format": "best",
+    "geo-bypass": True,
+    "noprogress": True,
+    "user-agent": "Mozilla/5.0 (Linux; Android 7.0; k960n_mt6580_32_n) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36",
+    "extractor-args": "youtube:player_client=all",
+    "nocheckcertificate": True,
+    "outtmpl": "downloads/%(id)s.%(ext)s",
+}
+ydl = YoutubeDL(ydl_opts)
 
-def download_lagu(format: str, url: str) -> str:
-    ydl_opts = {
-        "format": format,
-        "geo-bypass": True,
-        "noprogress": True,
-        "user-agent": "Mozilla/5.0 (Linux; Android 7.0; k960n_mt6580_32_n) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36",
-        "extractor-args": "youtube:player_client=all",
-        "nocheckcertificate": True,
-        "outtmpl": "downloads/%(id)s.%(ext)s",
-        "cookiefile": cookies(),
-    }
-    ydl = YoutubeDL(ydl_opts)
+
+def download_lagu(url: str) -> str:
     info = ydl.extract_info(url, download=False)
-    xyz = info["url"]
-    return xyz
-
-
-
+    ydl.download([url])
+    return os.path.join("downloads", f"{info['id']}.{info['ext']}")
