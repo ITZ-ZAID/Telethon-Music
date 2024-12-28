@@ -163,9 +163,10 @@ async def play(event):
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
-            ytlink = await ytdl(format, url)
-            if ytlink == None:
-                await botman.edit(f"`{ytlink}`")
+            try:
+                ytlink = await ytdl(format, url)
+            else:
+                await botman.edit(f"Something Went Wrong, Kindly Check errors in terminal")
             elif chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                 caption = f"✨ **ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ ᴀᴛ** {pos}\n\n❄ **ᴛɪᴛʟᴇ :** [{songname}]({url})\n⏱ **ᴅᴜʀᴀᴛɪᴏɴ :** {duration} ᴍɪɴᴜᴛᴇs\n🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {from_user}"
@@ -286,9 +287,10 @@ async def vplay(event):
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
-            ytlink = await ytdl(format, url)
-            if ytlink == None:
-                await xnxx.edit(f"`{ytlink}`")
+            try:
+                ytlink = await ytdl(format, url)
+            else:
+                await xnxx.edit(f"Something Went Wrong, Kindly Check errors in terminal")
             elif chat_id in QUEUE:
                 pos = add_to_queue(
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
@@ -372,9 +374,10 @@ async def vplay(event):
             ctitle = await CHAT_TITLE(titlegc)
             thumb = await gen_thumb(videoid)
             format = "best[height<=?720][width<=?1280]"
-            ytlink = await ytdl(format, url)
-            if ytlink == None:
-                await xnxx.edit(f"`{ytlink}`")
+            try:
+                ytlink = await ytdl(format, url)
+            else:
+                await xnxx.edit(f"Something Went Wrong, Kindly Check errors in terminal")
             elif chat_id in QUEUE:
                 pos = add_to_queue(
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
