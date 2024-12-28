@@ -165,7 +165,7 @@ async def play(event):
             format = "best[height<=?720][width<=?1280]"
             try:
                 ytlink = await ytdl(format, url)
-            else:
+            except:
                 await botman.edit(f"Something Went Wrong, Kindly Check errors in terminal")
             elif chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
@@ -289,7 +289,7 @@ async def vplay(event):
             format = "best[height<=?720][width<=?1280]"
             try:
                 ytlink = await ytdl(format, url)
-            else:
+            except:
                 await xnxx.edit(f"Something Went Wrong, Kindly Check errors in terminal")
             elif chat_id in QUEUE:
                 pos = add_to_queue(
@@ -376,7 +376,7 @@ async def vplay(event):
             format = "best[height<=?720][width<=?1280]"
             try:
                 ytlink = await ytdl(format, url)
-            else:
+            except:
                 await xnxx.edit(f"Something Went Wrong, Kindly Check errors in terminal")
             elif chat_id in QUEUE:
                 pos = add_to_queue(
