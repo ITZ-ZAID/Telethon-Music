@@ -1,7 +1,7 @@
 # Telethon-Music
 
 <p align="center">BUY ME A COFFEE</p>
-<p align="center"><a href="https://cwallet.com/t/6WRU66R"> <img src="https://img.shields.io/badge/Buy%20Me%20Coffe-green?style=for-the-badge&logo=bitcoin" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://cwallet.com/t/6WRU66R5"> <img src="https://img.shields.io/badge/Buy%20Me%20Coffe-green?style=for-the-badge&logo=bitcoin" width="220" height="38.45"/></a></p>
 
 # String Session (Telethon)
 
